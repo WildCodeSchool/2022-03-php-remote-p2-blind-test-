@@ -1,5 +1,22 @@
+@import './_navbar.css';
+@import './_footer.css';
+
+@font-face {
+    font-family: "anektamil-thin";
+    src: url("../fonts/AnekTamil-Thin.ttf") format("truetype");
+    font-family: "anektamil-regular";
+    src: url("../fonts/AnekTamil-Regular.ttf") format("truetype");
+    font-family: "archivoblack";
+    src: url("../fonts/ArchivoBlack-Regular.ttf") format("truetype");
+    font-family: "monoton";
+    src: url("../fonts/Monoton-Regular.ttf") format("truetype");
+}
+
+:root {
+    --bs-gradient: url(https://cdn.discordapp.com/attachments/963093723124748368/964186826283839549/noise.png ), radial-gradient(ellipse at center, #5f9ece 0, #5f9ece 24%, #724589 100%);
+    --bs-primary: #2FE6AE;
+}
+
 body {
     height: 100vh;
-    background-image:
-        url(../images/noise.png), radial-gradient(ellipse at center, #e3cce4 0, #f01919be 10%, #d91394ce 100%);
 }
