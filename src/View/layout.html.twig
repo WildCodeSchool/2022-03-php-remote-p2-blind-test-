@@ -17,8 +17,8 @@
 
 <body class="bg-gradient">
     {% include "include/_navbar.html.twig" %}
-    {% include "include/_footer.html.twig" %}
     {% block content %}  {% endblock %}
+        {% include "include/_footer.html.twig" %}
     {% block javascript %}{% endblock %}
     
     <!-- JavaScript Bundle with Popper -->
