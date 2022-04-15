@@ -1,0 +1,10 @@
+:root{
+    --bs-gradient:url(https://cdn.discordapp.com/attachments/963093723124748368/964186826283839549/noise.png ),radial-gradient(ellipse at center,#5f9ece 0,#5f9ece 24%,#724589 100%) ;
+}
+
+body{
+    /* background-image: url(../images/noise.png),radial-gradient(ellipse at center,#5f9ece 0,#5f9ece 24%,#724589 100%); */
+    height: 100vh;
+}
+
+
