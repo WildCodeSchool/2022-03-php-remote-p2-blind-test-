@@ -61,3 +61,27 @@ ALTER TABLE `item`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `image` varchar(255),
+  PRIMARY KEY(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `image`) VALUES
+(1, 'Rap', '/assets/images/photo-rap.jpeg'),
+(2, 'Pop', '/assets/images/photo-pop.jpeg'),
+(3, 'Années 80', '/assets/images/photo-80.jpeg'),
+(4, 'Meme Song', '/assets/images/meme.png');
+
+ 
