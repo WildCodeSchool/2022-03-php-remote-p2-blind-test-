@@ -84,4 +84,22 @@ INSERT INTO `category` (`id`, `name`, `image`) VALUES
 (3, 'Années 80', '/assets/images/photo-80.jpeg'),
 (4, 'Meme Song', '/assets/images/meme.png');
 
- 
+ -- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nickname` varchar(80) NOT NULL,
+  `image` varchar(255),
+  PRIMARY KEY(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `user`
+--
+
+INSERT INTO `user` (`id`, `nickname`) VALUES
+(1, 'Trombone');

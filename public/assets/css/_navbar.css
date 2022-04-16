@@ -23,6 +23,7 @@ body {
 
 ul {
     list-style: none;
+    display: none;
     text-align: center;
 }
 
@@ -36,6 +37,8 @@ ul :hover {
 li.active {
     color: #EEC62A;
 }
+
+
 
 /* REGLAGE DU MENU */
 
@@ -127,6 +130,7 @@ label input:checked+.menu .hamburger:before {
 
 label input:checked+.menu+ul {
     opacity: 1;
+    display: initial;
 }
 
 label ul {
