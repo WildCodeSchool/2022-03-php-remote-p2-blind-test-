@@ -6,6 +6,10 @@ class GameController extends AbstractController
 {
     public function index()
     {
-        return $this->twig->render('Game/index.html.twig');
+
+        $categories = ['Rap', 'Meme'];
+        return $this->twig->render('Game/index.html.twig', [
+            'categories' => $categories
+        ]);
     }
 }

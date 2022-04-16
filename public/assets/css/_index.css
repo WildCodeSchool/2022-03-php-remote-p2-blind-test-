@@ -3,3 +3,8 @@ h1 {
     color: var(--bs-primary);
 
 }
+
+h2 {
+    font-family: 'Anek Tamil', sans-serif;
+    color: var(--bs-secondary);
+}

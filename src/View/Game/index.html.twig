@@ -1,16 +1,23 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	<h1 class="col-12 mx-auto my-5" style='width:fit-content;'>Devine le titre du morceau</h1>
-	{{track.name}}
 
-	<form action="" method="POST">
-		<label for="proposal"></label>
-		<input id="proposal" name="proposal" type="text" placeholder="votre réponse">
-		<div class="button-flex">
-			<input class="button" type="submit" value="Valider">
-			<input class="button" type="submit" value="Passer">
-		</div>
+	<h1 class="mx-auto my-1 game-h1">
 
-	</form>
+		Catégorie
+		{{categories.1}}
+
+	</h1>
+	<div class="answer-center">
+		<h2 class="col-12 mx-auto my-1" style='width:fit-content;'>Devine le titre du morceau :</h2>
+		{{track.name}}
+		<form action="" method="POST">
+			<label for="proposal"></label>
+			<input id="proposal" name="proposal" type="text" placeholder="votre réponse">
+			<div class="button-flex">
+				<input class="button" type="submit" value="Valider">
+				<input class="button" type="submit" value="Passer">
+			</div>
+		</form>
+	</div>
 {% endblock %}
