@@ -71,3 +71,13 @@ input {
     margin: 10px auto;
 
 }
+
+input.button {
+    margin-top: 2rem;
+    width: 20%;
+    background-color: var(--bs-primary);
+    font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
+    color: white;
+    font-weight: 700;
+    font-size: clamp(1.00rem, calc(0.82rem + 0.91vw), 1.50rem);
+}
