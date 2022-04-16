@@ -1,15 +1,17 @@
 @import './_navbar.css';
 @import './_footer.css';
+@import './_quizz.css';
+@import './_index.css';
 
 @font-face {
     font-family: "anektamil-thin";
-    src: url("../fonts/AnekTamil-Thin.ttf") format("truetype");
+    src: url("/../fonts/AnekTamil-Thin.woff") format("woff");
     font-family: "anektamil-regular";
-    src: url("../fonts/AnekTamil-Regular.ttf") format("truetype");
+    src: url("/../fonts/AnekTamil-Regular.woff") format("woff");
     font-family: "archivoblack";
-    src: url("../fonts/ArchivoBlack-Regular.ttf") format("truetype");
+    src: url("/../fonts/ArchivoBlack-Regular.woff") format("woff");
     font-family: "monoton";
-    src: url("../fonts/Monoton-Regular.ttf") format("truetype");
+    src: url("/../fonts/Monoton-Regular.woff") format("woff");
 }
 
 :root {
@@ -19,4 +21,10 @@
 
 body {
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    margin: 0;
 }

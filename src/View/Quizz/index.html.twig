@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<div class="row">
+		<h1 class="col-12 mx-auto my-5" style="width: fit-content;">
+			{{user}}
+			Choississez un thème</h1>
+	</div>
+	<div class="container">
+
+		<div class="row justify-content-center">
+			{% for i in 1..4 %}
+
+				<div class="  sm-col-12 col-md-6" style="max-width: 80%;">
+
+					<a href="?category= {{category.name}}">
+						<div class="card bg-dark text-white m-4">
+							<img src="https://fakeimg.pl/350x200" class="card-img" alt="...">
+							<div class="card-img-overlay">
+								<h1 class="card-title">Card title</h5>
+								<p class="card-text d-none d-md-block">Brêve description du genre ?</p>
+							</div>
+						</div>
+					</a>
+				</div>
+
+
+			{% endfor %}
+
+		</div>
+	</div>
+{% endblock %}
