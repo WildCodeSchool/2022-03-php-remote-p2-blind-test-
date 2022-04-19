@@ -105,33 +105,28 @@ label input:checked+.menu {
     box-shadow: 0 0 0 100vw #584275, 0 0 0 100vh #584275;
     /* Background menu ouvert */
     border-radius: 0;
-
 }
 
 label input:checked+.menu .hamburger {
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg);
-
 }
 
 label input:checked+.menu .hamburger:after {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
     bottom: 0;
-
 }
 
 label input:checked+.menu .hamburger:before {
     -webkit-transform: rotate(90deg);
     transform: rotate(90deg);
     top: 0;
-
 }
 
 label input:checked+.menu+ul {
     opacity: 1;
     display: initial;
-
 }
 
 label ul {
@@ -144,8 +139,6 @@ label ul {
     opacity: 0;
     -webkit-transition: .25s 0s ease-in-out;
     transition: .25s 0s ease-in-out;
-    transition: opacity 1s ease;
-
 }
 
 label a {
@@ -153,5 +146,4 @@ label a {
     display: block;
     color: white;
     text-decoration: none;
-
 }
