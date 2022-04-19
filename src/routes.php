@@ -10,6 +10,7 @@ return [
     '' => ['HomeController', 'index',],
     'quizz' => ['QuizzController', 'index',],
     'game' => ['GameController', 'index',],
+    'game/category' => ['GameController', 'category', ['id'],],
     'items' => ['ItemController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],

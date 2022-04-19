@@ -9,18 +9,6 @@
 font-family: 'Archivo Black', sans-serif;
 font-family: 'Monoton', cursive; */
 
-@font-face {
-    font-family: "anektamil-thin";
-    src: url("/../fonts/AnekTamil-Thin.woff") format("woff");
-    font-family: "anektamil-regular";
-    src: url("/../fonts/AnekTamil-Regular.woff") format("woff");
-    font-family: "archivoblack";
-    src: url("/../fonts/ArchivoBlack-Regular.woff") format("woff");
-    font-family: "monoton";
-    src: url("/../fonts/Monoton-Regular.woff") format("woff");
-}
-
-
 :root {
     --bs-gradient: url(https://cdn.discordapp.com/attachments/963093723124748368/964186826283839549/noise.png ), radial-gradient(ellipse at center, #5f9ece 0, #5f9ece 24%, #724589 100%);
     --bs-primary: #2FE6AE;

@@ -5,7 +5,7 @@
 	<h1 class="mx-auto my-1 game-h1">
 
 		Catégorie
-		{{categories.1}}
+		{{categories.name}}
 
 	</h1>
 	<div class="answer-center">
@@ -16,7 +16,7 @@
 			<input id="proposal" name="proposal" type="text" placeholder="votre réponse">
 			<div class="button-flex">
 				<input class="button" type="submit" value="Valider">
-				<input class="button" type="submit" value="Passer">
+				<input class="button" onclick="window.location.href = '/game/track&id={{ track.id }}';" value="Passer">
 			</div>
 		</form>
 	</div>

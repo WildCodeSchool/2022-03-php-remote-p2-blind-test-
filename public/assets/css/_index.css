@@ -1,7 +1,6 @@
 h1 {
     font-family: 'Archivo Black', Helvetica, sans-serif;
-    color: var(--bs-primary);
-
+    color: var(--bs-secondary);
 }
 
 h2 {
