@@ -11,7 +11,7 @@ class QuizzController extends AbstractController
         $categoryManager = new CategoryManager();
 
         $categories = $categoryManager->selectAll();
-        return $this->twig->render('Game/index.html.twig', [
+        return $this->twig->render('Quizz/index.html.twig', [
             'categories' => $categories
         ]);
     }
