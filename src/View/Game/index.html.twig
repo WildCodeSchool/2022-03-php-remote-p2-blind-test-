@@ -15,9 +15,11 @@
 			<label for="proposal"></label>
 			<input id="proposal" name="proposal" type="text" placeholder="votre réponse">
 			<div class="button-flex">
-				<input class="button" type="submit" value="Valider">
-				<input class="button" onclick="window.location.href = '/game/track&id={{ track.id }}';" value="Passer">
+				<input class="button-valid" type="submit" value="Valider">
+				<a class="pass" href="/game/track&id={{ track.id }}">Passer</a>
 			</div>
 		</form>
+
+
 	</div>
 {% endblock %}
