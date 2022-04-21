@@ -49,6 +49,7 @@ h1.card-title {
 .card:hover {
     transform: scale(1.1);
     filter: grayscale(0%);
+    cursor: pointer;
 }
 
 label {

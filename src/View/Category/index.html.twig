@@ -8,32 +8,22 @@
 			{% for user in users|slice(0,1) %}
 				{{user.nickname}}
 			{% endfor %}
-			,
-																																																																																																							choisis un thème pour lancer la partie !</h1>
+			,																																																																																																																									choisis un thème pour lancer la partie !</h1>
 
 	</div>
 	<div class="container">
-
 		<div class="row justify-content-center">
 			{% for categorie in categories %}
-
-				<div class="  col-sm-12 col-lg-6">
-
-					<a href="/quizz/category?id={{categorie.id}}">
-						<div class="card bg-dark shadow text-white m-3">
-							<img src="/assets/images/{{categorie.image}}" class="card-img img-category" alt="...">
-							<div class="card-img-overlay">
-								<h1 class="card-title">{{categorie.name}}
-								</h1>
-								<p class="card-text d-none d-md-block"></p>
-							</div>
+				<div class="col-sm-12 col-lg-6">
+					<div class="card bg-dark shadow text-white m-3">
+						<img src="/assets/images/{{categorie.image}}" class="card-img img-category" alt="...">
+						<div class="card-img-overlay">
+							<h1 class="card-title">{{categorie.name}}</h1>
+							<a href="/quizz/category?id={{categorie.id}}" class="btn btn-primary stretched-link d-none"></a>
 						</div>
-					</a>
+					</div>
 				</div>
-
-
 			{% endfor %}
-
 		</div>
 	</div>
 {% endblock %}
