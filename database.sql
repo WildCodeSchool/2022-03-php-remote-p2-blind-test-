@@ -103,3 +103,6 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `nickname`) VALUES
 (1, 'Trombone');
+-- Structure de la table `user`
+--
+

@@ -2,20 +2,27 @@
 
 namespace  App\Controller;
 
-use App\Model\QuizzManager;
-use App\Model\UserManager;
+use App\Model\CategoryManager;
 
 class QuizzController extends AbstractController
 {
     public function index()
     {
-        $categoryManager = new QuizzManager();
-        $userManager = new UserManager();
-        $users = $userManager->selectAll();
+        $categoryManager = new CategoryManager();
+
         $categories = $categoryManager->selectAll();
+        return $this->twig->render('Game/index.html.twig', [
+            'categories' => $categories
+        ]);
+    }
+
+    public function category($id)
+    {
+        $categoryManager = new CategoryManager();
+
+        $categories = $categoryManager->selectOneById($id);
         return $this->twig->render('Quizz/index.html.twig', [
-            'categories' => $categories,
-            'users' => $users
+            'categories' => $categories
         ]);
     }
 }
