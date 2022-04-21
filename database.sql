@@ -79,10 +79,10 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `image`) VALUES
-(1, 'Rap', '/assets/images/photo-rap.jpeg'),
-(2, 'Pop', '/assets/images/photo-pop.jpeg'),
-(3, 'Années 80', '/assets/images/photo-80.jpeg'),
-(4, 'Meme Song', '/assets/images/meme.png');
+(1, 'Rap', 'photo-rap.jpeg'),
+(2, 'Pop', 'photo-pop.jpeg'),
+(3, 'Années 80', 'photo-80.jpeg'),
+(4, 'Meme Song', 'meme.png');
 
  -- --------------------------------------------------------
 
