@@ -74,93 +74,24 @@ label {
 
 .btn-lancer:hover, .button-valid:hover, .pass:hover {
     transform: scale(1.2);
+    color: var(--bs-secondary);
 }
-
-
 
 .proposal{
     height: 50px;
     border-radius: 10px;
-    border: solid  white;
+    border: solid  var(--bs-secondary);
 }
 
 .pass{
     text-decoration: none;
     list-style: none;
 }
-/* input {
-    padding: 1rem;
-    border: none;
-    border-radius: 4px;
-    display: block;
-    width: 60%;
-    margin: 0 auto;
-}
-
-input.button-valid {
-    margin-top: 2rem;
-    width: 20%;
-    background-color: var(--bs-primary);
-    font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
-    color: var(--bs-secondary);
-    font-weight: 700;
-    font-size: clamp(1.00rem, calc(0.82rem + 0.91vw), 1.50rem);
-    text-align: center;
-    cursor: pointer;
-}
-
-
-
-.pass, .btn-lancer{
-    margin: 2rem auto;
-    width: 20%;
-    background-color: var(--bs-primary);
-    font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
-    color: var(--bs-secondary);
-    font-weight: 700;
-    font-size: clamp(1.00rem, calc(0.82rem + 0.91vw), 1.50rem);
-    text-align: center;
-    cursor: pointer;
-    text-decoration: none;
-    border-radius: 4px;
-    padding: 1rem;
-}
-
-.pass:hover {
-    color: var(--bs-primary);
-    background-color: var(--bs-secondary);
-    opacity: 0.5;
-
-} */
-
-/* .game-h1 {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--bs-secondary);
-} */
-
-/* .button-flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-} */
-
-/* .answer-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-} */
-
 
 
 /* Animation du compte à rebours */
 .time{
-    animation: time 1s infinite;
+    animation: time 1s infinite ease-in-out;
 }
 
 @keyframes time {
