@@ -56,7 +56,39 @@ label {
     font-size: 1rem;
 }
 
-input {
+.h1-category{
+    font-size: clamp(5vw, 3rem, 10vw);
+}
+
+.btn-lancer, .button-valid, .pass{
+    height: 70px;
+    border-radius: 10px;
+    font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
+    font-size: clamp(2.5vw, 1.5rem, 5vw);
+    font-weight: 700;
+    color: var(--bs-secondary);
+    background-color: var(--bs-primary);
+    border: solid  var(--bs-primary);
+    box-shadow: 0px 5px 20px black;
+}
+
+.btn-lancer:hover, .button-valid:hover, .pass:hover {
+    transform: scale(1.2);
+}
+
+
+
+.proposal{
+    height: 50px;
+    border-radius: 10px;
+    border: solid  white;
+}
+
+.pass{
+    text-decoration: none;
+    list-style: none;
+}
+/* input {
     padding: 1rem;
     border: none;
     border-radius: 4px;
@@ -77,11 +109,9 @@ input.button-valid {
     cursor: pointer;
 }
 
-input.button-valid:hover {
-    transform: scale(1.2);
-}
 
-.pass {
+
+.pass, .btn-lancer{
     margin: 2rem auto;
     width: 20%;
     background-color: var(--bs-primary);
@@ -101,38 +131,39 @@ input.button-valid:hover {
     background-color: var(--bs-secondary);
     opacity: 0.5;
 
-}
+} */
 
-.game-h1 {
+/* .game-h1 {
     position: absolute;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: var(--bs-secondary);
-}
+} */
 
-.button-flex {
+/* .button-flex {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.answer-center {
+/* .answer-center {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-}
+} */
+
+
 
 /* Animation du compte à rebours */
 .time{
     animation: time 1s infinite;
-
 }
 
 @keyframes time {
     0%   {font-size: 0rem;}
-    100% {font-size: 5rem;}
+    100% {font-size: 8rem;}
   }

@@ -2,24 +2,27 @@
 
 {% block content %}
 
-	<h1 class="mx-auto my-1 game-h1">
+    <div class="h-75 d-flex flex-column justify-content-evenly align-items-center mt-5">
+        <h1 class="h1-category">
+            Catégorie
+            {{categories.name}}
+        </h1>
 
-		Catégorie
-		{{categories.name}}
+        <audio src="/uploads/tracks/24kGoldn-Mood_ft_iann_dior.mp3" class="audio"></audio>
+        <button class="btn-lancer col-6 col-sm-3 mt-5" id="play">Lancer la partie</button>
 
-	</h1>
-	<div class="answer-center">
-		<h2 class="col-12 mx-auto my-1" style='width:fit-content;'>Devine le titre du morceau :</h2>
-		{{track.name}}
-		<form action="" method="POST">
-			<label for="proposal"></label>
-			<input id="proposal" name="proposal" type="text" placeholder="votre réponse">
-			<div class="button-flex">
-				<input class="button-valid" type="submit" value="Valider">
-				<a class="pass" href="/game/track&id={{ track.id }}">Passer</a>
-			</div>
-		</form>
+        <h2 class="rebours text-center invisible" id="count-down-timer"></h2>
 
+            <form action="" method="POST" class="container-fluid form-quiz d-flex flex-column justify-content-evenly align-items-center h-50">
+                <h2 class="mt-5">Devine le titre du morceau :</h2>
+                {{track.name}}
 
-	</div>
+                <label for="proposal "></label>
+                <input class="proposal col-12 col-sm-8 " id="proposal" name="proposal" type="text" placeholder="votre réponse">
+
+                <button class=" button-valid col-6 col-sm-3 mt-5 mb-5" type="submit">Valider</button>
+                <a class="pass col-6 col-sm-3 text-center" href="/game/track&id={{ track.id }}">Passer</a>
+            </form>
+    </div>
+
 {% endblock %}
