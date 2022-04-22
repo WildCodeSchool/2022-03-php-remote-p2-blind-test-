@@ -67,16 +67,73 @@ ALTER TABLE `item`
 --
 -- Structure de la table `track`
 --
+CREATE TABLE `track` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `name` varchar(80) NOT NULL,
+    `date` YEAR,
+    `path` varchar(255) NOT NULL,
+    `category_id` INT NOT NULL,
+    PRIMARY KEY(`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+-- Foreign Key Constrait pour la table track :
+--
+ALTER TABLE `track`
+ADD CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category (id);
+--
+-- Contenu de la table `track`
+--
 
-CREATE TABLE track (
-    id int NOT NULL AUTO_INCREMENT,
-    name varchar(80) NOT NULL,
-    date DATE,
-    PRIMARY KEY(id)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-ALTER TABLE track ADD `path`
+INSERT INTO `track` (`id`, `name`, `date`, `path`, `category_id`) VALUES
+(1, 'Nyan Cat', 2011, 'nyan-cat.mp3', 4);
+-- Structure de la table `user`
+--
 
 
 /* PENSER A FAIRE UN INSERT POUR LA TABLE category */
 /* ET AJOUTER : CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category(id) */
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `category`
+--
+
+CREATE TABLE `category` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `image` varchar(255),
+  PRIMARY KEY(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `category`
+--
+
+INSERT INTO `category` (`id`, `name`, `image`) VALUES
+(1, 'Rap', 'photo-rap.jpeg'),
+(2, 'Pop', 'photo-pop.jpeg'),
+(3, 'Années 80', 'photo-80.jpeg'),
+(4, 'Meme Song', 'meme.png');
+
+ -- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+CREATE TABLE `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nickname` varchar(80) NOT NULL,
+  `image` varchar(255),
+  PRIMARY KEY(`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `user`
+--
+
+INSERT INTO `user` (`id`, `nickname`) VALUES
+(1, 'Trombone');
+-- Structure de la table `user`
+--
