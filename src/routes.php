@@ -13,6 +13,7 @@ return [
     'quizz' => ['QuizzController', 'index',],
     'quizz/category' => ['QuizzController', 'category', ['id'],],
     'items' => ['ItemController', 'index',],
+    'dashboard' => ['DashboardController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],

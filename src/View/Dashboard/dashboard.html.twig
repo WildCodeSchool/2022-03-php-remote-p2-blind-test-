@@ -1,0 +1,66 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+<div class="container">
+    <div class="text-dashboard text-center">
+        <h2 class="text-dashboard text-white">Liste des morceaux</h2>
+        <p class="text-dashboard">Trier par catégorie</p>
+    </div>
+    <table class="table" cellspacing="0" cellpadding="0">
+        <thead>
+            <tr class="tr-form">
+                <th>Titres</th>
+                <th>Artistes</th>
+                <th>Catégories</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="tr-form">
+                <td>Besoin de rien envie de toi</td>
+                <td>Peter et Sloane</td>
+                <td>Années 80</td>
+            </tr>
+            <tr class="tr-form">
+                <td>Lose Yourself</td>
+                <td>Eminem</td>
+                <td>Rap</td>
+            </tr>
+            <tr class="tr-form">
+                <td>Smells Like Teen Spirit</td>
+                <td>Nirvana</td>
+                <td>Pop</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 form-dashboard">
+            <form action="" method="post" class="d-flex justify-content-center align-items-center form-dashboard">
+                <div>
+                    <input class="mb-2 form-control" type="file" name="UploadAudio" accept="audio/mp3" /></div>
+                <div class="div-btn mb-2">
+                    <label for="title"></label>
+                    <input class="placehorder" type="text" id="title" name="title" placeholder="Titre">
+                    <label for="artist"></label>
+                    <input class="placehorder" type="text" id="artist" name="artist" placeholder="Artiste">
+                    <label for="category"></label>
+                    <select name="category" id="category" class="btn-category btn btn-tertiary">
+                        <option value="">Choisissez la catégorie</option>
+                        <option value="category">Rap</option>
+                        <option value="category">Pop</option>
+                        <option value="category">Années 80</option>
+                        <option value="category">Meme</option>
+                    </select>
+                </div>
+
+                <button type="button"
+                    class="btn mb-2 mb-md-0 btn-tertiary btn-block button-enregistrer">ENREGISTRER</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
