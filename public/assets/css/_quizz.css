@@ -125,3 +125,14 @@ input.button-valid:hover {
     transform: translate(-50%, -50%);
     width: 100%;
 }
+
+/* Animation du compte à rebours */
+.time{
+    animation: time 1s infinite;
+
+}
+
+@keyframes time {
+    0%   {font-size: 0rem;}
+    100% {font-size: 5rem;}
+  }

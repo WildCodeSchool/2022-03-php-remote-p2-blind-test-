@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+	<h1 class="mx-auto my-1 game-h1">
+
+		Catégorie
+		{{categories.name}}
+
+	</h1>
+
+    <audio src="/assets/track/24kGoldn-Mood_ft_iann_dior.mp3" class="audio"></audio>
+    <input class="button mt-5" id="play" value="Lancer la partie">
+
+    <h2 class="text-center invisible" id="count-down-timer"></h2>
+
+	<div class="answer-center">
+
+		<h2 class="col-12 mx-auto my-1" style='width:fit-content;'>Devine le titre du morceau :</h2>
+		{{track.name}}
+		<form action="" method="POST">
+			<label for="proposal"></label>
+			<input id="proposal" name="proposal" type="text" placeholder="votre réponse">
+			<div class="button-flex">
+				<input class="button" type="submit" value="Valider">
+				<input class="button" onclick="window.location.href = '/game/track&id={{ track.id }}';" value="Passer">
+			</div>
+		</form>
+	</div>
+{% endblock %}
