@@ -1,6 +1,5 @@
 /* SECTION TABLE */
 
-/* LISTE LES MORCEAUX, TRIER PAR CATEGORIE */
 .text-dashboard {
     margin-top: 2rem;
 }
@@ -22,10 +21,7 @@ table {
     align-items: center;
 }
 
-
-
 /* SECTION MEDIA QUERIES : Champs formulaire */
-/* Voir si on peut ajouter le max width 992 a la suite du 768 */
 
 @media screen and (max-width: 992px){
     .form-dashboard {
@@ -48,11 +44,6 @@ table {
         justify-content: space-around;
         align-items: center;
     }
-
-/*     .button-enregistrer {
-        width: initial;
-    } */
-
 }
 
 
