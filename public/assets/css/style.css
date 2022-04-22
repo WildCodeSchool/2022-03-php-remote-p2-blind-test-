@@ -1,25 +1,29 @@
 @import './_navbar.css';
 @import './_footer.css';
 @import './_about_us.css';
-
-@font-face {
-    font-family: "anektamil-thin";
-    src: url("../fonts/AnekTamil-Thin.ttf") format("truetype");
-    font-family: "anektamil-regular";
-    src: url("../fonts/AnekTamil-Regular.ttf") format("truetype");
-    font-family: "archivoblack";
-    src: url("../fonts/ArchivoBlack-Regular.ttf") format("truetype");
-    font-family: "monoton";
-    src: url("../fonts/Monoton-Regular.ttf") format("truetype");
-  }
+@import './_quizz.css';
+@import './_index.css';
 
 
-  :root{
-    --bs-gradient:url(https://cdn.discordapp.com/attachments/963093723124748368/964186826283839549/noise.png ),radial-gradient(ellipse at center,#5f9ece 0,#5f9ece 24%,#724589 100%);
+@import url('https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100;400;700&family=Archivo+Black&family=Monoton&display=swap');
+
+/* font-family: 'Anek Tamil', sans-serif;
+font-family: 'Archivo Black', sans-serif;
+font-family: 'Monoton', cursive; */
+
+:root {
+    --bs-gradient: url(https://cdn.discordapp.com/attachments/963093723124748368/964186826283839549/noise.png ), radial-gradient(ellipse at center, #5f9ece 0, #5f9ece 24%, #724589 100%);
     --bs-primary: #2FE6AE;
+    --bs-secondary: #FFFFF0;
 }
 
-body{
+body {
     /* background-image: url(../images/noise.png),radial-gradient(ellipse at center,#5f9ece 0,#5f9ece 24%,#724589 100%); */
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    margin: 0;
 }

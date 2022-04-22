@@ -9,6 +9,9 @@
 return [
     '' => ['HomeController', 'index',],
     'about_us' => ['AboutUsController', 'index',],
+    'category' => ['CategoryController', 'index',],
+    'quizz' => ['QuizzController', 'index',],
+    'quizz/category' => ['QuizzController', 'category', ['id'],],
     'items' => ['ItemController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
