@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+	<div class="row">
+		<h1 class="col-12 text-center mx-auto my-5 " style="width: fit-content; ">
+			Nous y sommes
+			{% for user in users|slice(0,1) %}
+				{{user.nickname}}
+			{% endfor %}
+			,																																																																																																																									choisis un thème pour lancer la partie !</h1>
+
+	</div>
+	<div class="container">
+		<div class="row justify-content-center">
+			{% for categorie in categories %}
+				<div class="col-sm-12 col-lg-6">
+					<div class="card bg-dark shadow text-white m-3">
+						<img src="/assets/images/{{categorie.image}}" class="card-img img-category" alt="...">
+						<div class="card-img-overlay">
+							<h1 class="card-title">{{categorie.name}}</h1>
+							<a href="/quizz/category?id={{categorie.id}}" class="btn btn-primary stretched-link opacity-0"></a>
+						</div>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+{% endblock %}
