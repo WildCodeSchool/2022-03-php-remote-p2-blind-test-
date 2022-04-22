@@ -1,0 +1,58 @@
+/* SECTION TABLE */
+
+/* LISTE LES MORCEAUX, TRIER PAR CATEGORIE */
+.text-dashboard {
+    margin-top: 2rem;
+}
+
+table {
+    margin-top: 5rem;
+}
+
+.tr-form {
+    margin-top: 3rem;
+    text-align: center;
+}
+
+ .form-dashboard {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+
+/* SECTION MEDIA QUERIES : Champs formulaire */
+/* Voir si on peut ajouter le max width 992 a la suite du 768 */
+
+@media screen and (max-width: 992px){
+    .form-dashboard {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    select.btn-category {
+        margin-left: 0;
+    }
+
+    .placehorder {
+        margin-bottom: 5px;
+    }
+
+    .div-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+/*     .button-enregistrer {
+        width: initial;
+    } */
+
+}
+
+

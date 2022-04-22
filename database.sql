@@ -61,3 +61,22 @@ ALTER TABLE `item`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `track`
+--
+
+CREATE TABLE track (
+    id int NOT NULL AUTO_INCREMENT,
+    name varchar(80) NOT NULL,
+    date DATE,
+    PRIMARY KEY(id)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE track ADD `path`
+
+
+/* PENSER A FAIRE UN INSERT POUR LA TABLE category */
+/* ET AJOUTER : CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category(id) */

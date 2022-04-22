@@ -1,8 +1,25 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <div class="container d-flex flex-column justify-content-center align-items-center h-75">
-        <p class="text-center  text-light mb-5 fs-1">Participe au blind test<br>
+<div class="container d-flex flex-column justify-content-center align-items-center h-75">
+    <p class="text-center text-light mb-5 fs-1">Participe au blind test<br>
         et tente de battre le record</p>
+    <div class="row">
+        <div class="col-12">
+            <form action="" method="post">
+                <div>
+                    <label for="lname"></label>
+                    <input class="placehorder" type="text" id="lname" name="user_lastname" placeholder="Ton pseudo*">
+                </div>
+
+                <div class="col-md-3 mt-1">
+                    <button type="button" class="btn mb-2 mb-md-0 btn-tertiary btn-block">M'ENREGISTRER</button>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
+
+
+
 {% endblock %}
