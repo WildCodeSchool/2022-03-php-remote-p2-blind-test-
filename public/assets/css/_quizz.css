@@ -47,25 +47,13 @@ h1.card-title {
     transition: transform 0.1s ease-in;
 }
 
-@media screen and (min-width: 576px) {
-    .category .col-sm-12 {
-        width: 90%;
-    }
-}
 
-@media screen and (min-width: 992px) {
-    .category .col-lg-6 {
-        width: 45%;
-    }
-}
 
 .card:hover {
     transform: scale(1.1);
     filter: grayscale(0%);
     cursor: pointer;
 }
-
-
 
 .category label {
     font-size: 1rem;

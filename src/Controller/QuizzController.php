@@ -3,7 +3,7 @@
 namespace  App\Controller;
 
 use App\Model\CategoryManager;
-use App\Model\QuizzManager;
+use App\Model\TrackManager;
 
 class QuizzController extends AbstractController
 {

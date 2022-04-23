@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class QuizzManager extends AbstractManager
+class TrackManager extends AbstractManager
 {
     public const TABLE = 'track';
 }
