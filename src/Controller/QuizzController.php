@@ -10,8 +10,8 @@ class QuizzController extends AbstractController
     public function index()
     {
         $categoryManager = new CategoryManager();
-
         $categories = $categoryManager->selectAll();
+
         return $this->twig->render('Quizz/index.html.twig', [
             'categories' => $categories
         ]);
@@ -20,10 +20,10 @@ class QuizzController extends AbstractController
     public function category($id)
     {
         $categoryManager = new CategoryManager();
-
         $categories = $categoryManager->selectOneById($id);
+
         return $this->twig->render('Quizz/index.html.twig', [
-            'categories' => $categories
+            'categories' => $categories,
         ]);
     }
 }

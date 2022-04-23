@@ -28,22 +28,35 @@ h1.card-title {
     transform-origin: left;
 }
 
-.card:hover .card-title::before,
-.card:focus .card-title::before {
+.category .card:hover .card-title::before,
+.category .card:focus .card-title::before,
+.category .card:active .card-title::before {
     transform: scaleX(1);
 }
 
-.card:hover .card-title {
+.category .card:hover .card-title {
     color: black;
 }
 
 
-.card {
+.category .card {
     border-radius: 20px;
     overflow: hidden;
     border-style: none;
     filter: grayscale(100%);
     transition: transform 0.1s ease-in;
+}
+
+@media screen and (min-width: 576px) {
+    .category .col-sm-12 {
+        width: 90%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .category .col-lg-6 {
+        width: 45%;
+    }
 }
 
 .card:hover {
@@ -52,11 +65,13 @@ h1.card-title {
     cursor: pointer;
 }
 
-label {
+
+
+.category label {
     font-size: 1rem;
 }
 
-input {
+.category input {
     padding: 1rem;
     border: none;
     border-radius: 4px;
@@ -65,7 +80,7 @@ input {
     margin: 0 auto;
 }
 
-input.button-valid {
+.category input.button-valid {
     margin-top: 2rem;
     width: 20%;
     background-color: var(--bs-primary);
@@ -77,7 +92,8 @@ input.button-valid {
     cursor: pointer;
 }
 
-input.button-valid:hover {
+.category input.button-valid:hover,
+input.button-valid:active {
     transform: scale(1.2);
 }
 
