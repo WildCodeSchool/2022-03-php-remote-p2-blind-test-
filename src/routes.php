@@ -9,7 +9,7 @@
 return [
     '' => ['HomeController', 'index',],
     'category' => ['CategoryController', 'index',],
-    'quizz' => ['QuizzController', 'index',],
+    'quizz' => ['CategoryController', 'index',],
     'quizz/category' => ['QuizzController', 'category', ['id'],],
     'items' => ['ItemController', 'index',],
     'items/edit' => ['ItemController', 'edit', ['id']],
