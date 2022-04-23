@@ -1,7 +1,10 @@
 @import './_navbar.css';
 @import './_footer.css';
+@import './_dashboard.css';
+@import './_about_us.css';
 @import './_quizz.css';
 @import './_index.css';
+
 
 @import url('https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100;400;700&family=Archivo+Black&family=Monoton&display=swap');
 
@@ -25,3 +28,36 @@ body {
 .row {
     margin: 0;
 }
+
+/* INDEX - BOUTTON FORM "M'ENREGISTRER" */
+
+.btn.btn-tertiary {
+    height: 38px;
+    width: 12.4rem; /* J'ai augmenter la taille du boutton pour qu'il soit identiques aux champs */
+    margin-left: 5px; /* Voir si c'est ok pour espacer le boutton des champs */
+    color: #fff;
+    background: #2FE6AE;
+    border-color: #2FE6AE;
+  }
+
+  .btn.btn-tertiary:hover,
+  .btn.btn-tertiary:focus {
+    border-color: #0C2044 !important;
+    background: #0C2044 !important;
+  }
+
+  .btn.btn-tertiary.btn-link {
+    color: #2FE6AE;
+    background: transparent;
+  }
+
+  .btn.btn-tertiary .icon i {
+    color: #2FE6AE;
+  }
+
+  .placehorder {
+    padding: 15px; /* J'ai agrandi le champs texte */
+    color: #0C2044;
+    height: 38px;
+  }
+

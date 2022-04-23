@@ -8,3 +8,7 @@ h2 {
     font-family: 'Anek Tamil', sans-serif;
     color: var(--bs-secondary);
 }
+
+.index {
+    height: 75vh;
+}
