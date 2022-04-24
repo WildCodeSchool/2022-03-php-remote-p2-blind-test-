@@ -60,8 +60,8 @@ label {
     font-size: clamp(5vw, 3rem, 10vw);
 }
 
-.btn-lancer, .button-valid, .pass{
-    height: 70px;
+ .button-valid, .pass, .btn-lancer{
+
     border-radius: 10px;
     font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
     font-size: clamp(2.5vw, 1.5rem, 5vw);
@@ -70,6 +70,16 @@ label {
     background-color: var(--bs-primary);
     border: solid  var(--bs-primary);
     box-shadow: 0px 5px 20px black;
+}
+
+.button-valid{
+    height: 70px;
+}
+
+.pass, .btn-lancer{
+    text-decoration: none;
+    list-style: none;
+    padding: .5rem;
 }
 
 .btn-lancer:hover, .button-valid:hover, .pass:hover {
@@ -82,12 +92,6 @@ label {
     border-radius: 10px;
     border: solid  var(--bs-secondary);
 }
-
-.pass, .btn-lancer{
-    text-decoration: none;
-    list-style: none;
-}
-
 
 /* Animation du compte à rebours */
 .time{
