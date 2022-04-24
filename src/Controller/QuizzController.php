@@ -21,7 +21,7 @@ class QuizzController extends AbstractController
         $categoryManager = new CategoryManager();
         $trackManager = new TrackManager();
 
-        $tracks = $trackManager->selectAllRand($id);
+        $tracks = $trackManager->selectPathRand($id);
         $categories = $categoryManager->selectOneById($id);
 
         return $this->twig->render('Quizz/index.html.twig', [

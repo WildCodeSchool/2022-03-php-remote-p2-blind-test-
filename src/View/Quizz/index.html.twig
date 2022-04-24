@@ -1,25 +1,25 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+	<div class="container ">
+		<div class="row justify-content-center text-center">
+			<div class="col-xs-4">
+				<img class="quizz-pic" src="/assets/images/{{categories.image}}" alt="image de la {{categories.name}}"></div>
+			<div class="col-xs-6">
+				<h1 class="mx-auto my-3">
+					Catégorie
+					{{categories.name}}
+				</h1>
+			</div>
+		</div>
+	</div>
+	{# le track.path retourne le nom-du-fichier.mp3 a inclure dans le lecteur audio
+				en rajoutant le chemin complet : /uploads/tracks/{{track.path}}
+				l'array tracks est recuperer dans la bdd de maniere random. Refresh pour voir l'ordre la liste changer #}
+	{% for track in tracks %}
+		<li>{{track.path}}</li>
+	{% endfor %}
 
-	<h1 class="mx-auto my-1 game-h1">
-
-		Catégorie
-		{{categories.name}}
-
-	</h1>
-
-	<pre>
-    {{ dump(tracks) }}
-</pre>
-	<figure>
-		<figcaption>Listen to the T-Rex:</figcaption>
-		<audio controls src="/uploads/tracks/{{track.1}}">
-			Your browser does not support the
-			<code>audio</code>
-			element.
-		</audio>
-	</figure>
 
 	<div class="answer-center category">
 

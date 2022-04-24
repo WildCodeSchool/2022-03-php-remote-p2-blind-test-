@@ -6,7 +6,7 @@ class TrackManager extends AbstractManager
 {
     public const TABLE = 'track';
 
-    public function selectAllRand(int $id): array|false
+    public function selectPathRand(int $id): array|false
     {
         $statement = $this->pdo->prepare("SELECT path FROM " . static::TABLE .
             " WHERE category_id=:id ORDER BY RAND()");

@@ -14,6 +14,14 @@ h1.card-title {
     z-index: 1;
 }
 
+.quizz-pic {
+    width: 150px;
+    height: 100px;
+    border-radius: 20px;
+    box-shadow: rgb(50, 19, 66) 0px 10px 30px -10px;
+    filter: opacity(65%);
+}
+
 .card-title::before {
     content: '';
     position: absolute;
@@ -71,6 +79,7 @@ h1.card-title {
 .category input.button-valid {
     margin-top: 2rem;
     width: 20%;
+    min-width: 150px;
     background-color: var(--bs-primary);
     font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
     color: var(--bs-secondary);
@@ -78,6 +87,8 @@ h1.card-title {
     font-size: clamp(1.00rem, calc(0.82rem + 0.91vw), 1.50rem);
     text-align: center;
     cursor: pointer;
+    box-shadow: rgb(50, 19, 66) 0px 10px 30px -10px;
+
 }
 
 .category input.button-valid:hover,
@@ -88,6 +99,7 @@ input.button-valid:active {
 .pass {
     margin: 2rem auto;
     width: 20%;
+    min-width: 150px;
     background-color: var(--bs-primary);
     font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
     color: var(--bs-secondary);
@@ -98,6 +110,8 @@ input.button-valid:active {
     text-decoration: none;
     border-radius: 4px;
     padding: 1rem;
+    box-shadow: rgb(50, 19, 66) 0px 10px 30px -10px;
+
 }
 
 .pass:hover {
@@ -107,25 +121,16 @@ input.button-valid:active {
 
 }
 
-.game-h1 {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: var(--bs-secondary);
-}
-
 .button-flex {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
 }
 
 .answer-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
