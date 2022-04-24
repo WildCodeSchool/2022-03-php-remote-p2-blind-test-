@@ -91,10 +91,12 @@ label {
 
 /* Animation du compte à rebours */
 .time{
-    animation: time 1s infinite ease-in-out;
+    position:absolute;
+    top: 28%;
+    animation: time 1s infinite;
 }
 
 @keyframes time {
     0%   {font-size: 0rem;}
-    100% {font-size: 8rem;}
+    100% {font-size: 10rem;}
   }

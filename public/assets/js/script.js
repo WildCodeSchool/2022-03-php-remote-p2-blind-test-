@@ -18,6 +18,7 @@ function startCountDown(duration, element) {
         // Si le compte à rebours === 0 alors ont cache le compte à rebours et on lance la musique
         if (secondsRemaining < 0) { clearInterval(countInterval);
             element.classList.toggle("invisible");
+            element.classList.toggle("time");
             audio.play();};
     }, 1000);
 }
