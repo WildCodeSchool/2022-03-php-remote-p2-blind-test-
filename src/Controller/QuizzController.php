@@ -16,14 +16,17 @@ class QuizzController extends AbstractController
             'categories' => $categories
         ]);
     }
-
     public function category($id)
     {
         $categoryManager = new CategoryManager();
+        $trackManager = new TrackManager();
+
+        $tracks = $trackManager->selectAllRand($id);
         $categories = $categoryManager->selectOneById($id);
 
         return $this->twig->render('Quizz/index.html.twig', [
             'categories' => $categories,
+            'tracks' => $tracks
         ]);
     }
 }
