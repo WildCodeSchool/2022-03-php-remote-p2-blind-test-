@@ -31,12 +31,6 @@ window.onload = function () {
     element.textContent = time_seconds;
     startCountDown(--time_seconds, element);
     element.classList.toggle("time");
+
 };
 
-// Ont cache le bouton, on rend le compte à rebours visible et on lance l'animation au click du bouton.
-// play.addEventListener("click", function (event) {
-//     play.classList.toggle("invisible");
-//     element.classList.toggle("invisible");
-//     element.classList.toggle("time");
-
-// });
