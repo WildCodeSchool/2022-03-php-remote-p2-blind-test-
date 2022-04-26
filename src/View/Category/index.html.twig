@@ -3,10 +3,10 @@
 {% block content %}
 
 	<div class="row">
-		<h1 class="col-12 text-center p-4 my-5">
+		<h1 class="col-12 text-center p-4 my-5 fs-1">
 			Nous y sommes
 			{% for user in users|slice(0,1) %}
-				{{user.nickname}},
+				{{user.nickname}},<br/>
 			{% endfor %}choisis un thème pour lancer la partie !</h1>
 
 	</div>
