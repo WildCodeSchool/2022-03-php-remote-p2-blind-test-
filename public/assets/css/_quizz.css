@@ -14,6 +14,14 @@ h1.card-title {
     z-index: 1;
 }
 
+.quizz-pic {
+    width: 150px;
+    height: 100px;
+    border-radius: 20px;
+    box-shadow: rgb(50, 19, 66) 0px 10px 30px -10px;
+    filter: opacity(65%);
+}
+
 .card-title::before {
     content: '';
     position: absolute;
@@ -28,17 +36,18 @@ h1.card-title {
     transform-origin: left;
 }
 
-.card:hover .card-title::before,
-.card:focus .card-title::before {
+.category .card:hover .card-title::before,
+.category .card:focus .card-title::before,
+.category .card:active .card-title::before {
     transform: scaleX(1);
 }
 
-.card:hover .card-title {
+.category .card:hover .card-title {
     color: black;
 }
 
 
-.card {
+.category .card {
     border-radius: 20px;
     overflow: hidden;
     border-style: none;
@@ -46,17 +55,19 @@ h1.card-title {
     transition: transform 0.1s ease-in;
 }
 
+
+
 .card:hover {
     transform: scale(1.1);
     filter: grayscale(0%);
     cursor: pointer;
 }
 
-label {
+.category label {
     font-size: 1rem;
 }
 
-input {
+.category input {
     padding: 1rem;
     border: none;
     border-radius: 4px;
@@ -65,9 +76,11 @@ input {
     margin: 0 auto;
 }
 
-input.button-valid {
+
+.category input {
     margin-top: 2rem;
     width: 20%;
+    min-width: 150px;
     background-color: var(--bs-primary);
     font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
     color: var(--bs-secondary);
@@ -75,41 +88,54 @@ input.button-valid {
     font-size: clamp(1.00rem, calc(0.82rem + 0.91vw), 1.50rem);
     text-align: center;
     cursor: pointer;
+    box-shadow: rgb(50, 19, 66) 0px 10px 30px -10px;
 }
 
-input.button-valid:hover {
+.category input.button-valid:hover,
+input.button-valid:active {
     transform: scale(1.2);
 }
 
-.pass {
-    margin: 2rem auto;
-    width: 20%;
-    background-color: var(--bs-primary);
+
+
+.h1-category{
+    font-size: clamp(5vw, 3rem, 10vw);
+}
+
+.button-valid, .pass, .btn-lancer{
+    border-radius: 10px;
     font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
-    color: var(--bs-secondary);
+    font-size: clamp(2.5vw, 1.5rem, 5vw);
     font-weight: 700;
-    font-size: clamp(1.00rem, calc(0.82rem + 0.91vw), 1.50rem);
-    text-align: center;
-    cursor: pointer;
+    color: var(--bs-secondary);
+    background-color: var(--bs-primary);
+    border: solid  var(--bs-primary);
+    box-shadow: 0px 5px 20px black;
+
+}
+
+.button-valid{
+    height: 70px;
+}
+
+.pass, .btn-lancer{
     text-decoration: none;
-    border-radius: 4px;
-    padding: 1rem;
+    list-style: none;
+    padding: .5rem;
 }
 
-.pass:hover {
-    color: var(--bs-primary);
-    background-color: var(--bs-secondary);
-    opacity: 0.5;
 
-}
-
-.game-h1 {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.btn-lancer:hover, .button-valid:hover, .pass:hover {
+    transform: scale(1.2);
     color: var(--bs-secondary);
 }
+
+.proposal{
+    height: 50px;
+    border-radius: 10px;
+    border: solid  var(--bs-secondary);
+}
+
 
 .button-flex {
     display: flex;
@@ -119,9 +145,19 @@ input.button-valid:hover {
 }
 
 .answer-center {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
     width: 100%;
 }
+
+/* Animation du compte à rebours */
+.time{
+    position:absolute;
+    top: 20%;
+    animation: time 1s infinite;
+}
+
+@keyframes time {
+    0%   {font-size: 0rem;}
+    100% {font-size: 32rem;}
+  }

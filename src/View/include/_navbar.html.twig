@@ -1,37 +1,27 @@
 {# LOGO + NAVBURGER #}
 
-{# LOGO #}
-	<div class="container-fluid test"> <div class="row">
-		<div class="col-6">
-			<a href="/" rel="Accueil">
-				<img src="/assets/images/logo.png" class="img-fluid logo"/></a>
-		</div>
+<div class="container-fluid test">
+    <div class="row">
+        <div class="col-6">
+            <a href="/" rel="Accueil">
+                <img src="/assets/images/logo.png" class="img-fluid logo" /></a>
+        </div>
 
-		{# NAVBURGER #}
-		<div class="row">
-			<div class="col-6">
-				<label>
-					<input type="checkbox">
-					<span class="menu">
-						<span class="hamburger"></span>
-					</span>
-					<ul>
-						{# voir pour le li active #}
-						<li class="active">
-							<a href="/">ACCUEIL</a>
-						</li>
-						<li>
-							<a class="bs-primary" href="about_us">A PROPOS</a>
-						</li>
-						<li>
-							<a href="#">CLASSEMENT</a>
-						</li>
-						<li>
-							<a href="dashboard">TABLEAU DE BORD</a>
-						</li>
-					</ul>
-				</label>
-			</div>
-		</div>
-	</div>
+
+        <div class="col-6">
+            <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon" />
+            <label for="menu-icon"></label>
+            <nav class="nav">
+                <ul class="pt-5">
+                    <li><a href="/" rel="Accueil">Accueil</a></li>
+                    <li><a href="about_us">A propos</a></li>
+                    <li><a href="#">Classement</a></li>
+                    <li><a href="dashboard">Tableau de bord</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 </div>
+
+
+
