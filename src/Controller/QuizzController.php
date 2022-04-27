@@ -16,7 +16,6 @@ class QuizzController extends AbstractController
             'categories' => $categories
         ]);
     }
-
     public function category($id)
     {
         $categoryManager = new CategoryManager();
@@ -33,28 +32,30 @@ class QuizzController extends AbstractController
 
     public function progess($id)
     {
-        // unset($_SESSION['recup']);
         if (empty($_POST)) {
             $trackManager = new TrackManager();
             $_SESSION['tracks'] = $trackManager->selectPathRand($id);
-            $_SESSION['recup'] = [];
-        } elseif (isset($_POST['pass'])) {
-            if (!empty($_SESSION['tracks'])) {
-                array_unshift($_SESSION['recup'], array_shift($_SESSION['tracks']));
-                var_dump($_SESSION['tracks']);
-            } else {
-                $_SESSION['tracks'] = $_SESSION['recup'];
-            }
-        } elseif (isset($_POST['validate'])) {
-            if (!empty($_SESSION['tracks'])) {
-                // $validate = array_shift($_SESSION['tracks']);
-                var_dump($_SESSION['tracks']);
-            } else {
-                $_SESSION['tracks'] = $_SESSION['recup'];
-            }
+            $_SESSION['replay'] = [];
         }
+
+        if (isset($_POST['pass']) && !empty($_SESSION['tracks'])) {
+                array_unshift($_SESSION['replay'], array_shift($_SESSION['tracks']));
+
+        }
+
+        if (isset($_POST['validate']) && !empty($_SESSION['tracks'])) {
+                $validate = array_shift($_SESSION['tracks']);
+
+        }
+
+        if (empty($_SESSION['tracks'])){
+            $_SESSION['tracks'] = $_SESSION['replay'];
+            $_SESSION['replay'] = [];
+        }
+
         return $this->twig->render('Quizz/progress.html.twig', [
             'tracks' => $_SESSION['tracks']
         ]);
     }
 }
+
