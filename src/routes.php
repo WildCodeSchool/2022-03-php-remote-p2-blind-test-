@@ -14,6 +14,7 @@ return [
     'quizz/category' => ['QuizzController', 'category', ['id'],],
     'items' => ['ItemController', 'index',],
     'dashboard' => ['DashboardController', 'index',],
+    'dashboard/show' => ['DashboardController',''],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
