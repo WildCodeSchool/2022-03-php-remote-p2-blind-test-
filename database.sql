@@ -64,30 +64,6 @@ ALTER TABLE `item`
 
 -- --------------------------------------------------------
 
---
--- Structure de la table `track`
---
-CREATE TABLE `track` (
-    `id` int NOT NULL AUTO_INCREMENT,
-    `name` varchar(80) NOT NULL,
-    `date` YEAR,
-    `path` varchar(255) NOT NULL,
-    `category_id` INT NOT NULL,
-    PRIMARY KEY(`id`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
---
--- Foreign Key Constrait pour la table track :
---
-ALTER TABLE `track`
-ADD CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category (id);
---
--- Contenu de la table `track`
---
-
-INSERT INTO `track` (`id`, `name`, `date`, `path`, `category_id`) VALUES
-(1, 'Nyan Cat', 2011, 'nyan-cat.mp3', 4);
--- Structure de la table `user`
---
 
 
 /* PENSER A FAIRE UN INSERT POUR LA TABLE category */
@@ -135,5 +111,33 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `nickname`) VALUES
 (1, 'Trombone');
+-- Structure de la table `user`
+--
+
+ -- --------------------------------------------------------
+
+--
+-- Structure de la table `track`
+--
+CREATE TABLE `track` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `name` varchar(80) NOT NULL,
+    `date` YEAR,
+    `path` varchar(255) NOT NULL,
+    `category_id` INT NOT NULL,
+    PRIMARY KEY(`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+--
+-- Foreign Key Constrait pour la table track :
+--
+ALTER TABLE `track`
+ADD CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category (id);
+--
+-- Contenu de la table `track`
+--
+
+INSERT INTO `track` (`id`, `name`, `date`, `path`, `category_id`) VALUES
+(1, 'Nyan Cat', 2011, 'nyan-cat.mp3', 4);
+(2, '')
 -- Structure de la table `user`
 --
