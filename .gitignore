@@ -5,4 +5,8 @@
 db.php
 .idea
 .vscode
+<<<<<<< HEAD
 /uploads/
+=======
+public/uploads/
+>>>>>>> c94978de1b9e9435782e346edde818cf840d5172
