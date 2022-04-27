@@ -47,7 +47,7 @@ class QuizzController extends AbstractController
             }
         } elseif (isset($_POST['validate'])) {
             if (!empty($_SESSION['tracks'])) {
-                $validate = array_shift($_SESSION['tracks']);
+                // $validate = array_shift($_SESSION['tracks']);
                 var_dump($_SESSION['tracks']);
             } else {
                 $_SESSION['tracks'] = $_SESSION['recup'];
