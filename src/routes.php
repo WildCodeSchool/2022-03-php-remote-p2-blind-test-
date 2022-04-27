@@ -10,7 +10,7 @@ return [
     '' => ['HomeController', 'index',],
     'about_us' => ['AboutUsController', 'index',],
     'category' => ['CategoryController', 'index',],
-    'quizz' => ['QuizzController', 'index',],
+    'quizz' => ['CategoryController', 'index',],
     'quizz/category' => ['QuizzController', 'category', ['id'],],
     'quizzProgress' => ['QuizzController', 'progess',],
     'items' => ['ItemController', 'index',],
