@@ -25,5 +25,11 @@ abstract class AbstractController
             ]
         );
         $this->twig->addExtension(new DebugExtension());
+        if ($_SERVER["REQUEST_METHOD"] === 'POST') {
+            $_SESSION = $_POST; /* array_map('trim', $_POST); */
+        }
+
+        $name = $_SESSION['user_id'] ?? null;
+        $this->twig->addGlobal('user', $name);
     }
 }
