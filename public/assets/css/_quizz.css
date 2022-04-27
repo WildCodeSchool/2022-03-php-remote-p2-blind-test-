@@ -59,15 +59,6 @@ h1.card-title {
     font-size: 1rem;
 }
 
-<<<<<<< HEAD
-.h1-category{
-    font-size: clamp(5vw, 3rem, 10vw);
-}
-
- .button-valid, .pass, .btn-lancer{
-
-    border-radius: 10px;
-=======
 .category input {
     padding: 1rem;
     border: none;
@@ -77,20 +68,16 @@ h1.card-title {
     margin: 0 auto;
 }
 
-.category input.button-valid {
-    margin-top: 2rem;
-    width: 20%;
-    background-color: var(--bs-primary);
->>>>>>> 14d35a24e4cec806ba75bcdbbe11dde1c4d7fa8a
-    font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
-    font-size: clamp(2.5vw, 1.5rem, 5vw);
-    font-weight: 700;
-<<<<<<< HEAD
-    color: var(--bs-secondary);
-=======
-    font-size: clamp(1.00rem, calc(0.82rem + 0.91vw), 1.50rem);
-    text-align: center;
-    cursor: pointer;
+
+.category input {
+        margin-top: 2rem;
+        width: 20%;
+        background-color: var(--bs-primary);
+        font-size: clamp(1.00rem, calc(0.82rem + 0.91vw), 1.50rem);
+        text-align: center;
+        cursor: pointer;
+        font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
+        font-weight: 700;
 }
 
 .category input.button-valid:hover,
@@ -98,10 +85,17 @@ input.button-valid:active {
     transform: scale(1.2);
 }
 
-.pass {
-    margin: 2rem auto;
-    width: 20%;
->>>>>>> 14d35a24e4cec806ba75bcdbbe11dde1c4d7fa8a
+
+.h1-category{
+    font-size: clamp(5vw, 3rem, 10vw);
+}
+
+ .button-valid, .pass, .btn-lancer{
+    border-radius: 10px;
+    font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
+    font-size: clamp(2.5vw, 1.5rem, 5vw);
+    font-weight: 700;
+    color: var(--bs-secondary);
     background-color: var(--bs-primary);
     border: solid  var(--bs-primary);
     box-shadow: 0px 5px 20px black;
