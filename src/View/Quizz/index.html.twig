@@ -16,24 +16,16 @@
 	{# le track.path retourne le nom-du-fichier.mp3 a inclure dans le lecteur audio
 				en rajoutant le chemin complet : /uploads/tracks/{{track.path}}
 				l'array tracks est recuperer dans la bdd de maniere random. Refresh pour voir l'ordre la liste changer #}
-	{% for track in tracks %}
-		<li>{{track.path}}</li>
-	{% endfor %}
+        
+<div class="h-75 d-flex flex-column justify-content-evenly align-items-center mt-1">
+    <h1 class="h1-category">
+        Catégorie
+        {{categories.name}}
+    </h1>
 
-
-	<div class="answer-center category">
-
-		<h2 class="col-12 mx-auto my-1" style='width:fit-content;'>Devine l’artiste ou le titre du morceau :</h2>
-		{{track.name}}
-		<form action="" method="POST">
-			<label for="proposal"></label>
-			<input id="proposal" name="proposal" type="text" placeholder="Ta réponse...">
-			<div class="button-flex">
-				<input class="button-valid" type="submit" value="Valider">
-				<a class="pass" href="/game/track&id={{ track.id }}">Passer</a>
-			</div>
-		</form>
-
-
-	</div>
+    <a href="/quizzProgress" class="btn-lancer text-center col-6 col-md-3 mt-1 " >Lancer la partie</a>
+</div>
 {% endblock %}
+
+
+

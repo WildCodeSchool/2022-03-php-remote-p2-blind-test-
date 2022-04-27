@@ -76,7 +76,8 @@ h1.card-title {
     margin: 0 auto;
 }
 
-.category input.button-valid {
+
+.category input {
     margin-top: 2rem;
     width: 20%;
     min-width: 150px;
@@ -88,7 +89,6 @@ h1.card-title {
     text-align: center;
     cursor: pointer;
     box-shadow: rgb(50, 19, 66) 0px 10px 30px -10px;
-
 }
 
 .category input.button-valid:hover,
@@ -96,37 +96,52 @@ input.button-valid:active {
     transform: scale(1.2);
 }
 
-.pass {
-    margin: 2rem auto;
-    width: 20%;
-    min-width: 150px;
-    background-color: var(--bs-primary);
+
+
+.h1-category{
+    font-size: clamp(5vw, 3rem, 10vw);
+}
+
+.button-valid, .pass, .btn-lancer{
+    border-radius: 10px;
     font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
-    color: var(--bs-secondary);
+    font-size: clamp(2.5vw, 1.5rem, 5vw);
     font-weight: 700;
-    font-size: clamp(1.00rem, calc(0.82rem + 0.91vw), 1.50rem);
-    text-align: center;
-    cursor: pointer;
+    color: var(--bs-secondary);
+    background-color: var(--bs-primary);
+    border: solid  var(--bs-primary);
+    box-shadow: 0px 5px 20px black;
+
+}
+
+.button-valid{
+    height: 70px;
+}
+
+.pass, .btn-lancer{
     text-decoration: none;
-    border-radius: 4px;
-    padding: 1rem;
-    box-shadow: rgb(50, 19, 66) 0px 10px 30px -10px;
-
+    list-style: none;
+    padding: .5rem;
 }
 
-.pass:hover {
-    color: var(--bs-primary);
-    background-color: var(--bs-secondary);
-    opacity: 0.5;
 
+.btn-lancer:hover, .button-valid:hover, .pass:hover {
+    transform: scale(1.2);
+    color: var(--bs-secondary);
 }
+
+.proposal{
+    height: 50px;
+    border-radius: 10px;
+    border: solid  var(--bs-secondary);
+}
+
 
 .button-flex {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 .answer-center {
@@ -134,3 +149,15 @@ input.button-valid:active {
     flex-direction: column;
     width: 100%;
 }
+
+/* Animation du compte à rebours */
+.time{
+    position:absolute;
+    top: 20%;
+    animation: time 1s infinite;
+}
+
+@keyframes time {
+    0%   {font-size: 0rem;}
+    100% {font-size: 32rem;}
+  }

@@ -29,4 +29,9 @@ class QuizzController extends AbstractController
             'tracks' => $tracks
         ]);
     }
+
+    public function progess()
+    {
+        return $this->twig->render('Quizz/quizzProgress.html.twig');
+    }
 }
