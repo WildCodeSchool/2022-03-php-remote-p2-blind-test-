@@ -48,8 +48,8 @@ body {
   z-index: 20;
   top: 0;
   left: 0;
-  border-top: 2px solid #2FE6AE;
-  border-bottom: 2px solid #2FE6AE;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
   transition: border-width 100ms 1500ms ease,
               top 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1),
               height 100ms 1600ms cubic-bezier(0.23, 1, 0.32, 1),
@@ -66,7 +66,7 @@ body {
   z-index: 20;
   top: 10px;
   right: 4px;
-  background-color: #2FE6AE;
+  background-color: #fff;
   margin-top: -1px;
   transition: width 100ms 1750ms ease,
               right 100ms 1750ms ease,
@@ -77,7 +77,7 @@ body {
   top: 10px;
   transform: rotate(45deg);
   height: 2px;
-  background-color: #2FE6AE;
+  background-color: #fff;
   border-width: 0;
   transition: border-width 100ms 340ms ease,
               top 100ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
@@ -108,7 +108,7 @@ body {
   z-index: 9;
   overflow: hidden;
   box-shadow: 0 8px 30px 0 rgba(0,0,0,0.3);
-  background: var(--bs-gradient);
+  background: var(--bs-gradient-2);
   animation: border-transform 7s linear infinite;
   transition: top 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),
               right 350ms 1100ms cubic-bezier(0.23, 1, 0.32, 1),
