@@ -14,6 +14,7 @@ font-family: 'Monoton', cursive; */
 
 :root {
     --bs-gradient: url(https://cdn.discordapp.com/attachments/963093723124748368/964186826283839549/noise.png ), radial-gradient(ellipse at center, #5f9ece 0, #5f9ece 24%, #724589 100%);
+    --bs-gradient-2: url(https://cdn.discordapp.com/attachments/963093723124748368/964186826283839549/noise.png ),  #5f9ece;
     --bs-primary: #2FE6AE;
     --bs-secondary: #FFFFF0;
 }

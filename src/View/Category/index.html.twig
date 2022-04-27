@@ -2,34 +2,32 @@
 
 {% block content %}
 
-
-	<div class="container category">
+<div class="container category">
     <div class="row">
 		<h1 class="col-12 text-center p-4 my-5">
 			Nous y sommes
 			{% for user in users|slice(0,1) %}
-				{{user.nickname}},
+				{{user.nickname}},<br/>
 			{% endfor %}choisis un thème pour lancer la partie !</h1>
-
-	</div>
-        <div class="row">
-            <div class="col-xl-8 offset-xl-2">
-                <div class="row justify-content-center">
-                    {% for categorie in categories %}
-                        <div class="col-xs-10 col-lg-6">
-                            <div class="card bg-dark shadow text-white m-3">
-                                <img src="/assets/images/{{categorie.image}}" class="card-img img-category" alt="...">
-                                <div class="card-img-overlay">
-                                    <a href="/quizz/category?id={{categorie.id}}">
-                                        <h1 class="card-title">{{categorie.name}}</h1>
-                                    </a>
-                                    <a href="/quizz/category?id={{categorie.id}}" class="btn btn-primary stretched-link opacity-0"></a>
-                                </div>
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
+		</div>
+		<div class="row">
+			<div class="col-xl-8 offset-xl-2">
+				<div class="row justify-content-center">
+					{% for categorie in categories %}
+						<div class="col-xs-10 col-lg-6">
+							<div class="card bg-dark shadow text-white m-3">
+								<img src="/assets/images/{{categorie.image}}" class="card-img img-category" alt="...">
+								<div class="card-img-overlay">
+									<a href="/quizz/category?id={{categorie.id}}">
+										<h1 class="card-title">{{categorie.name}}</h1>
+									</a>
+									<a href="/quizz/category?id={{categorie.id}}" class="btn btn-primary stretched-link opacity-0"></a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		</div>
 	</div>
 {% endblock %}

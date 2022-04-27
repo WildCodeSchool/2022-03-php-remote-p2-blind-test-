@@ -100,7 +100,13 @@ ADD CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category (
 --
 
 INSERT INTO `track` (`id`, `name`, `date`, `path`, `category_id`) VALUES
-(1, 'Nyan Cat', 2011, 'nyan-cat.mp3', 4);
-(2, '')
+(1, 'Nyan Cat', 2011, 'nyan-cat.mp3', 4),
+(2, 'allwegot', 2000, '1.mp3', 4),
+(3, 'allwegot2', 2000, '2.mp3', 4),
+(4, 'allwegot3', 2000, '3.mp3', 4),
+(5, 'allwegot4', 2000, '4.mp3', 4),
+(6, 'allwegot5', 2000, '5.mp3', 4),
+(7, 'allwegot6', 2000, '6.mp3', 4),
+(8, 'allwegot7', 2000, '7.mp3', 4);
 -- Structure de la table `user`
 --
