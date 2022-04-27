@@ -17,6 +17,7 @@ h1.card-title {
 .quizz-pic {
     width: 150px;
     height: 100px;
+
     border-radius: 20px;
     box-shadow: rgb(50, 19, 66) 0px 10px 30px -10px;
     filter: opacity(65%);
@@ -48,6 +49,8 @@ h1.card-title {
 
 
 .category .card {
+    max-width: 450px;
+    max-height: 300px;
     border-radius: 20px;
     overflow: hidden;
     border-style: none;
