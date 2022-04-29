@@ -89,6 +89,7 @@ h1.card-title {
     text-align: center;
     cursor: pointer;
     box-shadow: rgb(50, 19, 66) 0px 10px 30px -10px;
+
 }
 
 .category input.button-valid:hover,
@@ -99,7 +100,7 @@ input.button-valid:active {
 
 
 .h1-category{
-    font-size: clamp(5vw, 3rem, 10vw);
+    font-size: clamp(5vw, 2rem, 10vw);
 }
 
 .button-valid, .pass, .btn-lancer{
@@ -110,15 +111,15 @@ input.button-valid:active {
     color: var(--bs-secondary);
     background-color: var(--bs-primary);
     border: solid  var(--bs-primary);
-    box-shadow: 0px 5px 20px black;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 
 }
 
-.button-valid{
+.button-valid, .btn-lancer{
     height: 70px;
 }
 
-.pass, .btn-lancer{
+.pass{
     text-decoration: none;
     list-style: none;
     padding: .5rem;
@@ -153,11 +154,11 @@ input.button-valid:active {
 /* Animation du compte à rebours */
 .time{
     position:absolute;
-    top: 20%;
+    top: 45%;
     animation: time 1s infinite;
 }
 
 @keyframes time {
-    0%   {font-size: 0rem;}
-    100% {font-size: 32rem;}
+    0%   {font-size: 0vh;}
+    100% {font-size: 40vh;}
   }

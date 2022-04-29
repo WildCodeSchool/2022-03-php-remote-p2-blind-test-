@@ -25,5 +25,10 @@ abstract class AbstractController
             ]
         );
         $this->twig->addExtension(new DebugExtension());
+        if (!empty($_POST['user_id'])) {
+            $_SESSION['user_id'] = $_POST['user_id']; /* array_map('trim', $_POST); */
+        }
+        $name = $_SESSION['user_id'] ?? null;
+        $this->twig->addGlobal('user', $name);
     }
 }
