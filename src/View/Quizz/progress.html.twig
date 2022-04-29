@@ -1,12 +1,13 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-    <div class="h-75 d-flex flex-column justify-content-evenly align-items-center">
-    {% for track in tracks|slice(0,1) %}
-        <audio src="/uploads/tracks/{{track.path}}" class="audio"></audio>
-    {% endfor %}
-        <h2 class="rebours text-center" id="count-down-timer"></h2>
-        <form action="" method="POST" id="form-quiz" class="invisible container-fluid d-flex flex-column justify-content-evenly align-items-center h-50">
+    <div class="h-75 mt-5 d-flex flex-column justify-content-evenly align-items-center">
+
+        {% for track in tracks|slice(0,1) %}
+            <audio src="/uploads/tracks/{{track.path}}" class="audio" autoplay></audio>
+        {% endfor %}
+
+        <form action="" method="POST" id="form-quiz" class="container-fluid d-flex flex-column justify-content-evenly align-items-center h-50 mt-5">
             <h2 class="mt-5">Devine le titre du morceau :</h2>
             {{track.name}}
 
@@ -18,5 +19,4 @@
         </form>
     </div>
 {% endblock %}
-{% block javascript %}<script src="/assets/js/script.js"></script>{% endblock %}
 

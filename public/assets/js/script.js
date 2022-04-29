@@ -1,5 +1,9 @@
 const formQuiz = document.getElementById('form-quiz');
 const audio = document.querySelector('audio');
+const lancer = document.querySelector('.btn-lancer');
+
+let chemin = window.location.href;
+let id = chemin. split("?");
 let time_seconds = 3;
 
 // Fonction qui gère le compte à rebours
@@ -16,27 +20,37 @@ function startCountDown(duration, element) {
         secondsRemaining = secondsRemaining - 1;
 
         // Si le compte à rebours < 0 alors ont cache le compte à rebours, ont affiche le formulaire et on lance la musique
+        // if (secondsRemaining < 0) {
+        //     clearInterval(countInterval);
+        //     element.classList.toggle("time");
+        //     element.classList.toggle("invisible");
+        //     formQuiz.classList.toggle("invisible");
+        //     audio.play();
+        // };
         if (secondsRemaining < 0) {
             clearInterval(countInterval);
-            element.classList.toggle("time");
-            element.classList.toggle("invisible");
-            formQuiz.classList.toggle("invisible");
-            audio.play();};
+            document.location.href= "/quizz/progress?"+ id[1];
+        };
     }, 1000);
 }
 
 // Affichage du compte à rebours dans le DOM
+// window.onload = function () {
+//     element = document.querySelector('#count-down-timer');
+//     element.textContent = time_seconds;
+//     startCountDown(--time_seconds, element);
+//     element.classList.toggle("time");
+// };
+
 window.onload = function () {
     element = document.querySelector('#count-down-timer');
     element.textContent = time_seconds;
-    startCountDown(--time_seconds, element);
-    element.classList.toggle("time");
+    lancer.addEventListener("click", function () {
+        lancer.classList.toggle("invisible");
+        startCountDown(--time_seconds, element);
+        element.classList.toggle("invisible");
+        element.classList.toggle("time");
+    });
 };
 
 // Ont cache le bouton, on rend le compte à rebours visible et on lance l'animation au click du bouton.
-// play.addEventListener("click", function (event) {
-//     play.classList.toggle("invisible");
-//     element.classList.toggle("invisible");
-//     element.classList.toggle("time");
-
-// });

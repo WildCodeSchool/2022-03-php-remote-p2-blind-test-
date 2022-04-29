@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-	<div class="container ">
+	<div class="container mt-5">
 		<div class="row justify-content-center text-center">
 			<div class="col-xs-4">
 				<img class="quizz-pic" src="/assets/images/{{categories.image}}" alt="image de la {{categories.name}}">
@@ -14,10 +14,11 @@
         Catégorie
         {{categories.name}}
     </h1>
-
-    <a href="/quizz/progress?id={{categories.id}}" class="btn-lancer text-center col-6 col-md-3 mt-1 " >Lancer la partie</a>
+    <h2 class="rebours text-center invisible" id="count-down-timer"></h2>
+    {# <a href="/quizz/progress?id={{categories.id}}" class="btn-lancer text-center col-6 col-md-3 mt-1 " >Lancer la partie</a> #}
+    <button class="btn-lancer col-6 col-md-3 mt-1">Lancer la partie</button>
 </div>
 {% endblock %}
-
+{% block javascript %}<script src="/assets/js/script.js"></script>{% endblock %}
 
 
