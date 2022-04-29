@@ -12,7 +12,7 @@ return [
     'category' => ['CategoryController', 'index',],
     'quizz' => ['CategoryController', 'index',],
     'quizz/category' => ['QuizzController', 'category', ['id'],],
-    'quizzProgress' => ['QuizzController', 'progess',],
+    'quizz/progress' => ['QuizzController', 'progess', ['id'],],
     'items' => ['ItemController', 'index',],
     'dashboard' => ['DashboardController', 'index',],
     'dashboard/add' => ['DashboardController', 'add',],

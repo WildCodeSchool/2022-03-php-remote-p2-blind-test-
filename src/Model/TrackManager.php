@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+use App\Model\AbstractManager;
+
 class TrackManager extends AbstractManager
 {
     public const TABLE = 'track';

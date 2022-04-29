@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Model\DashboardManager;
+use App\Model\ItemManager;
+use Symfony\Component\Console\Helper\Dumper;
 
 class DashboardController extends ItemController
 {

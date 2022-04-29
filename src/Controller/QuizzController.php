@@ -30,8 +30,29 @@ class QuizzController extends AbstractController
         ]);
     }
 
-    public function progess()
+    public function progess($id)
     {
-        return $this->twig->render('Quizz/quizzProgress.html.twig');
+        if (empty($_POST)) {
+            $trackManager = new TrackManager();
+            $_SESSION['tracks'] = $trackManager->selectPathRand($id);
+            $_SESSION['replay'] = [];
+        }
+
+        if (isset($_POST['pass']) && !empty($_SESSION['tracks'])) {
+                array_unshift($_SESSION['replay'], array_shift($_SESSION['tracks']));
+        }
+
+        if (isset($_POST['validate']) && !empty($_SESSION['tracks'])) {
+            $_SESSION['validate'] = array_shift($_SESSION['tracks']);
+        }
+
+        if (empty($_SESSION['tracks'])) {
+            $_SESSION['tracks'] = $_SESSION['replay'];
+            $_SESSION['replay'] = [];
+        }
+
+        return $this->twig->render('Quizz/progress.html.twig', [
+            'tracks' => $_SESSION['tracks']
+        ]);
     }
 }
