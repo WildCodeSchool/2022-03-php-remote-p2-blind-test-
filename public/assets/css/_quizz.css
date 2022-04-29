@@ -154,11 +154,11 @@ input.button-valid:active {
 /* Animation du compte à rebours */
 .time{
     position:absolute;
-    top: 30%;
+    top: 45%;
     animation: time 1s infinite;
 }
 
 @keyframes time {
-    0%   {font-size: 0rem;}
-    100% {font-size: 30rem;}
+    0%   {font-size: 0vh;}
+    100% {font-size: 40vh;}
   }

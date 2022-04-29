@@ -28,6 +28,7 @@ function startCountDown(duration, element) {
         //     audio.play();
         // };
         if (secondsRemaining < 0) {
+            element.classList.toggle("invisible");
             clearInterval(countInterval);
             document.location.href= "/quizz/progress?"+ id[1];
         };
