@@ -27,6 +27,11 @@ SET time_zone = "+00:00";
 
 -- --------------------------------------------------------
 
+--
+-- Structure de la table `track`
+--
+
+--
 
 
 /* PENSER A FAIRE UN INSERT POUR LA TABLE category */
@@ -77,15 +82,11 @@ INSERT INTO `user` (`id`, `nickname`) VALUES
 -- Structure de la table `user`
 --
 
- -- --------------------------------------------------------
 
---
--- Structure de la table `track`
---
 CREATE TABLE `track` (
     `id` int NOT NULL AUTO_INCREMENT,
-    `name` varchar(80) NOT NULL,
-    `date` YEAR,
+    `title` varchar(80) NOT NULL,
+    `artist` varchar(80) NOT NULL,
     `path` varchar(255) NOT NULL,
     `category_id` INT NOT NULL,
     PRIMARY KEY(`id`)
@@ -99,14 +100,9 @@ ADD CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category (
 -- Contenu de la table `track`
 --
 
-INSERT INTO `track` (`id`, `name`, `date`, `path`, `category_id`) VALUES
-(1, 'Nyan Cat', 2011, 'nyan-cat.mp3', 4),
-(2, 'allwegot', 2000, '1.mp3', 4),
-(3, 'allwegot2', 2000, '2.mp3', 4),
-(4, 'allwegot3', 2000, '3.mp3', 4),
-(5, 'allwegot4', 2000, '4.mp3', 4),
-(6, 'allwegot5', 2000, '5.mp3', 4),
-(7, 'allwegot6', 2000, '6.mp3', 4),
-(8, 'allwegot7', 2000, '7.mp3', 4);
+INSERT INTO `track` (`id`, `title`,`artist`, `date`, `path`, `category_id`) VALUES
+(1, 'Nyan Cat', 'random', 2011, 'nyan-cat.mp3', 4);
+
+INSERT INTO `track` (`id`, `title`,`artist`, `date`, `path`, `category_id`) VALUES
+(2, 'Call Me ', 'Blondie', 1980, 'Call-Me.mp3', 3);
 -- Structure de la table `user`
---

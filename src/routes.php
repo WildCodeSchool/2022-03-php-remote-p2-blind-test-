@@ -15,6 +15,8 @@ return [
     'quizz/progress' => ['QuizzController', 'progess', ['id'],],
     'items' => ['ItemController', 'index',],
     'dashboard' => ['DashboardController', 'index',],
+    'dashboard/add' => ['DashboardController', 'add',],
+    'dashboard/show' => ['DashboardController','show', ['id']],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
