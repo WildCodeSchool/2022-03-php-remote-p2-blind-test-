@@ -87,7 +87,6 @@ CREATE TABLE `track` (
     `id` int NOT NULL AUTO_INCREMENT,
     `title` varchar(80) NOT NULL,
     `artist` varchar(80) NOT NULL,
-    `date` YEAR,
     `path` varchar(255) NOT NULL,
     `category_id` INT NOT NULL,
     PRIMARY KEY(`id`)
@@ -103,4 +102,7 @@ ADD CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category (
 
 INSERT INTO `track` (`id`, `title`,`artist`, `date`, `path`, `category_id`) VALUES
 (1, 'Nyan Cat', 'random', 2011, 'nyan-cat.mp3', 4);
+
+INSERT INTO `track` (`id`, `title`,`artist`, `date`, `path`, `category_id`) VALUES
+(2, 'Call Me ', 'Blondie', 1980, 'Call-Me.mp3', 3);
 -- Structure de la table `user`
