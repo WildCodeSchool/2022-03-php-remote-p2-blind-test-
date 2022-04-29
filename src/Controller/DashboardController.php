@@ -57,9 +57,7 @@ class DashboardController extends ItemController
             if (empty($errors)) {
                 $dashboardManager = new DashboardManager();
                 $item['path'] = $fileName;
-                $id = $dashboardManager->insert($item);
-
-
+                $dashboardManager->insert($item);
                 header('Location: /dashboard');
                 return null;
             }
