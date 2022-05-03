@@ -1,5 +1,3 @@
-const formQuiz = document.getElementById('form-quiz');
-const audio = document.querySelector('audio');
 const lancer = document.querySelector('.btn-lancer');
 
 let chemin = window.location.href;
@@ -18,31 +16,15 @@ function startCountDown(duration, element) {
         element.textContent = sec;
        // On décrémente le compte à rebours
         secondsRemaining = secondsRemaining - 1;
-
-        // Si le compte à rebours < 0 alors ont cache le compte à rebours, ont affiche le formulaire et on lance la musique
-        // if (secondsRemaining < 0) {
-        //     clearInterval(countInterval);
-        //     element.classList.toggle("time");
-        //     element.classList.toggle("invisible");
-        //     formQuiz.classList.toggle("invisible");
-        //     audio.play();
-        // };
         if (secondsRemaining < 0) {
             element.classList.toggle("invisible");
             clearInterval(countInterval);
-            document.location.href= "/quizz/progress?"+ id[1];
+            document.location.href= "/quizz/start?"+ id[1];
         };
     }, 1000);
 }
 
-// Affichage du compte à rebours dans le DOM
-// window.onload = function () {
-//     element = document.querySelector('#count-down-timer');
-//     element.textContent = time_seconds;
-//     startCountDown(--time_seconds, element);
-//     element.classList.toggle("time");
-// };
-
+// Ont cache le bouton, on rend le compte à rebours visible et on lance l'animation au click du bouton.
 window.onload = function () {
     element = document.querySelector('#count-down-timer');
     element.textContent = time_seconds;
@@ -53,5 +35,3 @@ window.onload = function () {
         element.classList.toggle("time");
     });
 };
-
-// Ont cache le bouton, on rend le compte à rebours visible et on lance l'animation au click du bouton.

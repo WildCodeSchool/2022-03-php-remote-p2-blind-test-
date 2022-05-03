@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+date_default_timezone_set("Europe/Paris");
 // Get the required route (without query string) and remove trailing slashes
 $route = trim(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?? '', '/');
 
