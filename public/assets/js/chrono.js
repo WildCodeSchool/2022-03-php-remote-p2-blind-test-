@@ -17,7 +17,7 @@ const updateChrono = function(seconds) {
     const counter = document.getElementById("counter");
     if (counter) {
         counter.innerText = seconds > 0 ?
-            new Date(seconds * 1000).toISOString().substr(11, 8)  : '';
+            new Date(seconds * 1000).toISOString().substr(14, 5)  : '';
     }
 
 }

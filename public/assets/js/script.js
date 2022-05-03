@@ -19,7 +19,6 @@ function startCountDown(duration, element) {
         if (secondsRemaining < 0) {
             element.classList.toggle("invisible");
             clearInterval(countInterval);
-            // document.cookie = 'quizz=start';
             document.location.href= "/quizz/start?"+ id[1];
         };
     }, 1000);
