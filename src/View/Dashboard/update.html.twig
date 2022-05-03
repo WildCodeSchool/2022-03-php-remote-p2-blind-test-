@@ -1,40 +1,13 @@
-{% extends "layout.html.twig" %}
+{% extends 'layout.html.twig' %}
 
 {% block content %}
-	<div class="container">
-		<div class="text-dashboard text-center">
-			<h2 class="text-dashboard text-white">Liste des morceaux</h2>
-		</div>
-		<table class="table" cellspacing="0" cellpadding="0">
-			<thead>
-				<tr class="tr-form">
-					<th>Titres</th>
-					<th>Artistes</th>
-					<th>Catégories</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
-			<tbody>
-				{% for track in tracks %}
-
-					<tr class="tr-form">
-						<td>{{track.title}}</td>
-						<td>{{track.artist}}</td>
-						<td>{{track.name}}</td>
-						<td>
-							<a href="/dashboard/update?id={{track.id}}">Modifier</a>
-						</td>
-					{% endfor %}
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
+    <h1>Track : {{ tracks.title }}</h1>
+    <p>{{ track.id }}. {{ track.artist }}</p>
 
 	<div class="container">
 		<div class="row">
 			<div class="col-12 form-dashboard">
-				<form action="/dashboard/add" method="post" enctype="multipart/form-data" class="d-flex justify-content-center align-items-center form-dashboard">
+				<form action="/dashboard/update" method="post" enctype="multipart/form-data" class="d-flex justify-content-center align-items-center form-dashboard">
 					<div>
 						<input class="mb-2 form-control" type="file" name="path" accept="audio/mp3"/></div>
 					<div class="div-btn mb-2">
@@ -58,10 +31,10 @@
 		</div>
 	</div>
 
-	{% if errors %}
-		{% for error in errors %}
-			<li>{{error}}</li>
-		{% endfor %}
-	{% endif %}
-
+    <a href="/dashboard/edit?id={{ track.id }}">Edit</a>
+    <form action="/dashboard/delete" method="POST">
+        <input type="hidden" name="id" value="{{ item.id }}">
+        <button>Delete</button>
+    </form>
+    <a href="/dashboard">Back</a>
 {% endblock %}

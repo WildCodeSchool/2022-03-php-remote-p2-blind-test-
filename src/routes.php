@@ -17,6 +17,8 @@ return [
     'dashboard' => ['DashboardController', 'index',],
     'dashboard/add' => ['DashboardController', 'add',],
     'dashboard/show' => ['DashboardController','show', ['id']],
+    'dashboard/update' => ['DashboardController', 'update', ['id']],
+    'dashboard/delete' => ['DashboardController', 'delete', ['id']],
     'items/edit' => ['ItemController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
