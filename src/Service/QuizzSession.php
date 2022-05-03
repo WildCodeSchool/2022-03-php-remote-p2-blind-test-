@@ -95,12 +95,12 @@ class QuizzSession
 
     public function getValidate(): array
     {
-        return $this->tracks;
+        return $this->validate;
     }
 
-    public function setValidate($tracks): void
+    public function setValidate($validate): void
     {
-        $this->tracks = $tracks;
+        $this->validate = $validate;
     }
 
     public function trackMoveToReplay(): void

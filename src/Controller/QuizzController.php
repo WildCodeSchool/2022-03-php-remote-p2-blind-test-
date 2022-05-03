@@ -61,6 +61,7 @@ class QuizzController extends AbstractController
                 $_SESSION['quizz_session']->setTracks($_SESSION['quizz_session']->getReplay());
                 $_SESSION['quizz_session']->emptyTheArrayReplay();
             }
+            var_dump($_SESSION['quizz_session']->getValidate());
             return $this->twig->render('Quizz/progress.html.twig', [
                 'tracks' => $_SESSION['quizz_session']->getTracks()
             ]);
