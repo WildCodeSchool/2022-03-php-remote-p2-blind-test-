@@ -30,5 +30,7 @@ abstract class AbstractController
         }
         $name = $_SESSION['user_id'] ?? null;
         $this->twig->addGlobal('user', $name);
+        $this->twig->addGlobal('cookies', $_COOKIE);
+        $this->twig->addGlobal('session', $_SESSION);
     }
 }

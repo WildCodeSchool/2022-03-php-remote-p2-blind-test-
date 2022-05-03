@@ -82,6 +82,19 @@ INSERT INTO `user` (`id`, `nickname`) VALUES
 -- Structure de la table `user`
 --
 
+--
+-- supprime la table quizz_session si elle existe
+DROP TABLE IF EXISTS `quizz_session`;
+
+-- Structure de la table `quizz_session`
+--
+CREATE TABLE `quizz_session` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `startedAt` datetime DEFAULT NULL,
+    `endedAt` datetime DEFAULT NULL,
+    PRIMARY KEY(`id`)
+    ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 CREATE TABLE `track` (
     `id` int NOT NULL AUTO_INCREMENT,
@@ -106,3 +119,5 @@ INSERT INTO `track` (`id`, `title`,`artist`, `date`, `path`, `category_id`) VALU
 INSERT INTO `track` (`id`, `title`,`artist`, `date`, `path`, `category_id`) VALUES
 (2, 'Call Me ', 'Blondie', 1980, 'Call-Me.mp3', 3);
 -- Structure de la table `user`
+
+
