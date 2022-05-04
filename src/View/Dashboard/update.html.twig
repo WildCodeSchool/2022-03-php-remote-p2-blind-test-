@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1> Track : {{ track.title }} by {{ track.artist }} </h1>
+    <h1 class='text-center'> 🎶 {{ track.artist }} - {{ track.title }} 🎶 </h1>
 	<div class="container">
 		<div class="row">
 			<div class="col-12 form-dashboard">
@@ -13,5 +13,7 @@
 			</div>
 		</div>
 	</div>
-    <a href="/dashboard">Back</a>
+    <div class="text-center">
+        <a href="/dashboard" class="mt-auto btn btn-outline-danger btn-sm">Revenir sur le tableau de bord</a>
+    </div>
 {% endblock %}

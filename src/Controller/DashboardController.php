@@ -72,7 +72,6 @@ class DashboardController extends AbstractController
         $trackManager = new TrackManager();
         $track = $trackManager->selectOneById($id);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
             // clean $_POST data
             $track = array_map('trim', $_POST);
 
@@ -93,7 +92,7 @@ class DashboardController extends AbstractController
      * Delete a specific item
      */
     public function delete($id): void
-{
+    {
         $id = trim($id);
         $trackManager = new TrackManager();
         $trackManager->delete((int)$id);
