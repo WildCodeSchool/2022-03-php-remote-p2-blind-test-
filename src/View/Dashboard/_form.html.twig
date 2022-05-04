@@ -1,0 +1,22 @@
+<form action="{{action}}" method="post" enctype="multipart/form-data" class="d-flex justify-content-center align-items-center form-dashboard">
+    <div>
+        <input class="mb-2 form-control" type="file" name="path" accept="audio/mp3"/>
+    </div>
+    <div class="div-btn mb-2">
+        <input type="hidden" name="id" value="{{track.id}}">
+        <label for="title"></label>
+        <input class="placehorder" type="text" id="title" name="title" placeholder="Titre" value="{{track.title}}">
+        <label for="artist"></label>
+        <input class="placehorder" type="text" id="artist" name="artist" placeholder="Artiste" value="{{track.artist}}">
+        <label for="category"></label>
+        <select name="category" id="category" class="btn-category btn btn-tertiary">
+            <option value="">Choisissez la catégorie</option>
+            <option value="1" {{ track.category_id == 1 ? 'selected'}}>Rap</option>
+            <option value="2" {{ track.category_id == 2 ? 'selected'}}>Pop</option>
+            <option value="3" {{ track.category_id == 3 ? 'selected'}}>Années 80</option>
+            <option value="4" {{ track.category_id == 4 ? 'selected'}}>Meme</option>
+        </select>
+    </div>
+
+    <button type="submit" class="btn mb-2 mb-md-0 btn-tertiary btn-block button-enregistrer text-uppercase">{{button|default('ajouter')}}</button>
+</form>

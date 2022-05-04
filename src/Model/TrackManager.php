@@ -45,11 +45,12 @@ class TrackManager extends AbstractManager
     public function update(array $track): bool
     {
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE .
-        " SET `title`=:title, `path`=:path, `category_id`=:category_id  WHERE `id`=:id");
-        $statement->bindValue('id', $track['id'], \PDO::PARAM_INT);
-        $statement->bindValue('title', $track['title'], \PDO::PARAM_STR);
+        " SET `title`=:title,`artist`=:artist, `path`=:path, `category_id`=:category_id  WHERE `id`=:id");
+        $statement->bindValue(':id', $track['id'], \PDO::PARAM_INT);
+        $statement->bindValue(':title', $track['title'], \PDO::PARAM_STR);
         $statement->bindValue(':path', $track['path'], \PDO::PARAM_STR);
         $statement->bindValue(':category_id', $track['category'], \PDO::PARAM_INT);
+        $statement->bindValue(':artist', $track['artist'], \PDO::PARAM_STR);
 
         return $statement->execute();
     }
