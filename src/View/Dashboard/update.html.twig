@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Track : {{ tracks.title }}</h1>
+    <p>{{ track.id }}. {{ track.artist }}</p>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-12 form-dashboard">
+				<form action="/dashboard/update" method="post" enctype="multipart/form-data" class="d-flex justify-content-center align-items-center form-dashboard">
+					<div>
+						<input class="mb-2 form-control" type="file" name="path" accept="audio/mp3"/></div>
+					<div class="div-btn mb-2">
+						<label for="title"></label>
+						<input class="placehorder" type="text" id="title" name="title" placeholder="Titre">
+						<label for="artist"></label>
+						<input class="placehorder" type="text" id="artist" name="artist" placeholder="Artiste">
+						<label for="category"></label>
+						<select name="category" id="category" class="btn-category btn btn-tertiary">
+							<option value="">Choisissez la catégorie</option>
+							<option value="1">Rap</option>
+							<option value="2">Pop</option>
+							<option value="3">Années 80</option>
+							<option value="4">Meme</option>
+						</select>
+					</div>
+
+					<button type="submit" class="btn mb-2 mb-md-0 btn-tertiary btn-block button-enregistrer">ENREGISTRER</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+    <a href="/dashboard/edit?id={{ track.id }}">Edit</a>
+    <form action="/dashboard/delete" method="POST">
+        <input type="hidden" name="id" value="{{ item.id }}">
+        <button>Delete</button>
+    </form>
+    <a href="/dashboard">Back</a>
+{% endblock %}
