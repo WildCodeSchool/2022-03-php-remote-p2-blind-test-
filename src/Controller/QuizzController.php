@@ -68,4 +68,9 @@ class QuizzController extends AbstractController
             return $this->twig->render('Home/index.html.twig');
         }
     }
+
+    public function result()
+    {
+        return $this->twig->render('Quizz/result.html.twig');
+    }
 }
