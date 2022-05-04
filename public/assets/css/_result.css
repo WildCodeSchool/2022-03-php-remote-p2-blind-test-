@@ -1,3 +1,22 @@
+.rank .btn.btn-tertiary {
+    font-family: 'Anek Tamil', sans-serif;
+    width: 8rem;
+}
+
+@media screen and (min-width: 576px) {
+    .rank .row .end {
+        display: flex;
+        justify-content: end;
+    }
+
+    .rank .row .start {
+        display: flex;
+        justify-content: start;
+    }
+
+}
+
+
 .center {
     display: flex;
     flex-direction: column;
@@ -5,16 +24,19 @@
     align-items: center;
     z-index: 10;
     font-family: 'Anek Tamil', sans-serif;
+    color: var(--bs-dark);
+
 }
 
 .top3 {
+    margin-top: 4rem;
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    color: #4B4168;
+    color: var(--bs-dark);
 }
 
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 576px) {
     .top3 {
         flex-direction: column;
     }
@@ -22,12 +44,18 @@
     .top3 .item.one {
         order: -1;
     }
+
+    .list .item:nth-child(2n+1) {
+        background: var(--bs-primary-opacity);
+    }
+
+
 }
 
 .top3 .item {
     box-sizing: border-box;
     position: relative;
-    background: var(--bs-secondary);
+    background: var(--bs-secondary-opacity);
     width: 9rem;
     height: 10rem;
     text-align: center;
@@ -62,18 +90,16 @@
     font-size: 1.1rem;
 }
 
-.top3 .item .score {
-    opacity: 0.5;
-}
+
 
 .top3 .item .score:after {
     display: block;
     content: "points";
-    opacity: 0.5;
+    opacity: 0.7;
 }
 
 .top3 .item.one {
-    background-color: var(--bs-primary);
+    background-color: var(--bs-primary-opacity);
     width: 10rem;
     height: 11rem;
     padding-top: 3.5rem;
@@ -100,6 +126,7 @@
     display: flex;
     align-items: center;
     height: 3rem;
+    background: var(--bs-secondary-opacity);
     border-radius: 4rem;
     margin-bottom: 2rem;
     transform-origin: left;
@@ -109,9 +136,7 @@
 }
 
 .list .item:nth-child(2n) {
-    background: var(--bs-primary);
-    opacity: 0.5;
-
+    background: var(--bs-primary-opacity);
 }
 
 .list .item .pos {
@@ -143,8 +168,7 @@
 }
 
 .list .item .score {
-    margin-right: 1.5rem;
-    opacity: 0.5;
+    margin-right: .5rem;
 }
 
 .list .item .score:after {
@@ -159,4 +183,16 @@
 
 .list .item:hover .pos {
     opacity: 0.8;
+}
+
+#myBtn {
+    background-color: var(--bs-secondary-opacity);
+    font-family: Anek Tamil;
+    font-size: larger;
+    color: var(--bs-dark);
+    border: none;
+}
+
+#more {
+    display: none;
 }

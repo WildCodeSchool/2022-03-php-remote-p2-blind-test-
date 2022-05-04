@@ -17,8 +17,9 @@ font-family: 'Monoton', cursive; */
     --bs-gradient: url(https://cdn.discordapp.com/attachments/963093723124748368/964186826283839549/noise.png ), radial-gradient(ellipse at center, #5f9ece 0, #5f9ece 24%, #724589 100%);
     --bs-gradient-2: url(https://cdn.discordapp.com/attachments/963093723124748368/964186826283839549/noise.png ), #5f9ece;
     --bs-primary: #2FE6AE;
-    --bs-primary-opacity: RGBA(47, 230, 174, 0.5);
+    --bs-primary-opacity: RGBA(47, 230, 174, 0.6);
     --bs-secondary: #FFFFF0;
+    --bs-secondary-opacity: RGBA(255, 255, 240, 0.2);
     --bs-dark: #0C2044;
     --bs-dark-opacity: RGBA(12, 32, 68, 0.61);
 }

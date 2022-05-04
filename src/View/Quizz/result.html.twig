@@ -2,12 +2,21 @@
 
 {% block content %}
 
-
+	<div class="rank text-center mt-5">
+		<div class='row'>
+			<div class="col-xs-1 col-sm-6 end">
+				<button class='btn mb-2  btn-tertiary btn-block'>All time</button>
+			</div>
+			<div class="col-xs-1 col-sm-6 start">
+				<button class='btn mb-2  btn-tertiary btn-block'>Last 30 days</button>
+			</div>
+		</div>
+	</div>
 	<div class="center">
 		<div class="top3">
 			<div class="two item">
 				<div class="pos">
-					2
+					🥈
 				</div>
 				<div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/44.jpg&#39;)"></div>
 				<div class="name">
@@ -19,7 +28,7 @@
 			</div>
 			<div class="one item">
 				<div class="pos">
-					1
+					🥇
 				</div>
 				<div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/31.jpg&#39;)"></div>
 				<div class="name">
@@ -31,7 +40,7 @@
 			</div>
 			<div class="three item">
 				<div class="pos">
-					3
+					🥉
 				</div>
 				<div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/91.jpg&#39;)"></div>
 				<div class="name">
@@ -67,67 +76,78 @@
 					5978
 				</div>
 			</div>
-			<div class="item">
-				<div class="pos">
-					6
+			<span id="more">
+				<div class="item">
+					<div class="pos">
+						6
+					</div>
+					<div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/85.jpg&#39;)"></div>
+					<div class="name">
+						Gabriella Steward
+					</div>
+					<div class="score">
+						5845
+					</div>
 				</div>
-				<div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/85.jpg&#39;)"></div>
-				<div class="name">
-					Gabriella Steward
+				<div class="item">
+					<div class="pos">
+						7
+					</div>
+					<div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/39.jpg&#39;)"></div>
+					<div class="name">
+						Nina Perkins
+					</div>
+					<div class="score">
+						5799
+					</div>
 				</div>
-				<div class="score">
-					5845
+				<div class="item">
+					<div class="pos">
+						8
+					</div>
+					<div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/77.jpg&#39;)"></div>
+					<div class="name">
+						Dennis Henry
+					</div>
+					<div class="score">
+						5756
+					</div>
 				</div>
-			</div>
-			<div class="item">
-				<div class="pos">
-					7
+				<div class="item">
+					<div class="pos">
+						9
+					</div>
+					<div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/49.jpg&#39;)"></div>
+					<div class="name">
+						Courtney Fuller
+					</div>
+					<div class="score">
+						5713
+					</div>
 				</div>
-				<div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/39.jpg&#39;)"></div>
-				<div class="name">
-					Nina Perkins
+				<div class="item">
+					<div class="pos">
+						10
+					</div>
+					<div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/30.jpg&#39;)"></div>
+					<div class="name">
+						Joan Wood
+					</div>
+					<div class="score">
+						5674
+					</div>
 				</div>
-				<div class="score">
-					5799
-				</div>
-			</div>
-			<div class="item">
-				<div class="pos">
-					8
-				</div>
-				<div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/men/77.jpg&#39;)"></div>
-				<div class="name">
-					Dennis Henry
-				</div>
-				<div class="score">
-					5756
-				</div>
-			</div>
-			<div class="item">
-				<div class="pos">
-					9
-				</div>
-				<div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/49.jpg&#39;)"></div>
-				<div class="name">
-					Courtney Fuller
-				</div>
-				<div class="score">
-					5713
-				</div>
-			</div>
-			<div class="item">
-				<div class="pos">
-					10
-				</div>
-				<div class="pic" style="background-image: url(&#39;https://randomuser.me/api/portraits/women/30.jpg&#39;)"></div>
-				<div class="name">
-					Joan Wood
-				</div>
-				<div class="score">
-					5674
-				</div>
-			</div>
+			</span>
 		</div>
 	</div>
+	<div class="text-center">
 
+		<button class='btn mb-2 btn-secondary' onclick="myFunction()" id="myBtn">Full Ranking</button>
+	</div>
+
+
+{% endblock %}
+
+{% block javascript %}
+	<script src="/assets/js/readmore.js"></script>
 {% endblock %}
