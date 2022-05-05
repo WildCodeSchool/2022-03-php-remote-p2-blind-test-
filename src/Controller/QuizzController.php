@@ -54,14 +54,13 @@ class QuizzController extends AbstractController
             }
 
             if (isset($_POST['validate']) && !empty($_SESSION['quizz_session']->getTracks())) {
-                $_SESSION['quizz_session']->moveToValidate();
+                $_SESSION['quizz_session']->answerCheck($_POST['answer']);
             }
 
             if (empty($_SESSION['quizz_session']->getTracks())) {
                 $_SESSION['quizz_session']->setTracks($_SESSION['quizz_session']->getReplay());
                 $_SESSION['quizz_session']->emptyTheArrayReplay();
             }
-            var_dump($_SESSION['quizz_session']->getValidate());
             return $this->twig->render('Quizz/progress.html.twig', [
                 'tracks' => $_SESSION['quizz_session']->getTracks()
             ]);

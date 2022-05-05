@@ -10,7 +10,7 @@ class TrackManager extends AbstractManager
 
     public function selectPathRand(int $id): array|false
     {
-        $statement = $this->pdo->prepare("SELECT id, path FROM " . static::TABLE .
+        $statement = $this->pdo->prepare("SELECT id, title, path FROM " . static::TABLE .
             " WHERE category_id=:id ORDER BY RAND()");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();

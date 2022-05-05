@@ -96,6 +96,7 @@ CREATE TABLE `quizz_session` (
     PRIMARY KEY(`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- Structure de la table `track`
 DROP TABLE IF EXISTS `track`;
 
 CREATE TABLE `track` (
@@ -107,6 +108,7 @@ CREATE TABLE `track` (
     PRIMARY KEY(`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- Structure de la table `play`
 DROP TABLE IF EXISTS `play`;
 
 CREATE TABLE `play` (
@@ -116,6 +118,7 @@ CREATE TABLE `play` (
     PRIMARY KEY(`id`)
 );
 
+-- Structure de la table `answer`
 DROP TABLE IF EXISTS `answer`;
 
 CREATE TABLE `answer` (
@@ -135,22 +138,32 @@ CREATE TABLE `answer` (
 
 INSERT INTO `track` (`title`,`artist`, `path`, `category_id`) VALUES
     ('Nyan Cat', 'random', 'nyan-cat.mp3', 4),
-    ('Call Me', 'Blondie', 'Call-Me.mp3', 2),
     ('24kGoldn Mood', 'Iann Dior', '24kGoldn_Mood_iann_dior.mp3', 2),
     ('All We Got', 'Robin Schulz', 'All_We_Got.mp3', 2),
     ('Courage_To_Change', 'Sia', 'Courage_To_Change.mp3', 2),
-    ('Del Mar ', 'Ozuna & Sia', 'Del_Mar.mp3', 2),
+    ('Del Mar', 'Ozuna & Sia', 'Del_Mar.mp3', 2),
     ('Driver license', 'Olivia Rodrigo', 'drivers_license.mp3', 2),
     ('Je Veux Chanter Pour Ceux', 'Lââm', 'Je_veux_chanter_pour_ceux.mp3', 2),
     ('Love Not War', 'Jason Derulo', 'Love_Not_War.mp3', 2),
     ('Rather Be You', 'Tom Gregory', 'Rather_Be_You.mp3', 2);
 
+--
+-- Contenu de la table `answer`
+--
+INSERT INTO `answer` (`title`, `is_correct`, `track_id`) VALUES
+     ('Nyan Cat', true, 1),
+     ('24kGoldn Mood', true, 2),
+     ('All We Got', true, 3),
+     ('Courage_To_Change', true, 4),
+     ('Del Mar', true, 5),
+     ('Driver license', true, 6),
+     ('Je Veux Chanter Pour Ceux', true, 7),
+     ('Love Not War', true, 8),
+     ('Rather Be You', true, 9);
 
-
--- Structure de la table `user`
 
 --
--- Foreign Key Constrait pour les tables :
+-- Foreign Key Constraint pour les tables :
 --
 
 ALTER TABLE `play`
