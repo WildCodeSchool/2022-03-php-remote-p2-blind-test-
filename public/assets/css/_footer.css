@@ -1,0 +1,19 @@
+.footer {
+    display: flex;
+}
+
+p {
+    padding: .4rem;
+    font-size: 12px;
+    font-family: 'anektamil-regular';
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+a:hover {
+    color: #2FE6AE;
+}

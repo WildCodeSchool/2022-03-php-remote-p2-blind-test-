@@ -1,0 +1,53 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+	<div class="container">
+		<div class="text-dashboard text-center">
+			<h2 class="text-dashboard text-white">Liste des morceaux</h2>
+		</div>
+		<table class="table table-hover table-striped" cellspacing="0" cellpadding="0">
+			<thead class="table-light">
+				<tr class="tr-form">
+					<th>Titres</th>
+					<th>Artistes</th>
+					<th>Catégories</th>
+					<th>Actions</th>
+                    <th>Supprimer</th>
+
+				</tr>
+			</thead>
+			<tbody>
+				{% for track in tracks %}
+
+					<tr class="tr-form">
+						<td>{{track.title}}</td>
+						<td>{{track.artist}}</td>
+						<td>{{track.name}}</td>
+						<td>
+							<a href="/dashboard/update?id={{track.id}}">🔎</a>
+						</td>
+						<td>
+							<a href="/dashboard/delete?id={{track.id}}">❌</a>
+						</td>
+					{% endfor %}
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-12 form-dashboard">
+				{% include 'Dashboard/_form.html.twig' with {'action': '/dashboard/add'} %}
+			</div>
+		</div>
+	</div>
+
+	{% if errors %}
+		{% for error in errors %}
+			<li>{{error}}</li>
+		{% endfor %}
+	{% endif %}
+
+{% endblock %}

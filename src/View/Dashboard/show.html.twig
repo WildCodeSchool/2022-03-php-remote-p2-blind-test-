@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Track : {{ track.title }} by {{ track.artist }} </h1>
+    <a href="/dashboard/update?id={{ track.id }}">Edit</a>
+    <form action="/dashboard/delete" method="POST">
+        <input type="hidden" name="id" value="{{ item.id }}">
+        <button>Delete</button>
+    </form>
+    <a href="/dashboard">Back</a>
+{% endblock %}
