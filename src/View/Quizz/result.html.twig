@@ -2,6 +2,17 @@
 
 {% block content %}
 
+	<h2>Bien joué
+		{{user}}
+		tu as
+		{{session.quizz_session.correct|length}}
+		bonnes réponses :
+	</h2>
+	{% for track in session.quizz_session.correct %}
+		{{track[1]~' /'}}
+
+	{% endfor %}
+
 	<div class="rank text-center mt-5">
 		<div class='row'>
 			<div class="col-xs-1 col-sm-6 end">
@@ -144,10 +155,7 @@
 
 		<button class='btn mb-2 btn-secondary' onclick="myFunction()" id="myBtn">Full Ranking</button>
 	</div>
-
-
 {% endblock %}
-
 {% block javascript %}
 	<script src="/assets/js/readmore.js"></script>
 {% endblock %}

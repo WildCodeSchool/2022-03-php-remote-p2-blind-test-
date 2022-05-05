@@ -2,15 +2,15 @@
 
 namespace App\Controller;
 
-use App\Model\DashboardManager;
 use App\Model\ItemManager;
-use Symfony\Component\Console\Helper\Dumper;
+use App\Model\TrackManager;
+use App\Model\DashboardManager;
 
-class DashboardController extends ItemController
+class DashboardController extends AbstractController
 {
     public function index(): string
     {
-        $tracksManager = new DashboardManager();
+        $tracksManager = new TrackManager();
         $tracks = $tracksManager->selectAll('title');
 
         return $this->twig->render('Dashboard/dashboard.html.twig', ['tracks' => $tracks]);
@@ -21,7 +21,7 @@ class DashboardController extends ItemController
      */
     public function show(int $id): string
     {
-        $trackManager = new DashboardManager();
+        $trackManager = new TrackManager();
         $track = $trackManager->selectOneById($id);
 
         return $this->twig->render('Dashboard/show.html.twig', ['track' => $track]);
@@ -57,13 +57,46 @@ class DashboardController extends ItemController
                 move_uploaded_file($_FILES['path']['tmp_name'], $uploadFile);
             }
             if (empty($errors)) {
-                $dashboardManager = new DashboardManager();
+                $trackManager = new TrackManager();
                 $item['path'] = $fileName;
-                $dashboardManager->insert($item);
+                $trackManager->insert($item);
                 header('Location: /dashboard');
                 return null;
             }
         }
         return $this->twig->render('Dashboard/dashboard.html.twig', ['errors' => $errors]);
+    }
+
+    public function update(int $id)
+    {
+        $trackManager = new TrackManager();
+        $track = $trackManager->selectOneById($id);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // clean $_POST data
+            $track = array_map('trim', $_POST);
+
+            if (!empty($_FILES['path']['name'])) {
+                $fileName =  basename($_FILES['path']['name']);
+                $uploadFile = __DIR__ . '/../../public/uploads/tracks/' . $fileName;
+                move_uploaded_file($_FILES['path']['tmp_name'], $uploadFile);
+                $track['path'] = $fileName;
+            }
+            $trackManager->update($track);
+            header('Location:/dashboard');
+            return null;
+        }
+        return $this->twig->render('Dashboard/update.html.twig', ['track' => $track]);
+    }
+
+    /**
+     * Delete a specific item
+     */
+    public function delete($id): void
+    {
+        $id = trim($id);
+        $trackManager = new TrackManager();
+        $trackManager->delete((int)$id);
+
+        header('Location:/dashboard');
     }
 }

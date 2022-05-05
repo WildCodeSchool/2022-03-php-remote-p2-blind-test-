@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1 class='text-center'> 🎶 {{ track.artist }} - {{ track.title }} 🎶 </h1>
+	<div class="container">
+		<div class="row">
+			<div class="col-12 form-dashboard">
+				{% include 'Dashboard/_form.html.twig' with {
+					'action': '/dashboard/update?id=' ~ track.id,
+					'button': 'modifier'
+					} %}
+
+			</div>
+		</div>
+	</div>
+    <div class="text-center">
+        <a href="/dashboard" class="mt-auto btn btn-outline-danger btn-sm">Revenir sur le tableau de bord</a>
+    </div>
+{% endblock %}
