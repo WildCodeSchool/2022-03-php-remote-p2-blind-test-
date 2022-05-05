@@ -45,27 +45,15 @@ body {
     margin-left: 5px;
     /* Voir si c'est ok pour espacer le boutton des champs */
     color: #fff;
-<<<<<<< HEAD
-    background: #2FE6AE;
-    border-color: #2FE6AE;
+    background: #0C2044;
+    border-color: #0C2044;
 }
 
 .btn.btn-tertiary:hover,
 .btn.btn-tertiary:focus {
-    border-color: #0C2044 !important;
-    background: #0C2044 !important;
-}
-=======
-    background: #0C2044;
-    border-color: #0C2044;
-  }
-
-  .btn.btn-tertiary:hover,
-  .btn.btn-tertiary:focus {
     border-color: #2FE6AE !important;
     background: #2FE6AE !important;
-  }
->>>>>>> 209993b5d48a1acdd4a767d1f69b50cfaaf5bee0
+}
 
 .btn.btn-tertiary.btn-link {
     color: #2FE6AE;
@@ -81,4 +69,12 @@ body {
     /* J'ai agrandi le champs texte */
     color: #0C2044;
     height: 38px;
+}
+
+p {
+    padding: .4rem;
+    font-size: 14px;
+    font-family: 'Anek Tamil', sans-serif;
+    color: var(--bs-secondary);
+
 }

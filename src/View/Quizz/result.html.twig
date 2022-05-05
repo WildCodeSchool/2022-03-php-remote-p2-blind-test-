@@ -2,16 +2,22 @@
 
 {% block content %}
 
-	<h2>Bien joué
+	<h2 class='mt-5 mx-auto text-center'>Bien joué
 		{{user}}
 		tu as
 		{{session.quizz_session.correct|length}}
 		bonnes réponses :
 	</h2>
-	{% for track in session.quizz_session.correct %}
-		{{track[1]~' /'}}
+	<p class='text-center'>
 
-	{% endfor %}
+		{% for track in session.quizz_session.correct %}
+			|
+			{{track[1]}}
+			|
+		{% endfor %}
+
+
+	</p>
 
 	<div class="rank text-center mt-5">
 		<div class='row'>
