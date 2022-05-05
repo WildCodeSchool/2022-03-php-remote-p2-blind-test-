@@ -42,6 +42,7 @@ SET time_zone = "+00:00";
 --
 -- Structure de la table `category`
 --
+DROP TABLE IF EXISTS `category`;
 
 CREATE TABLE `category` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -64,7 +65,7 @@ INSERT INTO `category` (`id`, `name`, `image`) VALUES
 
 --
 -- Structure de la table `user`
---
+DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -95,6 +96,8 @@ CREATE TABLE `quizz_session` (
     PRIMARY KEY(`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- Structure de la table `track`
+DROP TABLE IF EXISTS `track`;
 
 CREATE TABLE `track` (
     `id` int NOT NULL AUTO_INCREMENT,
@@ -104,20 +107,70 @@ CREATE TABLE `track` (
     `category_id` INT NOT NULL,
     PRIMARY KEY(`id`)
     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
---
--- Foreign Key Constrait pour la table track :
---
-ALTER TABLE `track`
-ADD CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category (id);
+
+-- Structure de la table `play`
+DROP TABLE IF EXISTS `play`;
+
+CREATE TABLE `play` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `quizz_session_id` int NOT NULL,
+    `answer_id` int NOT NULL,
+    PRIMARY KEY(`id`)
+);
+
+-- Structure de la table `answer`
+DROP TABLE IF EXISTS `answer`;
+
+CREATE TABLE `answer` (
+    `id` int NOT NULL AUTO_INCREMENT,
+    `title` varchar(150) NOT NULL,
+    `is_correct` BOOL NOT NULL,
+    `track_id` int NOT NULL,
+    PRIMARY KEY(`id`),
+    CONSTRAINT fk_answer_track
+    FOREIGN KEY (track_id)
+    REFERENCES track(id)
+);
+
 --
 -- Contenu de la table `track`
 --
 
-INSERT INTO `track` (`id`, `title`,`artist`, `date`, `path`, `category_id`) VALUES
-(1, 'Nyan Cat', 'random', 2011, 'nyan-cat.mp3', 4);
+INSERT INTO `track` (`title`,`artist`, `path`, `category_id`) VALUES
+    ('Nyan Cat', 'random', 'nyan-cat.mp3', 4),
+    ('24kGoldn Mood', 'Iann Dior', '24kGoldn_Mood_iann_dior.mp3', 2),
+    ('All We Got', 'Robin Schulz', 'All_We_Got.mp3', 2),
+    ('Courage_To_Change', 'Sia', 'Courage_To_Change.mp3', 2),
+    ('Del Mar', 'Ozuna & Sia', 'Del_Mar.mp3', 2),
+    ('Driver license', 'Olivia Rodrigo', 'drivers_license.mp3', 2),
+    ('Je Veux Chanter Pour Ceux', 'Lââm', 'Je_veux_chanter_pour_ceux.mp3', 2),
+    ('Love Not War', 'Jason Derulo', 'Love_Not_War.mp3', 2),
+    ('Rather Be You', 'Tom Gregory', 'Rather_Be_You.mp3', 2);
 
-INSERT INTO `track` (`id`, `title`,`artist`, `date`, `path`, `category_id`) VALUES
-(2, 'Call Me ', 'Blondie', 1980, 'Call-Me.mp3', 3);
--- Structure de la table `user`
+--
+-- Contenu de la table `answer`
+--
+INSERT INTO `answer` (`title`, `is_correct`, `track_id`) VALUES
+     ('Nyan Cat', true, 1),
+     ('24kGoldn Mood', true, 2),
+     ('All We Got', true, 3),
+     ('Courage_To_Change', true, 4),
+     ('Del Mar', true, 5),
+     ('Driver license', true, 6),
+     ('Je Veux Chanter Pour Ceux', true, 7),
+     ('Love Not War', true, 8),
+     ('Rather Be You', true, 9);
 
 
+--
+-- Foreign Key Constraint pour les tables :
+--
+
+ALTER TABLE `play`
+ADD CONSTRAINT fk_play_answer FOREIGN KEY (answer_id) REFERENCES answer (id);
+
+ALTER TABLE `play`
+ADD CONSTRAINT fk_play_quizz_session FOREIGN KEY (quizz_session_id) REFERENCES quizz_session (id);
+
+ALTER TABLE `track`
+ADD CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category (id);
