@@ -69,6 +69,8 @@ DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `nickname` varchar(80) NOT NULL,
   `image` varchar(255),
   PRIMARY KEY(`id`)
@@ -78,8 +80,8 @@ CREATE TABLE `user` (
 -- Contenu de la table `user`
 --
 
-INSERT INTO `user` (`id`, `nickname`) VALUES
-(1, 'Trombone');
+INSERT INTO `user` (`nickname`, `email`, `password`) VALUES
+('Trombone', 'melissa.callejon@yahoo.fr', 'motdepasse');
 -- Structure de la table `user`
 --
 

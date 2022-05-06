@@ -4,6 +4,7 @@
 @import './_about_us.css';
 @import './_quizz.css';
 @import './_index.css';
+@import './_login.css';
 
 
 @import url('https://fonts.googleapis.com/css2?family=Anek+Tamil:wght@100;400;700&family=Archivo+Black&family=Monoton&display=swap');
@@ -37,14 +38,14 @@ body {
     width: 12.4rem; /* J'ai augmenter la taille du boutton pour qu'il soit identiques aux champs */
     margin-left: 5px; /* Voir si c'est ok pour espacer le boutton des champs */
     color: #fff;
-    background: #0C2044;
-    border-color: #0C2044;
+    background-color: #2FE6AE;
+    color: #0C2044;
   }
 
   .btn.btn-tertiary:hover,
   .btn.btn-tertiary:focus {
-    border-color: #2FE6AE !important;
-    background: #2FE6AE !important;
+    color: #fff;
+    background-color: #0C2044;
   }
 
   .btn.btn-tertiary.btn-link {
