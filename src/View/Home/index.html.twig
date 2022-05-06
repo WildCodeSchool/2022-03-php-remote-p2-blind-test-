@@ -1,16 +1,13 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-                <!-- Button trigger modal -->
-
-<div class="show-modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="show-modal d-none z-index-3 position-absolute top-50 start-50 translate-middle" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <div class="modal-content clearfix">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            <button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close"><span
                     aria-hidden="true">×</span></button>
             <div class="modal-body">
                 <h3 class="title">Connecte-toi</h3>
-                {# <a class="btn mb-2 mb-md-0 btn-tertiary btn-block" href="#">Facebook</a> #}
                 <div class="form-group">
                     <span class="input-icon"><i class="fa fa-user"></i></span>
                     <input type="email" class="form-control" placeholder="Ton adresse email*">
@@ -20,7 +17,7 @@
                     <input type="password" class="form-control" placeholder="Ton mot de passe*">
                 </div>
                 <div class="forgot-pass d-flex justify-content-between">
-                    <a href="">M'inscrire</a>
+                    <a href="">S'inscrire</a>
                     <a href="">Mot de passe oublié?</a>
                 </div>
                 <button class="btn">Connexion</button>
@@ -35,7 +32,7 @@
 
 
 <div class="index container d-flex flex-column justify-content-center align-items-center">
-    <h1 class="text-center text-light mb-5 fs-1">Participe au blind test<br>
+    <h1 class="text-center text-light mb-5 fs-1" id="h1">Participe au blind test<br>
         et tente de battre le record</h1>
     <div class="row">
         <div class="col-12 d-flex flex-column align-items-center">
@@ -69,3 +66,4 @@
 
 
 {% endblock %}
+{% block javascript %}<script src="/assets/js/popup.js"></script>{% endblock %}

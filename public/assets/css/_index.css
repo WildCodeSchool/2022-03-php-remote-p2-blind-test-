@@ -19,6 +19,19 @@ h2 {
 
 /* PAGE DE CONNEXION - POPUP */
 
+.animation-modal {
+    animation: all slideTop 2s;
+}
+
+@keyframes slideTop {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(50%);
+    }
+}
+
 /*  */
 .modal-dialog{
     width: 400px;
