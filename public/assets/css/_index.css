@@ -20,15 +20,16 @@ h2 {
 /* PAGE DE CONNEXION - POPUP */
 
 .animation-modal {
-    animation: all slideTop 2s;
+    top: 28%;
+    animation: slideTop 2s;
 }
 
 @keyframes slideTop {
     0% {
-        transform: translateY(-100%);
+        transform: translateY(-200%);
     }
     100% {
-        transform: translateY(50%);
+        transform: translateY(0%);
     }
 }
 

@@ -3,10 +3,13 @@ const modal = document.getElementById("myModal");
 const close = document.getElementById('close');
 const h1 = document.getElementById('h1');
 
+function invisibleH1() {
+    h1.classList.add('d-none');
+}
+
 function myGreeting() {
     modal.classList.remove('d-none');
-    modal.classList.add('animation-modal');
-    h1.classList.add('d-none');
+    setTimeout(invisibleH1, 1000);
   }
 
   close.addEventListener('click', () => {
