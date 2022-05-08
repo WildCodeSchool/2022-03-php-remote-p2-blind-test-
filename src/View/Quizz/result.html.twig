@@ -2,11 +2,22 @@
 
 {% block content %}
 
-	<h2 class='mt-5 mx-auto text-center'>Bien joué
-		{{user}}
-		tu as
-		{{session.quizz_session.correct|length}}
-		bonnes réponses :
+	<h2 class='mt-5 mx-auto text-center'>
+		{% if session.quizz_session.correct and session.quizz_session.correct|length > 1 %}
+			Bien joué
+			{{user}}
+			tu as
+			{{session.quizz_session.correct|length}}
+			bonnes réponses :
+		{% elseif session.quizz_session.correct|length == 1 %}
+			Pas mal tu as
+			{{session.quizz_session.correct|length}}
+			bonne réponse :
+		{% else %}
+			Dommage aucune bonne réponse, retente ta chance.
+		{% endif %}
+
+
 	</h2>
 	<p class='text-center'>
 
