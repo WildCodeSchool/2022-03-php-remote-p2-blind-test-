@@ -35,7 +35,7 @@ abstract class AbstractController
                 $errors['user'] = "Pseudo déjà utilisé";
             } else {
                 $_SESSION['user_id'] = $_POST['user_id'];
-                $userManager->insert($_SESSION['user_id']);
+                $userManager->add($_SESSION['user_id']);
             }
         }
         $name = $_SESSION['user_id'] ?? null;
