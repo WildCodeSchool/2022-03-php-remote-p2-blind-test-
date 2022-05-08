@@ -38,4 +38,15 @@ class QuizzManager extends AbstractManager
 
         return $statement->fetchObject(QuizzSession::class);
     }
+
+    public function selectAll(string $orderBy = '', string $direction = 'DESC'): array
+    {
+        $query = 'SELECT q.score, u.nickname as pseudo, u.image  FROM ' . static::TABLE .
+            ' q JOIN user u ON u.id = q.user_id';
+        if ($orderBy) {
+            $query .= ' ORDER BY  ' . $orderBy . ' ' . $direction;
+        }
+
+        return $this->pdo->query($query)->fetchAll();
+    }
 }

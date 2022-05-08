@@ -1,32 +1,37 @@
 {# LOGO + NAVBURGER #}
 
 <div class="container-fluid test">
-    <div class="row">
-        <div class="col-6">
-            <a href="/" rel="Accueil">
-                <img src="/assets/images/logo.png" class="img-fluid logo" /></a>
-        </div>
+	<div class="row">
+		<div class="col-6">
+			<a href="/" rel="Accueil">
+				<img src="/assets/images/logo.png" class="img-fluid logo"/></a>
+		</div>
 
-        {% if session.quizz_session.isActive %}
-            <span class="text-center p-3 text-light fw-bold">
-                Time left:
-                <span id="counter"></span>
-            </span>
-        {% endif %}
-        <div class="col-6">
-            <input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon" />
-            <label for="menu-icon"></label>
-            <nav class="nav">
-                <ul class="pt-5">
-                    <li><a href="/" rel="Accueil">Accueil</a></li>
-                    <li><a href="/about_us">A propos</a></li>
-                    <li><a href="#">Classement</a></li>
-                    <li><a href="/dashboard">Tableau de bord</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+		{% if session.quizz_session.isActive %}
+			<span class="text-center p-3 text-light fw-bold">
+				Time left:
+				<span id="counter"></span>
+			</span>
+		{% endif %}
+		<div class="col-6">
+			<input class="menu-icon" type="checkbox" id="menu-icon" name="menu-icon"/>
+			<label for="menu-icon"></label>
+			<nav class="nav">
+				<ul class="pt-5">
+					<li>
+						<a href="/" rel="Accueil">Accueil</a>
+					</li>
+					<li>
+						<a href="/about_us">A propos</a>
+					</li>
+					<li>
+						<a href="/quizz/result">Classement</a>
+					</li>
+					<li>
+						<a href="/dashboard">Tableau de bord</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
 </div>
-
-
-

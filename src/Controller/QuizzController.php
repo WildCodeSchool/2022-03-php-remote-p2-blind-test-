@@ -80,10 +80,9 @@ class QuizzController extends AbstractController
         $score = count($_SESSION['quizz_session']->getCorrect());
         $quizzManager = new QuizzManager();
         $quizzManager->insertScore($score, $id);
-        $userManager = new UserManager();
-        $users = $userManager->selectAll();
+        $ranks = $quizzManager->selectAll('score');
         return $this->twig->render('/Quizz/result.html.twig', [
-            'users' => $users
+            'ranks' => $ranks
         ]);
     }
 }

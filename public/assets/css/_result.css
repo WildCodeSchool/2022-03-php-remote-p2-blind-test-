@@ -119,6 +119,8 @@
     padding-left: 3rem;
     padding-right: 3rem;
     margin: 0 auto;
+    justify-content: center;
+    display: contents;
 }
 
 .list .item {
@@ -133,6 +135,9 @@
     cursor: pointer;
     transition: transform 200ms ease-in-out;
     box-shadow: 0 0 4rem 0 rgba(0, 0, 0, 0.1), 0 1rem 2rem -1rem rgba(0, 0, 0, 0.3);
+    width: 70%;
+    max-width: 500px;
+    min-width: 250px;
 }
 
 .list .item:nth-child(2n) {

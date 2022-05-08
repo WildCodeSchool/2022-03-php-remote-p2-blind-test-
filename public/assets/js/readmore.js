@@ -4,7 +4,7 @@ function myFunction() {
 
     if (moreText.style.display === "none") {
       btnText.innerHTML = "Show less";
-      moreText.style.display = "inline";
+      moreText.style.display = "contents";
     } else {
 
       btnText.innerHTML = "Full Ranking";
