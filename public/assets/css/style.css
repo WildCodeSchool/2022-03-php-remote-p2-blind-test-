@@ -39,6 +39,7 @@ body {
 /* INDEX - BOUTTON FORM "M'ENREGISTRER" */
 
 .btn.btn-tertiary {
+    font-family: 'Anek Tamil', sans-serif;
     height: 38px;
     width: 12.4rem;
     /* J'ai augmenter la taille du boutton pour qu'il soit identiques aux champs */

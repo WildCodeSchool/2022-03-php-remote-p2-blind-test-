@@ -8,7 +8,7 @@
 -- Version de PHP :  7.0.22-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+SET GLOBAL time_zone = "+02:00";
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -69,8 +69,10 @@ DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `nickname` varchar(80) NOT NULL,
-  `image` varchar(255),
+  `image` varchar(255) DEFAULT 'perso.png',
   PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -78,8 +80,8 @@ CREATE TABLE `user` (
 -- Contenu de la table `user`
 --
 
-INSERT INTO `user` (`id`, `nickname`) VALUES
-(1, 'Trombone');
+INSERT INTO `user` (`nickname`, `email`, `password`) VALUES
+('Trombone', 'melissa.callejon@yahoo.fr', 'motdepasse');
 -- Structure de la table `user`
 --
 
@@ -93,7 +95,12 @@ CREATE TABLE `quizz_session` (
     `id` int NOT NULL AUTO_INCREMENT,
     `startedAt` datetime DEFAULT NULL,
     `endedAt` datetime DEFAULT NULL,
-    PRIMARY KEY(`id`)
+    `user_id` int NOT NULL,
+    `score` int DEFAULT 0,
+    PRIMARY KEY(`id`),
+    CONSTRAINT fk_quizz_session_user
+    FOREIGN KEY (user_id)
+    REFERENCES user (id)
     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Structure de la table `track`

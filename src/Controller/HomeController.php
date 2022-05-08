@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Model\UserManager;
+
 class HomeController extends AbstractController
 {
     /**
@@ -9,7 +11,6 @@ class HomeController extends AbstractController
      */
     public function index(): string
     {
-
         return $this->twig->render('Home/index.html.twig');
     }
 }

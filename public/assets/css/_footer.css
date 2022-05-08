@@ -1,13 +1,11 @@
 .footer {
     display: flex;
     font-family: 'Anek Tamil', sans-serif;
-    font-size: clamp(0.625rem, 0.3486rem + 1.2019vw, 1.25rem);
-
 }
 
 .foot>p {
     padding: .4rem;
-    font-size: clamp(0.625rem, 0.3486rem + 1.2019vw, 1.25rem);
+    font-size: clamp(0.625rem, 0.3486rem + 1.2019vw, 1rem);
     font-family: 'Anek Tamil', sans-serif;
     color: var(--bs-secondary-opacity);
 
