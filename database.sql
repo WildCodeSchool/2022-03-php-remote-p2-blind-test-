@@ -128,10 +128,7 @@ CREATE TABLE `answer` (
     `title` varchar(150) NOT NULL,
     `is_correct` BOOL NOT NULL,
     `track_id` int NOT NULL,
-    PRIMARY KEY(`id`),
-    CONSTRAINT fk_answer_track
-    FOREIGN KEY (track_id)
-    REFERENCES track(id)
+    PRIMARY KEY(`id`)
 );
 
 --
@@ -176,3 +173,6 @@ ADD CONSTRAINT fk_play_quizz_session FOREIGN KEY (quizz_session_id) REFERENCES q
 
 ALTER TABLE `track`
 ADD CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category (id);
+
+ALTER TABLE `answer`
+ADD CONSTRAINT fk_answer_track FOREIGN KEY (track_id) REFERENCES track (id) ON DELETE CASCADE;
