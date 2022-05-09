@@ -76,12 +76,6 @@ CREATE TABLE `user` (
   PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `user`
---
-
-INSERT INTO `user` (`nickname`, `email`, `password`) VALUES
-('Trombone', 'melissa.callejon@yahoo.fr', 'motdepasse');
 -- Structure de la table `user`
 --
 
