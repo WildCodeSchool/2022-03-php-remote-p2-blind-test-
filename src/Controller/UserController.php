@@ -48,7 +48,7 @@ class UserController extends AbstractController
                     $errors['password'] = "Entrez une combinaisons d'au moins six caractères";
                 }
                 if (empty($errors)) {
-                    $_SESSION['nickname'] = $_POST['nickname'];
+                    $_SESSION['user'] = $credentials;
                     $userManager->insert($credentials);
                     return $this->login();
                 }
@@ -57,5 +57,13 @@ class UserController extends AbstractController
         return $this->twig->render('User/register.html.twig', [
             'errors' => $errors
         ]);
+    }
+
+    public function logout()
+    {
+        // On supprime $_SESSION
+        unset($_SESSION['user']);
+        // puis on le redirige sur une autre page (page d'accueil ici)
+        header('Location: /');
     }
 }

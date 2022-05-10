@@ -7,27 +7,21 @@
 		<div class="modal-dialog" role="document">
 			<form method="post" class="modal-content clearfix">
 				<button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">×</span>
+                <span aria-hidden="true">×</span>
 				</button>
 				<div class="modal-body shadow ">
 					<h3 class="title">Connecte-toi</h3>
 					<div class="form-group">
-						<span class="input-icon">
-							<i class="fa fa-user"></i>
-						</span>
-						<input type="email" class="form-control" placeholder="Ton adresse email*">
+						<input type="email" class="form-control" name="email" placeholder="Ton adresse email*">
 					</div>
 					<div class="form-group">
-						<span class="input-icon">
-							<i class="fas fa-key"></i>
-						</span>
-						<input type="password" class="form-control" placeholder="Ton mot de passe*">
+						<input type="password" class="form-control" name="password" placeholder="Ton mot de passe*">
 					</div>
 					<div class="forgot-pass d-flex justify-content-between">
 						<a href="/register">S'inscrire</a>
 						<a href="">Mot de passe oublié?</a>
 					</div>
-					<button class="btn">Connexion</button>
+					<button type="submit" class="btn">Connexion</button>
 				</div>
 			</form>
 		</div>
@@ -42,7 +36,7 @@
 				{% if user %}
 					<p class="text-user-index">
 						Bienvenue
-						{{ session.nickname }}
+						{{ session.user.nickname }}
 					</p>
 				{% endif %}
 				<form action="/category" method="post">

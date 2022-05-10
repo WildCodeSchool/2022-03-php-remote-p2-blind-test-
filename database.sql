@@ -95,6 +95,7 @@ CREATE TABLE `quizz_session` (
     CONSTRAINT fk_quizz_session_user
     FOREIGN KEY (user_id)
     REFERENCES user (id)
+    ON DELETE CASCADE
     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Structure de la table `track`
