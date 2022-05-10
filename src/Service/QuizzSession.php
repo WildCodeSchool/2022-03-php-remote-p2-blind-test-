@@ -16,13 +16,17 @@ class QuizzSession
     private array $incorrect = [];
     private array $qcmAnswers = [];
 
-    // Création du cookie à l'instanciation de la classe
+    /**
+     * Création du cookie à l'instanciation de la classe
+     */
     public function __construct()
     {
         $this->setCookie();
     }
 
-    // La méthode qui crée le cookie
+    /**
+     * La méthode qui crée le cookie
+     */
     public function setCookie(): void
     {
         setcookie('endedAt', strval($this->getEndedAt()->getTimestamp()), [
@@ -124,15 +128,19 @@ class QuizzSession
 
     ///////////////////////////////// Méthode logique //////////////////////////////////////////////
 
-    /////////////// Vérifie si la session et toujours active ///////////////
+   /**
+    * Vérifie si la session et toujours active
+    */
     public function isActive(): bool
     {
         $currentTime = new DateTime();
         return $this->getEndedAt()->getTimestamp() - $currentTime->getTimestamp() > 0;
     }
 
-
-    /////////////// Vérifie la réponse du joueur en acceptant un certain niveau de faute d'orthographe ///////////////
+/**
+ * Vérifie la réponse du joueur en acceptant
+ * un certain niveau de faute d'orthographe
+ */
     public function answerCheck(string $userAnswer): void
     {
         // On récupère et on enlève la piste
@@ -156,7 +164,9 @@ class QuizzSession
         $this->setTracks($tracks);
     }
 
-    //////////////// Génère un tableau de réponse pour le level Easy (QCM) //////////////////////////////
+    /**
+     * Génère un tableau de réponse pour le level Easy (QCM)
+     */
     public function generateAnswerTable(): void
     {
         // On récupère les réponses qui ne sont pas égales au nom de la piste
@@ -179,8 +189,10 @@ class QuizzSession
         shuffle($this->qcmAnswers);
     }
 
-    /////////////// Si le bouton ['pass'] et cliquez, retire la piste qui vient ///////////////
-    /////////////// d'être joué et la place dans le tableau [replay] //////////////////////////
+    /**
+     * Si le bouton ['pass'] et cliquez, retire la piste qui vient
+     * d'être joué et la place dans le tableau [replay]
+     */
     public function trackMoveToReplay(): void
     {
         if (isset($_POST['pass']) && !empty($this->getTracks())) {
@@ -190,7 +202,9 @@ class QuizzSession
         }
     }
 
-    //////// Recharge le tableau [Tracks] avec le tableau [Replay] et vide celui-ci ///////////////
+    /**
+     * Recharge le tableau [Tracks] avec le tableau [Replay] et vide celui-ci
+     */
     private function reloadingTrackTable(): void
     {
         if (empty($this->getTracks())) {
@@ -199,7 +213,9 @@ class QuizzSession
         }
     }
 
-    //////////////// Logique du level Hard //////////////////////////////
+    /**
+     * Logique du level Hard
+     */
     public function levelHard(): void
     {
         $this->trackMoveToReplay();
@@ -210,7 +226,9 @@ class QuizzSession
         }
     }
 
-    /////////////// Logique du level Easy //////////////////////////////
+    /**
+     * Logique du level Easy
+     */
     public function levelEasy(): void
     {
         $this->trackMoveToReplay();

@@ -45,10 +45,3 @@ const chronometer = function (pageLoaded = true) {
 }
 
 chronometer();
-
-function validate() {
-    if (document.forms.form.validate[0].checked) alert('1');// permet de tester le choix 1
-    if (document.forms.form.validate[1].checked) alert('2');// permet de tester le choix 2
-    if (document.forms.form.validate[2].checked) alert('3');// permet de tester le choix 3
-    if (document.forms.form.validate[3].checked) alert('4');// permet de tester le choix 3
-}
