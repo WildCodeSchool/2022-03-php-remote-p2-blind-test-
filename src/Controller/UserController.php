@@ -38,7 +38,6 @@ class UserController extends AbstractController
                 $userManager = new UserManager();
                 $userByNickname = $userManager->selectOneByNickname($credentials['nickname']);
                 $userByEmail = $userManager->selectByEmail($credentials['email']);
-                //filter validate
                 if ($userByNickname) {
                     $errors['user'] = "Pseudo déjà utilisé";
                 }
@@ -58,9 +57,5 @@ class UserController extends AbstractController
         return $this->twig->render('User/register.html.twig', [
             'errors' => $errors
         ]);
-    }
-
-    public function logout()
-    {
     }
 }

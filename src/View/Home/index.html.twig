@@ -1,9 +1,8 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<pre>
-    {{ dump(session) }}
-</pre>
+{# Si l'utilisateur est connecté on cache la modal #}
+{% if user == false %}
 	<div class="animation-modal show-modal d-none z-index-3 position-absolute col-12" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<div class="modal-dialog" role="document">
 			<form method="post" class="modal-content clearfix">
@@ -25,7 +24,7 @@
 						<input type="password" class="form-control" placeholder="Ton mot de passe*">
 					</div>
 					<div class="forgot-pass d-flex justify-content-between">
-						<a href="">S'inscrire</a>
+						<a href="/register">S'inscrire</a>
 						<a href="">Mot de passe oublié?</a>
 					</div>
 					<button class="btn">Connexion</button>
@@ -33,7 +32,7 @@
 			</form>
 		</div>
 	</div>
-
+{% endif %}
 
 	<div class="index container d-flex flex-column justify-content-center align-items-center">
 		<h1 class="text-center text-light mb-5 fs-1" id="h1">Participe au blind test<br>
