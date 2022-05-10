@@ -45,14 +45,16 @@ body {
     width: 12.4rem;
     /* J'ai augmenter la taille du boutton pour qu'il soit identiques aux champs */
     margin-left: 5px;
-    /* Voir si c'est ok pour espacer le boutton des champs */
+    /*Voir si c'est ok pour espacer le boutton des champs*/
     color: #fff;
     background: #0C2044;
     border-color: #0C2044;
 }
 
 .btn.btn-tertiary:hover,
-.btn.btn-tertiary:focus {
+.btn-qcm:hover,
+.btn.btn-tertiary:focus,
+.btn-qcm:focus {
     border-color: #2FE6AE !important;
     background: #2FE6AE !important;
 }
@@ -79,4 +81,14 @@ p {
     font-family: 'Anek Tamil', sans-serif;
     color: var(--bs-secondary);
 
+}
+
+.btn.btn-qcm {
+    height: 10vh;
+    width: 12.4rem;
+    color: #fff;
+    background: #0C2044;
+    border-color: #0C2044;
+    vertical-align: middle;
+    padding-top: 3vh;
 }

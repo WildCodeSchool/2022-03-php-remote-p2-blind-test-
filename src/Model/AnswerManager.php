@@ -26,4 +26,14 @@ class AnswerManager extends AbstractManager
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }
+
+    public function selectByTitle(string $title): array
+    {
+        $statement = $this->pdo->prepare("SELECT title FROM " . self::TABLE .
+            " WHERE title != :title ORDER BY RAND()");
+        $statement->bindValue(':title', $title, \PDO::PARAM_STR);
+        $statement->execute();
+
+        return $statement->fetchAll();
+    }
 }
