@@ -1,0 +1,139 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+	<h2 class='mt-5 mx-auto text-center'>
+		{% if session.quizz_session.correct and session.quizz_session.correct|length > 1 %}
+			Bien joué
+			{{user}}
+			tu as
+			{{session.quizz_session.correct|length}}
+			bonnes réponses :
+		{% elseif session.quizz_session.correct|length == 1 %}
+			Pas mal tu as
+			{{session.quizz_session.correct|length}}
+			bonne réponse :
+		{% else %}
+			Dommage aucune bonne réponse, retente ta chance.
+		{% endif %}
+
+
+	</h2>
+	<p class='text-center'>
+
+		{% for track in session.quizz_session.correct %}
+			|
+			{{track[1]}}
+			|
+		{% endfor %}
+	</p>
+
+	<div class="rank text-center mt-5">
+		<div class='row'>
+			<div class="col-xs-1 col-sm-6 end">
+				<button class='btn mb-2  btn-tertiary btn-block'>All time</button>
+			</div>
+			<div class="col-xs-1 col-sm-6 start">
+				<button class='btn mb-2  btn-tertiary btn-block'>Last 30 days</button>
+			</div>
+		</div>
+	</div>
+	<div class="center">
+
+		<div class="top3">
+			{% for rank in ranks|slice(1,1) %}
+
+				<div class="two item">
+					<div class="pos">
+						🥈
+					</div>
+					<div class="pic" style="background-image: url('/assets/images/{{rank.image}}')"></div>
+					<div class="name">
+						{{rank.pseudo}}
+					</div>
+					<div class="score">
+						{{rank.score}}
+					</div>
+				</div>
+			{% endfor %}
+			{% for rank in ranks|slice(0,1) %}
+
+
+				<div class="one item">
+					<div class="pos">
+						🥇
+					</div>
+					<div class="pic" style="background-image: url('/assets/images/{{rank.image}}')"></div>
+					<div class="name">
+						{{rank.pseudo}}
+					</div>
+					<div class="score">
+						{{rank.score}}
+
+					</div>
+				</div>
+			{% endfor %}
+			{% for rank in ranks|slice(2,1) %}
+				<div class="three item">
+
+
+					<div class="pos">
+						🥉
+					</div>
+					<div class="pic" style="background-image: url('/assets/images/{{rank.image}}')"></div>
+					<div class="name">
+						{{rank.pseudo}}
+					</div>
+					<div class="score">
+						{{rank.score}}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="list">
+			{% set nb = 3 %}
+			{% for rank in ranks|slice(3,2) %}
+				{% set nb = nb + 1 %}
+				<div class="item">
+					<div class="pos">
+						{{nb}}
+					</div>
+					<div class="pic" style="background-image: url('/assets/images/{{rank.image}}')"></div>
+					<div class="name">
+						{{rank.pseudo}}
+					</div>
+					<div class="score">
+						{{rank.score}}
+					</div>
+				</div>
+
+			{% endfor %}
+			<span id="more">
+				{% set nb = 5 %}
+				{% for rank in ranks|slice(5) %}
+					{% set nb = nb + 1 %}
+					<div class="item">
+						<div class="pos">
+							{{nb}}
+						</div>
+						<div class="pic" style="background-image:  url('/assets/images/{{rank.image}}')"></div>
+						<div class="name">
+							{{rank.pseudo}}
+						</div>
+						<div class="score">
+							{{rank.score}}
+						</div>
+					</div>
+				{% endfor %}
+
+			</span>
+		</div>
+	</div>
+	<div class="text-center">
+
+		<button class='btn mb-2 btn-secondary' onclick="myFunction()" id="myBtn">Full Ranking</button>
+	</div>
+{% endblock %}
+{% block javascript %}
+	<script src="/assets/js/readmore.js"></script>
+{% endblock %}

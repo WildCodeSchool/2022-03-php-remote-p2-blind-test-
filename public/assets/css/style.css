@@ -4,6 +4,7 @@
 @import './_about_us.css';
 @import './_quizz.css';
 @import './_index.css';
+@import './_result.css';
 @import './_login.css';
 
 
@@ -15,9 +16,13 @@ font-family: 'Monoton', cursive; */
 
 :root {
     --bs-gradient: url(https://cdn.discordapp.com/attachments/963093723124748368/964186826283839549/noise.png ), radial-gradient(ellipse at center, #5f9ece 0, #5f9ece 24%, #724589 100%);
-    --bs-gradient-2: url(https://cdn.discordapp.com/attachments/963093723124748368/964186826283839549/noise.png ),  #5f9ece;
+    --bs-gradient-2: url(https://cdn.discordapp.com/attachments/963093723124748368/964186826283839549/noise.png ), #5f9ece;
     --bs-primary: #2FE6AE;
+    --bs-primary-opacity: RGBA(47, 230, 174, 0.6);
     --bs-secondary: #FFFFF0;
+    --bs-secondary-opacity: RGBA(255, 255, 240, 0.2);
+    --bs-dark: #0C2044;
+    --bs-dark-opacity: RGBA(12, 32, 68, 0.61);
 }
 
 body {
@@ -27,6 +32,7 @@ body {
     flex-direction: column;
 }
 
+
 .row {
     margin: 0;
 }
@@ -34,32 +40,43 @@ body {
 /* INDEX - BOUTTON FORM "M'ENREGISTRER" */
 
 .btn.btn-tertiary {
+    font-family: 'Anek Tamil', sans-serif;
     height: 38px;
-    width: 12.4rem; /* J'ai augmenter la taille du boutton pour qu'il soit identiques aux champs */
-    margin-left: 5px; /* Voir si c'est ok pour espacer le boutton des champs */
+    width: 12.4rem;
+    /* J'ai augmenter la taille du boutton pour qu'il soit identiques aux champs */
+    margin-left: 5px;
+    /* Voir si c'est ok pour espacer le boutton des champs */
     color: #fff;
     background: #0C2044;
     border-color: #0C2044;
-  }
+}
 
-  .btn.btn-tertiary:hover,
-  .btn.btn-tertiary:focus {
+.btn.btn-tertiary:hover,
+.btn.btn-tertiary:focus {
     border-color: #2FE6AE !important;
     background: #2FE6AE !important;
-  }
+}
 
-  .btn.btn-tertiary.btn-link {
+.btn.btn-tertiary.btn-link {
     color: #2FE6AE;
     background: transparent;
-  }
+}
 
-  .btn.btn-tertiary .icon i {
+.btn.btn-tertiary .icon i {
     color: #2FE6AE;
-  }
+}
 
-  .placehorder {
-    padding: 15px; /* J'ai agrandi le champs texte */
+.placehorder {
+    padding: 15px;
+    /* J'ai agrandi le champs texte */
     color: #0C2044;
     height: 38px;
-  }
+}
 
+p {
+    padding: .4rem;
+    font-size: 14px;
+    font-family: 'Anek Tamil', sans-serif;
+    color: var(--bs-secondary);
+
+}

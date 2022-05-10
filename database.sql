@@ -72,7 +72,7 @@ CREATE TABLE `user` (
   `email` VARCHAR(100) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
   `nickname` varchar(80) NOT NULL,
-  `image` varchar(255),
+  `image` varchar(255) DEFAULT 'perso.png',
   PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -89,7 +89,12 @@ CREATE TABLE `quizz_session` (
     `id` int NOT NULL AUTO_INCREMENT,
     `startedAt` datetime DEFAULT NULL,
     `endedAt` datetime DEFAULT NULL,
-    PRIMARY KEY(`id`)
+    `user_id` int NOT NULL,
+    `score` int DEFAULT 0,
+    PRIMARY KEY(`id`),
+    CONSTRAINT fk_quizz_session_user
+    FOREIGN KEY (user_id)
+    REFERENCES user (id)
     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Structure de la table `track`

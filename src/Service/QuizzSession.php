@@ -32,7 +32,7 @@ class QuizzSession
 
 
     // Les guetteurs et setteurs
-     /**
+    /**
      * @return int
      */
     public function getId(): int
