@@ -7,6 +7,7 @@ use App\Model\TrackManager;
 use App\Service\QuizzSession;
 use App\Model\CategoryManager;
 use App\Model\UserManager;
+use App\Service\User;
 
 class QuizzController extends AbstractController
 {
@@ -35,12 +36,12 @@ class QuizzController extends AbstractController
 
     public function start(int $categoryId, int $level)
     {
-        $user = $_SESSION['user_id'];
+        $user = $_SESSION['user']->getNickname();
         $_SESSION['level'] = $level;
         $quizzManager = new QuizzManager();
         $userManager = new UserManager();
         $userId =  $userManager->selectOneByNickname($user);
-        $id = $userId[0];
+        $id = $userId->getID();
         $quizzSession = $quizzManager->insert($id);
         $_SESSION['quizz_session'] = $quizzManager->selectSessionById($quizzSession);
         $trackManager = new TrackManager();

@@ -2,6 +2,8 @@
 
 namespace App\Model;
 
+use App\Service\User;
+
 class UserManager extends AbstractManager
 {
     public const TABLE = 'user';
@@ -18,22 +20,22 @@ class UserManager extends AbstractManager
         return (int)$this->pdo->lastInsertId();
     }
 
-    public function selectOneByNickname(string $nickname): array|false
+    public function selectOneByNickname(string $nickname): User|false
     {
         // prepared request
-        $statement = $this->pdo->prepare("SELECT id FROM " . static::TABLE . " WHERE nickname=:nickname");
+        $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE nickname=:nickname");
         $statement->bindValue(':nickname', $nickname, \PDO::PARAM_STR);
         $statement->execute();
 
-        return $statement->fetch(\PDO::FETCH_NUM);
+        return $statement->fetchObject(User::class);
     }
-    public function selectByEmail($email): string
+    public function selectByEmail(string $email): User|false
     {
         $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE email=:email");
         $statement->bindValue('email', $email, \PDO::PARAM_STR);
         $statement->execute();
 
-        return $statement->fetch();
+        return $statement->fetchObject(User::class);
     }
 
     public function insert(array $credentials): int
