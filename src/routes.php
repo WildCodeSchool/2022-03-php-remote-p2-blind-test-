@@ -16,6 +16,8 @@ return [
     'quizz/start' => ['QuizzController', 'start', ['id', 'level'],],
     'quizz/progress' => ['QuizzController', 'progess',],
     'quizz/result' => ['QuizzController', 'result'],
+    "quizz/lastSeven" =>  ['QuizzController', 'lastSeven'],
+    "quizz/pass" =>  ['QuizzController', 'pass'],
     'items' => ['ItemController', 'index',],
     'dashboard' => ['DashboardController', 'index',],
     'dashboard/add' => ['DashboardController', 'add',],

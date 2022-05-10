@@ -88,4 +88,19 @@ class QuizzController extends AbstractController
             ]);
         }
     }
+    public function lastSeven()
+    {
+        $quizzManager = new QuizzManager();
+        $ranks = $quizzManager->selectLastSeven('score');
+        return $this->twig->render('/Quizz/result.html.twig', [
+            'ranks' => $ranks
+        ]);
+    }
+
+    public function pass()
+    {
+        setcookie('endedAt', "", time());
+        unset($_COOKIE['endedAt']);
+        header("Location: /quizz/result");
+    }
 }
