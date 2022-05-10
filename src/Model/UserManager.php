@@ -27,7 +27,7 @@ class UserManager extends AbstractManager
 
         return $statement->fetch(\PDO::FETCH_NUM);
     }
-    public function selectByEmail($email): string
+    public function selectByEmail($email): array|false
     {
         $statement = $this->pdo->prepare("SELECT * FROM " . static::TABLE . " WHERE email=:email");
         $statement->bindValue('email', $email, \PDO::PARAM_STR);

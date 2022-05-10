@@ -1,11 +1,18 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-<div class="show-modal z-index-3 position-absolute top-50 start-50 translate-middle" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
         <form method="post" class="modal-content clearfix">
             <div class="modal-body">
                 <h3 class="title">Connecte-toi</h3>
+                {% if errors %}
+					<p class="error-register">Ces accès ne fonctionnent pas</p>
+					<ul>
+						{% for error in erros %}
+							<li>{{error}}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
                 <div class="form-group">
                     <span class="input-icon"><i class="fa fa-user"></i></span>
                     <input type="email" class="form-control" name="email" placeholder="Ton adresse email*">

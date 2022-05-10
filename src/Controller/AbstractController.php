@@ -26,7 +26,7 @@ abstract class AbstractController
             ]
         );
         $this->twig->addExtension(new DebugExtension());
-        $errors = [];
+       /*  $errors = [];
         if (!empty($_POST['user_id'])) {
             $credentials = $_POST;
             $userManager = new UserManager();
@@ -37,11 +37,11 @@ abstract class AbstractController
                 $_SESSION['user_id'] = $_POST['user_id'];
                 $userManager->add($_SESSION['user_id']);
             }
-        }
-        $name = $_SESSION['user_id'] ?? null;
-        $this->twig->addGlobal('user', $name);
+        } */
+        $user = $_SESSION['nickname'] ?? null;
+        $this->twig->addGlobal('user', $user);
         $this->twig->addGlobal('cookies', $_COOKIE);
         $this->twig->addGlobal('session', $_SESSION);
-        $this->twig->addGlobal('errors', $errors);
+        /* $this->twig->addGlobal('errors', $errors); */
     }
 }
