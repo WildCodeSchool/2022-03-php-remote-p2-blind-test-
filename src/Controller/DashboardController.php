@@ -95,6 +95,8 @@ class DashboardController extends AbstractController
     {
         $id = trim($id);
         $trackManager = new TrackManager();
+        $delete = $trackManager->selectOneById(intVal($id));
+        unlink(__DIR__ . '/../../public/uploads/tracks/' . $delete['path']);
         $trackManager->delete((int)$id);
 
         header('Location:/dashboard');

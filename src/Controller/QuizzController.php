@@ -32,8 +32,9 @@ class QuizzController extends AbstractController
         ]);
     }
 
-    public function start(int $categoryId)
+    public function start(int $categoryId, int $level)
     {
+        $_SESSION['level'] = $level;
         $quizzManager = new QuizzManager();
         $quizzSession = $quizzManager->insert();
         $_SESSION['quizz_session'] = $quizzManager->selectSessionById($quizzSession);
@@ -49,17 +50,10 @@ class QuizzController extends AbstractController
             && $_SESSION['quizz_session'] instanceof QuizzSession
             && $_SESSION['quizz_session']->isActive()
         ) {
-            if (isset($_POST['pass']) && !empty($_SESSION['quizz_session']->getTracks())) {
-                $_SESSION['quizz_session']->trackMoveToReplay();
-            }
-
-            if (isset($_POST['validate']) && !empty($_SESSION['quizz_session']->getTracks())) {
-                $_SESSION['quizz_session']->answerCheck($_POST['answer']);
-            }
-
-            if (empty($_SESSION['quizz_session']->getTracks())) {
-                $_SESSION['quizz_session']->setTracks($_SESSION['quizz_session']->getReplay());
-                $_SESSION['quizz_session']->emptyTheArrayReplay();
+            if ($_SESSION['level'] == 1) {
+                $_SESSION['quizz_session']->levelEasy();
+            } else {
+                $_SESSION['quizz_session']->levelHard();
             }
             return $this->twig->render('Quizz/progress.html.twig', [
                 'tracks' => $_SESSION['quizz_session']->getTracks()

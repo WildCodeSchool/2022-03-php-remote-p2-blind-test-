@@ -36,14 +36,14 @@ body {
 .btn.btn-tertiary {
     height: 38px;
     width: 12.4rem; /* J'ai augmenter la taille du boutton pour qu'il soit identiques aux champs */
-    margin-left: 5px; /* Voir si c'est ok pour espacer le boutton des champs */
+    margin-left: 5px; /*Voir si c'est ok pour espacer le boutton des champs*/
     color: #fff;
     background: #0C2044;
     border-color: #0C2044;
   }
 
-  .btn.btn-tertiary:hover,
-  .btn.btn-tertiary:focus {
+  .btn.btn-tertiary:hover, .btn-qcm:hover,
+  .btn.btn-tertiary:focus, .btn-qcm:focus{
     border-color: #2FE6AE !important;
     background: #2FE6AE !important;
   }
@@ -62,4 +62,15 @@ body {
     color: #0C2044;
     height: 38px;
   }
+
+  .btn.btn-qcm{
+    height: 10vh;
+    width: 12.4rem;
+    color: #fff;
+    background: #0C2044;
+    border-color: #0C2044;
+    vertical-align: middle;
+    padding-top: 3vh;
+  }
+
 
