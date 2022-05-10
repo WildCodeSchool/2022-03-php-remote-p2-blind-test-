@@ -45,7 +45,7 @@ class TrackManager extends AbstractManager
     public function update(array $track): bool
     {
         $query = "UPDATE " . self::TABLE .
-        "  SET `title`=:title,`artist`=:artist,`category_id`=:category_id";
+            "  SET `title`=:title,`artist`=:artist,`category_id`=:category_id";
 
         if (isset($track['path'])) {
             $query .= ", `path`=:path";

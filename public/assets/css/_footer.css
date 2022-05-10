@@ -1,17 +1,19 @@
 .footer {
     display: flex;
+    font-family: 'Anek Tamil', sans-serif;
 }
 
-p {
+.foot>p {
     padding: .4rem;
-    font-size: 12px;
-    font-family: 'anektamil-regular';
-    color: #fff;
+    font-size: clamp(0.625rem, 0.3486rem + 1.2019vw, 1rem);
+    font-family: 'Anek Tamil', sans-serif;
+    color: var(--bs-secondary-opacity);
+
 }
 
 a {
     text-decoration: none;
-    color: #fff;
+    color: var(--bs-secondary-opacity);
 }
 
 a:hover {

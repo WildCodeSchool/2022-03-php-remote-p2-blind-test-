@@ -2,7 +2,6 @@
 
 {% block content %}
     <div class="h-75 mt-5 d-flex flex-column justify-content-evenly align-items-center">
-
         {% if tracks|length > 0 %}
         <div class="boxContainer position-absolute">
             <div class="box box1"></div>
@@ -27,15 +26,17 @@
         <form action="" method="POST" name="form" id="form-quiz" class="container-fluid d-flex flex-column justify-content-evenly align-items-center h-100 mt-5">
             <h2 class="mt-5">Devine le titre du morceau :</h2>
 
-            {% if session.level == 1 %}
-                {% include "Quizz/_levelEasy.html.twig" %}
-            {% else %}
-                {% include "Quizz/_levelHard.html.twig" %}
-            {% endif %}
+			{% if session.level == 1 %}
+				{% include "Quizz/_levelEasy.html.twig" %}
+			{% else %}
+				{% include "Quizz/_levelHard.html.twig" %}
+			{% endif %}
 
-            <button class="btn ms-0 mt-2 mb-md-0 btn-tertiary btn-block col-6" type="submit" name="pass">PASSER</button>
+			<button class="btn ms-0 mt-2 mb-md-0 btn-tertiary btn-block col-6" type="submit" name="pass">PASSER</button>
 
-        </form>
-    </div>
+		</form>
+	</div>
 {% endblock %}
-{% block javascript %}<script src="/assets/js/chrono.js"></script>{% endblock %}
+{% block javascript %}
+    <script src="/assets/js/chrono.js"></script>
+{% endblock %}
