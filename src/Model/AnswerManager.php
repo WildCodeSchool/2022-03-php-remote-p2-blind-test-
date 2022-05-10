@@ -16,4 +16,14 @@ class AnswerManager extends AbstractManager
 
         return $statement->fetch();
     }
+
+    public function insert(array $answer, int $id): int
+    {
+        $statement = $this->pdo->prepare("INSERT INTO " . static::TABLE . " (title, `track_id`) VALUES (:answer, :id)");
+        $statement->bindValue(':answer', $answer['title']);
+        $statement->bindValue(':id', $id);
+
+        $statement->execute();
+        return (int)$this->pdo->lastInsertId();
+    }
 }

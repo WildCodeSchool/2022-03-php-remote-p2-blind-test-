@@ -131,7 +131,6 @@ DROP TABLE IF EXISTS `answer`;
 CREATE TABLE `answer` (
     `id` int NOT NULL AUTO_INCREMENT,
     `title` varchar(150) NOT NULL,
-    `is_correct` BOOL NOT NULL,
     `track_id` int NOT NULL,
     PRIMARY KEY(`id`),
     CONSTRAINT fk_answer_track
@@ -155,20 +154,6 @@ INSERT INTO `track` (`title`,`artist`, `path`, `category_id`) VALUES
     ('Rather Be You', 'Tom Gregory', 'Rather_Be_You.mp3', 2);
 
 --
--- Contenu de la table `answer`
---
-INSERT INTO `answer` (`title`, `is_correct`, `track_id`) VALUES
-     ('Nyan Cat', true, 1),
-     ('24kGoldn Mood', true, 2),
-     ('All We Got', true, 3),
-     ('Courage_To_Change', true, 4),
-     ('Del Mar', true, 5),
-     ('Driver license', true, 6),
-     ('Je Veux Chanter Pour Ceux', true, 7),
-     ('Love Not War', true, 8),
-     ('Rather Be You', true, 9);
-
-
 --
 -- Foreign Key Constraint pour les tables :
 --

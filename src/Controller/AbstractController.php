@@ -26,22 +26,11 @@ abstract class AbstractController
             ]
         );
         $this->twig->addExtension(new DebugExtension());
-        $errors = [];
-        if (!empty($_POST['user_id'])) {
-            $credentials = $_POST;
-            $userManager = new UserManager();
-            $user = $userManager->selectOneByNickname($credentials['user_id']);
-            if (!empty($user)) {
-                $errors['user'] = "Pseudo déjà utilisé";
-            } else {
-                $_SESSION['user_id'] = $_POST['user_id'];
-                $userManager->add($_SESSION['user_id']);
-            }
-        }
+
+
         $name = $_SESSION['user_id'] ?? null;
         $this->twig->addGlobal('user', $name);
         $this->twig->addGlobal('cookies', $_COOKIE);
         $this->twig->addGlobal('session', $_SESSION);
-        $this->twig->addGlobal('errors', $errors);
     }
 }

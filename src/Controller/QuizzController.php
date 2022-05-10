@@ -76,13 +76,21 @@ class QuizzController extends AbstractController
 
     public function result()
     {
-        $id = $_SESSION['quizz_session']->getId();
-        $score = count($_SESSION['quizz_session']->getCorrect());
-        $quizzManager = new QuizzManager();
-        $quizzManager->insertScore($score, $id);
-        $ranks = $quizzManager->selectAll('score');
-        return $this->twig->render('/Quizz/result.html.twig', [
-            'ranks' => $ranks
-        ]);
+        if (isset($_SESSION['quizz_session'])) {
+            $id = $_SESSION['quizz_session']->getId();
+            $score = count($_SESSION['quizz_session']->getCorrect());
+            $quizzManager = new QuizzManager();
+            $quizzManager->insertScore($score, $id);
+            $ranks = $quizzManager->selectAll('score');
+            return $this->twig->render('/Quizz/result.html.twig', [
+                'ranks' => $ranks
+            ]);
+        } else {
+            $quizzManager = new QuizzManager();
+            $ranks = $quizzManager->selectAll('score');
+            return $this->twig->render('/Quizz/result.html.twig', [
+                'ranks' => $ranks
+            ]);
+        }
     }
 }

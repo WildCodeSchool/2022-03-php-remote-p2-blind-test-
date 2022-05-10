@@ -11,6 +11,21 @@ class HomeController extends AbstractController
      */
     public function index(): string
     {
-        return $this->twig->render('Home/index.html.twig');
+        $errors = [];
+        if (!empty($_POST['user_id'])) {
+            $credentials = $_POST;
+            $userManager = new UserManager();
+            $user = $userManager->selectOneByNickname($credentials['user_id']);
+            if (!empty($user)) {
+                $errors['user'] = "Pseudo déjà utilisé";
+            } else {
+                $_SESSION['user_id'] = $_POST['user_id'];
+                $userManager->add($_SESSION['user_id']);
+                header('location: /category');
+            }
+        }
+        return $this->twig->render('Home/index.html.twig', [
+            'errors' => $errors
+        ]);
     }
 }
