@@ -10,6 +10,7 @@ class QuizzSession
     private int $id;
     private string $startedAt;
     private string $endedAt;
+    private string $displayAnswer;
     private array $tracks = [];
     private array $replay = [];
     private array $correct = [];
@@ -126,6 +127,16 @@ class QuizzSession
         $this->qcmAnswers = $qcmAnswers;
     }
 
+    public function getDisplayAnswer(): string|bool
+    {
+        return !empty($this->displayAnswer) ?  $this->displayAnswer : false ;
+    }
+
+    public function setDisplayAnswer($displayAnswer): void
+    {
+        $this->displayAnswer = $displayAnswer;
+    }
+
     ///////////////////////////////// Méthode logique //////////////////////////////////////////////
 
    /**
@@ -143,25 +154,29 @@ class QuizzSession
  */
     public function answerCheck(string $userAnswer): void
     {
-        // On récupère et on enlève la piste
-        $tracks = $this->getTracks();
-        $track = array_shift($tracks);
+        if (!empty($userAnswer)) {
+            // On récupère et on enlève la piste
+            $tracks = $this->getTracks();
+            $track = array_shift($tracks);
 
-        // On récupère et on compare la réponse du joueur avec celle de la table [answer]
-        $answerManager = new AnswerManager();
-        $answer = $answerManager->selectOneByIdAndTitle($track['id'], $userAnswer);
+            // On récupère et on compare la réponse du joueur avec celle de la table [answer]
+            $answerManager = new AnswerManager();
+            $answer = $answerManager->selectOneByIdAndTitle($track['id'], $userAnswer);
 
-        // On teste le retour de la table, et on ajoute la piste
-        // ainsi que la réponse au tableau [correct] ou [incorrect] en fonction du retour
-        if ($answer) {
-            $validate = [$track, $userAnswer];
-            array_unshift($this->correct, $validate);
-        } else {
-            $validate = [$track, $userAnswer];
-            array_unshift($this->incorrect, $validate);
+            // On teste le retour de la table, et on ajoute la piste
+            // ainsi que la réponse au tableau [correct] ou [incorrect] en fonction du retour
+            if ($answer) {
+                $validate = [$track, $userAnswer];
+                array_unshift($this->correct, $validate);
+                $this->setDisplayAnswer($track['title'] . "✅");
+            } else {
+                $validate = [$track, $userAnswer];
+                array_unshift($this->incorrect, $validate);
+                $this->setDisplayAnswer($track['title'] . "❌");
+            }
+            // Et on réinitialise le tableau [track]
+            $this->setTracks($tracks);
         }
-        // Et on réinitialise le tableau [track]
-        $this->setTracks($tracks);
     }
 
     /**

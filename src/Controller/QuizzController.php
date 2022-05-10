@@ -52,11 +52,13 @@ class QuizzController extends AbstractController
         ) {
             if ($_SESSION['level'] == 1) {
                 $_SESSION['quizz_session']->levelEasy();
+                unset($_POST['validate']);
             } else {
                 $_SESSION['quizz_session']->levelHard();
             }
             return $this->twig->render('Quizz/progress.html.twig', [
-                'tracks' => $_SESSION['quizz_session']->getTracks()
+                'tracks' => $_SESSION['quizz_session']->getTracks(),
+                'displayAnswer' => $_SESSION['quizz_session']->getDisplayAnswer(),
             ]);
         } else {
             return $this->twig->render('Home/index.html.twig');
