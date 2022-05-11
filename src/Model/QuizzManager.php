@@ -13,7 +13,7 @@ class QuizzManager extends AbstractManager
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
             " (`startedAt`, `endedAT`, `user_id`) VALUES
-         (NOW(), DATE_ADD(NOW(), INTERVAL 3 MINUTE), :id)");
+         (NOW(), DATE_ADD(NOW(), INTERVAL 5 MINUTE), :id)");
         // $statement->bindValue(':user', $user, PDO::PARAM_STR);
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->execute();

@@ -1,12 +1,11 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-
 	<div class="container category">
 		<div class="row">
 			<h1 class="col-12 text-center p-4 my-5">
 				Nous y sommes
-				{{ user }}
+                    {{ session.user.nickname }}
 				choisis un thème pour lancer la partie !</h1>
 		</div>
 		<div class="row">

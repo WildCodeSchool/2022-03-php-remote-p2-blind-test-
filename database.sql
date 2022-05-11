@@ -56,7 +56,7 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `image`) VALUES
-(1, 'Rap', 'photo-rap.jpeg'),
+(1, 'Rock', 'photo-rap.jpeg'),
 (2, 'Pop', 'photo-pop.jpeg'),
 (3, 'Années 80', 'photo-80.jpeg'),
 (4, 'Meme Song', 'meme.png');
@@ -76,12 +76,6 @@ CREATE TABLE `user` (
   PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Contenu de la table `user`
---
-
-INSERT INTO `user` (`nickname`, `email`, `password`) VALUES
-('Trombone', 'melissa.callejon@yahoo.fr', 'motdepasse');
 -- Structure de la table `user`
 --
 
@@ -101,6 +95,7 @@ CREATE TABLE `quizz_session` (
     CONSTRAINT fk_quizz_session_user
     FOREIGN KEY (user_id)
     REFERENCES user (id)
+    ON DELETE CASCADE
     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Structure de la table `track`
