@@ -24,7 +24,7 @@
 						<td>{{track.artist}}</td>
 						<td>{{track.name}}</td>
 						<td>
-							<a href="/dashboard/update?id={{track.id}}">🔎</a>
+							<a href="/dashboard/show?id={{track.id}}">🔎</a>
 						</td>
 						<td>
 							<a href="/dashboard/delete?id={{track.id}}">❌</a>
@@ -45,9 +45,11 @@
 	</div>
 
 	{% if errors %}
+    <ul class="text-center">
 		{% for error in errors %}
 			<li>{{error}}</li>
 		{% endfor %}
+    </ul>
 	{% endif %}
 
 {% endblock %}

@@ -32,7 +32,12 @@ class DashboardController extends AbstractController
     {
         $errors = [];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (
+            !empty($_POST['title']) && !empty($_POST['category']) && !empty($_POST['artist'])
+        ) {
+            //     $errors[] = "Veuillez renseigner tous les champs";
+            // }
             // clean $_POST data
             $item = array_map('trim', $_POST);
 
@@ -46,8 +51,6 @@ class DashboardController extends AbstractController
             if ((!in_array($extension, $authorizedExtensions))) {
                 $errors[] = 'Veuillez sélectionner un morceau en mp3!';
             }
-
-            // $uploadFile = __DIR__ . '/../../public/uploads' . $fileName;
 
             if (file_exists($_FILES['path']['tmp_name']) && filesize($_FILES['path']['tmp_name']) > $maxFileSize) {
                 $errors[] = "Votre fichier doit faire moins de 5Mo !";
@@ -63,7 +66,7 @@ class DashboardController extends AbstractController
                 $item['path'] = $fileName;
                 $track = $trackManager->insert($item);
                 $answerManager->insert($item, $track);
-                header('Location: /dashboard');
+                header('Location: /dashboard/show?id=' . $track);
                 return null;
             }
         }
@@ -99,9 +102,10 @@ class DashboardController extends AbstractController
         $id = trim($id);
         $trackManager = new TrackManager();
         $delete = $trackManager->selectOneById(intVal($id));
-        unlink(__DIR__ . '/../../public/uploads/tracks/' . $delete['path']);
+        if (file_exists(__DIR__ . '/../../public/uploads/tracks/' . $delete['path'])) {
+            unlink(__DIR__ . '/../../public/uploads/tracks/' . $delete['path']);
+        }
         $trackManager->delete((int)$id);
-
         header('Location:/dashboard');
     }
 }

@@ -2,6 +2,9 @@ h1 {
     font-family: 'Archivo Black', Helvetica, sans-serif;
     color: var(--bs-secondary);
     font-size: clamp(0.5rem, 1rem + 2vw, 3rem);
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+
 }
 
 h2 {

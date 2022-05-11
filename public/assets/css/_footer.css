@@ -11,7 +11,7 @@
 
 }
 
-a {
+.link-footer {
     text-decoration: none;
     color: var(--bs-secondary-opacity);
 }

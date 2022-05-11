@@ -97,6 +97,7 @@ CREATE TABLE `quizz_session` (
     `endedAt` datetime DEFAULT NULL,
     `user_id` int NOT NULL,
     `score` int DEFAULT 0,
+    `category_id` int NOT NULL,
     PRIMARY KEY(`id`),
     CONSTRAINT fk_quizz_session_user
     FOREIGN KEY (user_id)
@@ -166,3 +167,6 @@ ADD CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category (
 
 ALTER TABLE `answer`
 ADD CONSTRAINT fk_answer_track FOREIGN KEY (track_id) REFERENCES track (id) ON DELETE CASCADE;
+
+ALTER TABLE `quizz_session`
+ADD CONSTRAINT fk_quizz_session_category FOREIGN KEY (category_id) REFERENCES category (id);

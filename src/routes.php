@@ -16,6 +16,7 @@ return [
     'quizz/start' => ['QuizzController', 'start', ['id', 'level'],],
     'quizz/progress' => ['QuizzController', 'progess',],
     'quizz/result' => ['QuizzController', 'result'],
+    'quizz/result/category' => ['QuizzController', 'categoryResult',],
     'items' => ['ItemController', 'index',],
     'dashboard' => ['DashboardController', 'index',],
     'dashboard/add' => ['DashboardController', 'add',],
