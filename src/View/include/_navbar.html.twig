@@ -9,7 +9,6 @@
 
 		{% if session.quizz_session.isActive %}
 			<span class="text-center p-3 text-light fw-bold">
-
 				<span id="counter"></span>
 			</span>
 		{% endif %}
@@ -27,9 +26,21 @@
 					<li>
 						<a href="/quizz/result">Classement</a>
 					</li>
-					<li>
-						<a href="/dashboard">Tableau de bord</a>
-					</li>
+					{% if user %}
+						<li>
+							<a href="/dashboard">Tableau de bord</a>
+						</li>
+					{% endif %}
+					{% if user %}
+						<li>
+							<a href="/logout">Déconnexion</a>
+						</li>
+					{% else %}
+						<li>
+							<a href="/login">Connexion</a>
+						</li>
+					{% endif %}
+
 				</ul>
 			</nav>
 		</div>

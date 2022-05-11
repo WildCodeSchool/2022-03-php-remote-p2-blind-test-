@@ -8,10 +8,11 @@
 					<button type="button" class="close" id="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">×</span>
 					</button>
-					<form action="/" method="post">
+					<form action="/login" method="post">
 
 						<div class="modal-body shadow ">
 							<h3 class="title">Connecte-toi</h3>
+
 							<div class="form-group">
 								<span class="input-icon">
 									<i class="fa fa-user"></i>
@@ -22,10 +23,10 @@
 								<span class="input-icon">
 									<i class="fas fa-key"></i>
 								</span>
-								<input type="password" class="form-control" placeholder="Ton mot de passe*">
+								<input type="password" class="form-control" name="password" placeholder="Ton mot de passe*">
 							</div>
 							<div class="forgot-pass d-flex justify-content-between">
-								<a href="">S'inscrire</a>
+								<a href="/register">S'inscrire</a>
 								<a href="">Mot de passe oublié?</a>
 							</div>
 							<button class="btn">Connexion</button>

@@ -13,10 +13,19 @@ class QuizzManager extends AbstractManager
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
             " (`startedAt`, `endedAT`, `user_id`, `category_id`) VALUES
-         (NOW(), DATE_ADD(NOW(), INTERVAL 1 MINUTE), :id, :category_id)");
+         (NOW(), DATE_ADD(NOW(), INTERVAL 5 MINUTE), :id, :category_id)");
         // $statement->bindValue(':user', $user, PDO::PARAM_STR);
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
         $statement->bindValue(':category_id', $categoryId, PDO::PARAM_INT);
+        $statement->execute();
+        return (int)$this->pdo->lastInsertId();
+    }
+    public function insertUniq()
+    {
+        $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
+            " (`startedAt`, `endedAT`) VALUES
+         (NOW(), DATE_ADD(NOW(), INTERVAL 5 MINUTE))");
+        // $statement->bindValue(':user', $user, PDO::PARAM_STR);
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }
@@ -59,5 +68,16 @@ class QuizzManager extends AbstractManager
         $statement->execute();
 
         return $statement->fetchAll();
+    }
+
+    public function selectLastSeven(string $orderBy = '', string $direction = 'DESC'): array
+    {
+        $query = 'SELECT q.score, u.nickname as pseudo, u.image  FROM ' . static::TABLE .
+            ' q JOIN user u ON u.id = q.user_id WHERE endedAt > now() - INTERVAL 7 day';
+        if ($orderBy) {
+            $query .= ' ORDER BY  ' . $orderBy . ' ' . $direction;
+        }
+
+        return $this->pdo->query($query)->fetchAll();
     }
 }

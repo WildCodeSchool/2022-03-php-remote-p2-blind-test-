@@ -30,11 +30,11 @@
 
 	<div class="rank text-center mt-5">
 		<div class='row'>
-			<div class="col-xs-1 col-sm-4 end">
-				<button class='btn mb-2  btn-tertiary btn-block'>All time</button>
+			<div class="col-xs-1 col-sm-6 end">
+				<a class='btn mb-2  btn-tertiary btn-block' href="/quizz/result">All time</a>
 			</div>
-			<div class="col-xs-1 col-sm-4">
-				<button class='btn mb-2  btn-tertiary btn-block'>Last 30 days</button>
+			<div class="col-xs-1 col-sm-6 start">
+				<a class='btn mb-2  btn-tertiary btn-block' href="/quizz/lastSeven">Last 7 days</a>
 			</div>
             <form action="/quizz/result/category" method="post" class="col-xs-1 col-sm-4 start d-flex flex-column form-cat">
                 <button class='btn btn-tertiary btn-block'>Valider</button>
@@ -118,7 +118,7 @@
 			{% endfor %}
 			<span id="more">
 				{% set nb = 5 %}
-				{% for rank in ranks|slice(5) %}
+				{% for rank in ranks|slice(5)|filter(rank => rank.score > 0 )%}
 					{% set nb = nb + 1 %}
 					<div class="item">
 						<div class="pos">

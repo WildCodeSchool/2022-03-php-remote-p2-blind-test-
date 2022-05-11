@@ -70,6 +70,7 @@
 
 .top3 .item .pic {
     position: absolute;
+    background-color: #5F9BCC;
     top: -2rem;
     left: 2.5rem;
     width: 4rem;
@@ -109,6 +110,7 @@
     width: 5rem;
     height: 5rem;
     left: 2.5rem;
+    background-color: var(--bs-dark);
 }
 
 .top3 .item:hover {
@@ -162,6 +164,7 @@
     border-radius: 50%;
     background-size: cover;
     background-position: center;
+    background-color: #5F9BCC;
     margin-right: 1rem;
     box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2), 0 1rem 1rem -0.5rem rgba(0, 0, 0, 0.3);
 }
