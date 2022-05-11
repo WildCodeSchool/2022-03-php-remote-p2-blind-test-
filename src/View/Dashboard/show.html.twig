@@ -1,9 +1,24 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+<div class="container d-flex flex-column justify-content-around align-items-center h-100 mt-5">
+    <h1 class="text-center mt-5 mb-5">🎶{{ track.title }} by {{ track.artist }}🎶 </h1>
+    <div class="boxContainer invisible">
+        <div class="box box1"></div>
+        <div class="box box2"></div>
+        <div class="box box3"></div>
+        <div class="box box4"></div>
+        <div class="box box5"></div>
+    </div>
+    <audio src="/uploads/tracks/{{track.path}}" class="audio mt-2" id="myAudio" controls></audio>
+    <div class="mt-5">
+        <a href="/dashboard" class="btn btn-tertiary me-5">Back</a>
+        <a href="/dashboard/update?id={{ track.id }}" class="btn btn-tertiary ms-5">Edit</a>
+    </div>
 
-    <h1>Track : {{ track.title }} by {{ track.artist }} </h1>
-    <a href="/dashboard/update?id={{ track.id }}">Edit</a>
-    <a href="/dashboard">Back</a>
-    <audio src="/uploads/tracks/{{track.path}}" class="audio" controls></audio>
+</div>
+
+{% endblock %}
+{% block javascript %}
+    <script src="/assets/js/dashboard_show.js"></script>
 {% endblock %}

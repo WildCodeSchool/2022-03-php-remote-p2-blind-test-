@@ -32,13 +32,9 @@ class DashboardController extends AbstractController
     {
         $errors = [];
 
-        // if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (
             !empty($_POST['title']) && !empty($_POST['category']) && !empty($_POST['artist'])
         ) {
-            //     $errors[] = "Veuillez renseigner tous les champs";
-            // }
-            // clean $_POST data
             $item = array_map('trim', $_POST);
 
             $fileName =  basename($_FILES['path']['name']);
@@ -70,6 +66,7 @@ class DashboardController extends AbstractController
                 return null;
             }
         }
+        $errors[] = "Veuillez renseigner tous les champs";
         return $this->twig->render('Dashboard/dashboard.html.twig', ['errors' => $errors]);
     }
 

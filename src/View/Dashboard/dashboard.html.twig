@@ -45,11 +45,13 @@
 	</div>
 
 	{% if errors %}
-    <ul class="text-center">
-		{% for error in errors %}
-			<li>{{error}}</li>
-		{% endfor %}
-    </ul>
+    <div class="text-center pt-1 mt-3 bg-dark">
+        <ul class="list-unstyled">
+            {% for error in errors %}
+                <li class="text-danger">{{error}}</li>
+            {% endfor %}
+        </ul>
+    </div>
 	{% endif %}
 
 {% endblock %}
