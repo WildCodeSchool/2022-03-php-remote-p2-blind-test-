@@ -34,6 +34,27 @@ class QuizzController extends AbstractController
         ]);
     }
 
+   /*  public function start(int $categoryId, int $level)
+    {
+        $user = $_SESSION['user']->getNickname();
+        $_SESSION['level'] = $level;
+        $quizzManager = new QuizzManager();
+        $userManager = new UserManager();
+        $userId =  $_SESSION['user']->getId();
+
+        if (empty($userID)){
+            $_SESSION['quizz_session'] = new QuizzSession();
+        }
+        else
+     {
+        $quizzSession = $quizzManager->insert($userId);
+        $_SESSION['quizz_session'] = $quizzManager->selectSessionById($quizzSession);
+    }
+        $trackManager = new TrackManager();
+        $_SESSION['quizz_session']->setTracks($trackManager->selectPathRand($categoryId));
+        header("Location: /quizz/progress?id=" . $categoryId);
+    } */
+
     public function start(int $categoryId, int $level)
     {
         $user = $_SESSION['user']->getNickname();
