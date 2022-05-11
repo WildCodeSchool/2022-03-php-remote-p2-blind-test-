@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\ItemManager;
 use App\Model\TrackManager;
 use App\Model\DashboardManager;
+use App\Model\AnswerManager;
 
 class DashboardController extends AbstractController
 {
@@ -58,8 +59,10 @@ class DashboardController extends AbstractController
             }
             if (empty($errors)) {
                 $trackManager = new TrackManager();
+                $answerManager = new AnswerManager();
                 $item['path'] = $fileName;
-                $trackManager->insert($item);
+                $track = $trackManager->insert($item);
+                $answerManager->insert($item, $track);
                 header('Location: /dashboard');
                 return null;
             }
