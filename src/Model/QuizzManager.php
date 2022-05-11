@@ -49,4 +49,15 @@ class QuizzManager extends AbstractManager
 
         return $this->pdo->query($query)->fetchAll();
     }
+
+    public function selectLastSeven(string $orderBy = '', string $direction = 'DESC'): array
+    {
+        $query = 'SELECT q.score, u.nickname as pseudo, u.image  FROM ' . static::TABLE .
+            ' q JOIN user u ON u.id = q.user_id WHERE endedAt > now() - INTERVAL 7 day';
+        if ($orderBy) {
+            $query .= ' ORDER BY  ' . $orderBy . ' ' . $direction;
+        }
+
+        return $this->pdo->query($query)->fetchAll();
+    }
 }
