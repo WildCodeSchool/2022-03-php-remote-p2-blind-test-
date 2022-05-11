@@ -1,16 +1,30 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
+  <div class="h-75 mt-5 d-flex flex-column justify-content-evenly align-items-center">
+        {% if tracks|length > 0 %}
+        <div class="boxContainer position-absolute">
+            <div class="box box1"></div>
+            <div class="box box2"></div>
+            <div class="box box3"></div>
+            <div class="box box4"></div>
+            <div class="box box5"></div>
+        </div>
+        {% endif %}
+        <div class="display-answer container d-flex flex-row justify-content-center position-absolute">
+            <div class="col-6 text-center">
+                <ul>
+                    <li class="list-unstyled mt-3">{{displayAnswer}}</li>
+                </ul>
+            </div>
+        </div>
 
-	<div class="h-75 mt-5 d-flex flex-column justify-content-evenly align-items-center">
+        {% for track in tracks|slice(0,1) %}
+            <audio src="/uploads/tracks/{{track.path}}" class="audio" autoplay></audio>
+        {% endfor %}
 
-
-		{% for track in tracks|slice(0,1) %}
-			<audio src="/uploads/tracks/{{track.path}}" class="audio" autoplay></audio>
-		{% endfor %}
-
-		<form action="" method="POST" name="form" id="form-quiz" class="container-fluid d-flex flex-column justify-content-evenly align-items-center h-100 mt-5">
-			<h2 class="mt-5">Devine le titre du morceau :</h2>
+        <form action="" method="POST" name="form" id="form-quiz" class="container-fluid d-flex flex-column justify-content-evenly align-items-center h-100 mt-5">
+            <h2 class="mt-5">Devine le titre du morceau :</h2>
 
 			{% if session.level == 1 %}
 				{% include "Quizz/_levelEasy.html.twig" %}
@@ -22,13 +36,6 @@
 
 		</form>
 	</div>
-
-	<div class="container d-flex flex-row justify-content-center">
-		<div class="col-6 text-center">
-			<ul>
-				<li class="list-unstyled mt-3">{{displayAnswer}}</li>
-			</ul>
-		</div>
 
 	{% endblock %}
 	{% block javascript %}
