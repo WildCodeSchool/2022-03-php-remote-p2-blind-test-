@@ -16,15 +16,8 @@ class HomeController extends AbstractController
         if (!empty($_POST['nickname'])) {
             $_SESSION['user'] = new User();
 
-            $userManager = new UserManager();
-            $user = $userManager->selectOneByNickname($_POST['nickname']);
-            if (!empty($user)) {
-                $errors['user'] = "Pseudo déjà utilisé";
-            } else {
-                $_SESSION['user']->setNickname($_POST['nickname']);
-                $userManager->add($_SESSION['user']->getNickname());
-                header('location: /category');
-            }
+            $_SESSION['user']->setNickname($_POST['nickname']);
+            header('location: /category');
         }
 
         return $this->twig->render('Home/index.html.twig', [
