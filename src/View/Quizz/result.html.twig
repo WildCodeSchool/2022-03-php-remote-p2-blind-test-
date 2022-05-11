@@ -22,9 +22,8 @@
 
 	</h2>
 	<p class='text-center'>
-
-		{% for track in session.quizz_session.correct %}
-			✔️{{track[1]}}
+		{% for result in results.correct %}
+			✔️{{result[1]}}
 
 		{% endfor %}
 	</p>
@@ -37,6 +36,14 @@
 			<div class="col-xs-1 col-sm-6 start">
 				<a class='btn mb-2  btn-tertiary btn-block' href="/quizz/lastSeven">Last 7 days</a>
 			</div>
+            <form action="/quizz/result/category" method="post" class="col-xs-1 col-sm-4 start d-flex flex-column form-cat">
+                <button class='btn btn-tertiary btn-block'>Valider</button>
+                <select name="categories" id="categories" class="cat-select">
+                {% for category in categorises %}
+                    <option value="{{category.id}}">{{category.name}}</option>
+                {% endfor %}
+                </select>
+			</form>
 		</div>
 	</div>
 	<div class="center">

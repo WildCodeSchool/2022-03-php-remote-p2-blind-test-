@@ -43,7 +43,7 @@ class QuizzController extends AbstractController
             $quizzSession = $quizzManager->insertUniq();
             $_SESSION['quizz_session'] = $quizzManager->selectSessionById($quizzSession);
         } else {
-            $quizzSession = $quizzManager->insert($_SESSION['user']->getId());
+            $quizzSession = $quizzManager->insert($_SESSION['user']->getId(), $categoryId);
             $_SESSION['quizz_session'] = $quizzManager->selectSessionById($quizzSession);
         }
         $trackManager = new TrackManager();
@@ -75,20 +75,44 @@ class QuizzController extends AbstractController
 
     public function result()
     {
+        $categoryManager = new CategoryManager();
+        $categorises = $categoryManager->selectAll();
+
         if (isset($_SESSION['quizz_session'])) {
             $id = $_SESSION['quizz_session']->getId();
             $score = count($_SESSION['quizz_session']->getCorrect());
             $quizzManager = new QuizzManager();
             $quizzManager->insertScore($score, $id);
             $ranks = $quizzManager->selectAll('score');
+            $results = $_SESSION['quizz_session'];
+            unset($_SESSION['quizz_session']);
             return $this->twig->render('/Quizz/result.html.twig', [
-                'ranks' => $ranks
+                'ranks' => $ranks,
+                'categorises' => $categorises,
+                'results' => $results
             ]);
         } else {
             $quizzManager = new QuizzManager();
             $ranks = $quizzManager->selectAll('score');
             return $this->twig->render('/Quizz/result.html.twig', [
-                'ranks' => $ranks
+                'ranks' => $ranks,
+                'categorises' => $categorises
+            ]);
+        }
+    }
+
+    public function categoryResult()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $categoryManager = new CategoryManager();
+            $categorises = $categoryManager->selectAll();
+
+            $quizzManager = new QuizzManager();
+            $ranks = $quizzManager->selectAllByCategory($_POST['categories']);
+
+            return $this->twig->render('/Quizz/result.html.twig', [
+                'ranks' => $ranks,
+                'categorises' => $categorises
             ]);
         }
     }

@@ -204,3 +204,18 @@
 #more {
     display: none;
 }
+
+.cat-select{
+    background-color: #0C2044;
+    color: #fff;
+    border-radius: 10px;
+    font-family: 'Anek Tamil', sans-serif;
+    width: 8rem;
+    margin-left: 5px;
+}
+
+@media screen and (max-width: 600px) {
+    .form-cat{
+        align-items: center;
+    }
+}

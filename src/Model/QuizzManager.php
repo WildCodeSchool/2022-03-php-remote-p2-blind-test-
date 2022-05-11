@@ -9,13 +9,14 @@ class QuizzManager extends AbstractManager
 {
     public const TABLE = 'quizz_session';
 
-    public function insert(int $id)
+    public function insert(int $id, int $categoryId)
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE .
-            " (`startedAt`, `endedAT`, `user_id`) VALUES
-         (NOW(), DATE_ADD(NOW(), INTERVAL 5 MINUTE), :id)");
+            " (`startedAt`, `endedAT`, `user_id`, `category_id`) VALUES
+         (NOW(), DATE_ADD(NOW(), INTERVAL 5 MINUTE), :id, :category_id)");
         // $statement->bindValue(':user', $user, PDO::PARAM_STR);
         $statement->bindValue(':id', $id, PDO::PARAM_INT);
+        $statement->bindValue(':category_id', $categoryId, PDO::PARAM_INT);
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }
@@ -57,6 +58,16 @@ class QuizzManager extends AbstractManager
         }
 
         return $this->pdo->query($query)->fetchAll();
+    }
+
+    public function selectAllByCategory(int $categoryId): array
+    {
+        $statement = $this->pdo->prepare('SELECT q.score, u.nickname as pseudo, u.image  FROM ' . self::TABLE .
+        ' q JOIN user u ON u.id = q.user_id WHERE q.category_id=:category_id ORDER BY q.score DESC');
+        $statement->bindValue(':category_id', $categoryId, PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetchAll();
     }
 
     public function selectLastSeven(string $orderBy = '', string $direction = 'DESC'): array

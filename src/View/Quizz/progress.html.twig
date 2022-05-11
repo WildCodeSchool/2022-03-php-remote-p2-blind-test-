@@ -1,7 +1,7 @@
 {% extends "layout.html.twig" %}
 
 {% block content %}
-  <div class="h-75 mt-5 d-flex flex-column justify-content-evenly align-items-center">
+    <div class="h-75 mt-5 d-flex flex-column justify-content-evenly align-items-center">
         {% if tracks|length > 0 %}
         <div class="boxContainer position-absolute">
             <div class="box box1"></div>
@@ -11,9 +11,9 @@
             <div class="box box5"></div>
         </div>
         {% endif %}
-        <div class="display-answer container d-flex flex-row justify-content-center position-absolute">
+        <div class="display-answer container d-flex flex-row justify-content-center position-absolute w-100">
             <div class="col-6 text-center">
-                <ul>
+                <ul class="p-0">
                     <li class="list-unstyled mt-3">{{displayAnswer}}</li>
                 </ul>
             </div>
@@ -38,8 +38,7 @@
 		<a type="button" class="btn mt-5 btn-danger" href="/quizz/pass">FINISH</a>
 
 	</div>
-
-	{% endblock %}
-	{% block javascript %}
-		<script src="/assets/js/chrono.js"></script>
-	{% endblock %}
+{% endblock %}
+{% block javascript %}
+    <script src="/assets/js/chrono.js"></script>
+{% endblock %}
