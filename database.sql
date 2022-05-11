@@ -63,7 +63,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'Rap','photo-rap.jpeg'),(2,'Pop','photo-pop.jpeg'),(3,'Années 80','photo-80.jpeg'),(4,'Meme Song','meme.png');
+INSERT INTO `category` VALUES (1,'Rock','rock.jpg'),(2,'Pop','photo-pop.jpeg'),(3,'Années 80','photo-80.jpeg'),(4,'Meme Song','meme.png');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,12 +106,12 @@ CREATE TABLE `quizz_session` (
   `id` int NOT NULL AUTO_INCREMENT,
   `startedAt` datetime DEFAULT NULL,
   `endedAt` datetime DEFAULT NULL,
-  `user_id` int NOT NULL,
+  `user_id` int DEFAULT NULL,
   `score` int DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `fk_quizz_session_user` (`user_id`),
   CONSTRAINT `fk_quizz_session_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=63 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +120,7 @@ CREATE TABLE `quizz_session` (
 
 LOCK TABLES `quizz_session` WRITE;
 /*!40000 ALTER TABLE `quizz_session` DISABLE KEYS */;
-INSERT INTO `quizz_session` VALUES (1,'2022-05-02 19:33:49','2022-05-02 19:34:49',4,5),(2,'2022-05-02 19:41:53','2022-05-02 19:44:53',3,1),(3,'2022-05-09 19:48:50','2022-05-09 19:51:50',3,4),(18,'2022-05-02 16:34:13','2022-05-02 16:37:13',2,10),(19,'2022-05-01 16:49:56','2022-05-01 16:52:56',6,16),(20,'2022-05-02 16:53:04','2022-05-02 16:56:04',2,15),(21,'2022-05-02 16:53:21','2022-05-01 16:56:21',7,9),(22,'2022-05-10 16:54:07','2022-05-10 16:57:07',8,13),(46,'2022-05-10 18:03:16','2022-05-10 18:06:16',10,16),(62,'2022-05-10 22:43:37','2022-05-10 22:46:37',9,2);
+INSERT INTO `quizz_session` VALUES (1,'2022-05-02 19:33:49','2022-05-02 19:34:49',4,5),(3,'2022-05-09 19:48:50','2022-05-09 19:51:50',3,4),(18,'2022-05-02 16:34:13','2022-05-02 16:37:13',2,10),(19,'2022-05-01 16:49:56','2022-05-01 16:52:56',6,16),(20,'2022-05-02 16:53:04','2022-05-02 16:56:04',9,15),(21,'2022-05-02 16:53:21','2022-05-01 16:56:21',7,9),(22,'2022-05-10 16:54:07','2022-05-10 16:57:07',8,13),(46,'2022-05-10 18:03:16','2022-05-10 18:06:16',10,16);
 /*!40000 ALTER TABLE `quizz_session` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -176,7 +176,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (2,'default','default','Choan','perso.png'),(3,'default','default','La Tite','perso.png'),(4,'default','default','Mel','perso.png'),(5,'default','default','trueChoan','perso.png'),(6,'default','default','J-F le Boss','perso.png'),(7,'default','default','Jojo','perso.png'),(8,'default','default','Mike','perso.png'),(9,'default','default','dePhants','perso.png'),(10,'default','default','poutchi','perso.png');
+INSERT INTO `user` VALUES (2,'default','default','Choan','perso.png'),(3,'default','default','La Tite','perso.png'),(4,'default','default','Mel','perso.png'),(5,'default','default','trueChoan','perso.png'),(6,'default','default','J-F le Boss','perso.png'),(7,'default','default','Jojo','perso.png'),(8,'default','default','MikOP','perso.png'),(9,'default','default','dePhants','perso.png'),(10,'default','default','poutchi','perso.png');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -189,4 +189,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-10 23:19:09
+-- Dump completed on 2022-05-11 14:48:00
