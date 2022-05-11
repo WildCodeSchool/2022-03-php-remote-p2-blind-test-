@@ -11,13 +11,12 @@
         <div class="box box5"></div>
     </div>
     <audio src="/uploads/tracks/{{track.path}}" class="audio mt-2" id="myAudio" controls></audio>
-    <div class="mt-5">
-        <a href="/dashboard" class="btn btn-tertiary me-5">Back</a>
-        <a href="/dashboard/update?id={{ track.id }}" class="btn btn-tertiary ms-5">Edit</a>
+    <div class="container mt-5">
+        <a href="/dashboard" class="btn btn-tertiary col-6 mb-2">Back</a>
+        <a href="/dashboard/update?id={{ track.id }}" class="btn btn-tertiary col-6">Edit</a>
     </div>
 
 </div>
-
 {% endblock %}
 {% block javascript %}
     <script src="/assets/js/dashboard_show.js"></script>

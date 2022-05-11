@@ -135,7 +135,11 @@ CREATE TABLE `answer` (
     `track_id` int NOT NULL,
     PRIMARY KEY(`id`)
 );
+LOCK TABLES `answer` WRITE;
+/*!40000 ALTER TABLE `answer` DISABLE KEYS */;
+INSERT INTO `answer` VALUES (1,'Alugalug Cat',11),(2,'beep beep i\'m a sheep',12),(3,'Jeff Bezos',13),(4,'Carabistouille',14),(5,'Castaner',15),(6,'Dr House',16),(7,'Epic Sax Guy',17),(8,'Gangnam Style',18),(9,'HEYYEYAAEYAAAEYAEYAA',19),(10,'levan Polkka',20),(11,'Never Gonna Give You Up',21),(12,'numnum Cat',22),(13,'Nyan Cat',23),(14,'Oh My Dayum',24),(15,'One Pound Fish Man',25),(16,'Trololo',26),(17,'Welcome to the internet',27),(18,'White and Nerdy',28),(19,'Zol',29),(20,'Coffin Dance',30),(21,'24kGoldn Mood',31),(22,'Courage To Change',32),(23,'Love Not War',33),(24,'Drivers License',34);
 
+UNLOCK TABLES;
 --
 -- Contenu de la table `track`
 --
@@ -167,6 +171,3 @@ ADD CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category (
 
 ALTER TABLE `answer`
 ADD CONSTRAINT fk_answer_track FOREIGN KEY (track_id) REFERENCES track (id) ON DELETE CASCADE;
-
-ALTER TABLE `quizz_session`
-ADD CONSTRAINT fk_quizz_session_category FOREIGN KEY (category_id) REFERENCES category (id);
