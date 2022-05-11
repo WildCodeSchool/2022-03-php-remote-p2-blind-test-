@@ -36,14 +36,16 @@ class QuizzController extends AbstractController
 
     public function start(int $categoryId, int $level)
     {
-        $user = $_SESSION['user']->getNickname();
         $_SESSION['level'] = $level;
         $quizzManager = new QuizzManager();
-        $userManager = new UserManager();
-        $userId =  $userManager->selectOneByNickname($user);
-        $id = $userId->getID();
-        $quizzSession = $quizzManager->insert($id);
-        $_SESSION['quizz_session'] = $quizzManager->selectSessionById($quizzSession);
+
+        if (empty($_SESSION['user']->getId())) {
+            $quizzSession = $quizzManager->insertUniq();
+            $_SESSION['quizz_session'] = $quizzManager->selectSessionById($quizzSession);
+        } else {
+            $quizzSession = $quizzManager->insert($_SESSION['user']->getId());
+            $_SESSION['quizz_session'] = $quizzManager->selectSessionById($quizzSession);
+        }
         $trackManager = new TrackManager();
         $_SESSION['quizz_session']->setTracks($trackManager->selectPathRand($categoryId));
         header("Location: /quizz/progress?id=" . $categoryId);

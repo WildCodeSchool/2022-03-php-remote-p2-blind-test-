@@ -18,7 +18,7 @@ class UserController extends AbstractController
             // @todo make some controls on email and password fields and if errors, send them to the view
             $userManager = new UserManager();
             // On demande au UserManager de rechercher l'utilisateur en BDD à partir de l'email
-            $user = $userManager->selectByEmail($credentials['email'])->getEmail();
+            $user = $userManager->selectByEmail($credentials['email']);
             if (empty($user)) {
                 $errors[] = "Le mail n'existe pas";
             }
@@ -38,6 +38,37 @@ class UserController extends AbstractController
         ]);
     }
 
+    public function test(): string|null
+    {
+        $errors = [];
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // 1. vérifier que le pseudo et l'email $credentials['nickname'] est disponible/valide
+            if (!empty($_POST['nickname']) && !empty($_POST['email'])) {
+                $credentials = $_POST;
+                $userManager = new UserManager();
+                $userByNickname = $userManager->selectOneByNickname($credentials['nickname']);
+                $userByEmail = $userManager->selectByEmail($credentials['email']);
+                if ($userByNickname) {
+                    $errors['user'] = "Pseudo déjà utilisé";
+                }
+                if ($userByEmail) {
+                    $errors['email'] = "Veuillez saisir une adresse e-mail valide";
+                }
+                if (strlen($credentials['password']) < 6) {
+                    $errors['password'] = "Entrez une combinaisons d'au moins six caractères";
+                }
+                if (empty($errors)) {
+                    $_SESSION['user'] = $credentials;
+                    $userManager->insert($credentials);
+                    return $this->login();
+                }
+            }
+        }
+        return $this->twig->render('User/register.html.twig', [
+            'errors' => $errors
+        ]);
+    }
 
     //Mon test pour l'image
     public function register(): string|null
@@ -61,7 +92,6 @@ class UserController extends AbstractController
                     $errors['password'] = "Entrez une combinaisons d'au moins six caractères";
                 }
                 if (empty($errors)) {
-                    $_SESSION['user'] = $credentials;
                     $userManager->insert($credentials);
                     return $this->login();
                 }

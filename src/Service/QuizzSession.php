@@ -35,7 +35,8 @@ class QuizzSession
         ]);
     }
 
-    ////////////////////////////// Les guetteurs et setteurs //////////////////////////////
+
+    // Les guetteurs et setteurs
     /**
      * @return int
      */
