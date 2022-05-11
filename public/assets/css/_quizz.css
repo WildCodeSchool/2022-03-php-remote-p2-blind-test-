@@ -100,7 +100,7 @@ input.button-valid:active {
 
 
 
-.h1-category{
+.h1-category {
     font-size: clamp(5vw, 2rem, 10vw);
 }
 
@@ -132,10 +132,10 @@ input.button-valid:active {
     color: var(--bs-secondary);
 } */
 
-.proposal{
+.proposal {
     height: 50px;
     border-radius: 10px;
-    border: solid  var(--bs-secondary);
+    border: solid var(--bs-secondary);
 }
 
 
@@ -153,13 +153,24 @@ input.button-valid:active {
 } */
 
 /* Animation du compte à rebours */
-.time{
-    position:absolute;
+.time {
+    position: absolute;
     top: 45%;
     animation: time 1s infinite;
 }
 
 @keyframes time {
-    0%   {font-size: 0vh;}
-    100% {font-size: 40vh;}
-  }
+    0% {
+        font-size: 0vh;
+    }
+
+    100% {
+        font-size: 35vh;
+    }
+}
+
+#count-down-timer {
+    font-family: 'Monoton', cursive;
+    color: var(--bs-secondary);
+    font-weight: 400;
+}

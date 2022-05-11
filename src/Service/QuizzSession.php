@@ -36,7 +36,7 @@ class QuizzSession
     }
 
     ////////////////////////////// Les guetteurs et setteurs //////////////////////////////
-     /**
+    /**
      * @return int
      */
     public function getId(): int
@@ -128,19 +128,19 @@ class QuizzSession
 
     ///////////////////////////////// Méthode logique //////////////////////////////////////////////
 
-   /**
-    * Vérifie si la session et toujours active
-    */
+    /**
+     * Vérifie si la session et toujours active
+     */
     public function isActive(): bool
     {
         $currentTime = new DateTime();
         return $this->getEndedAt()->getTimestamp() - $currentTime->getTimestamp() > 0;
     }
 
-/**
- * Vérifie la réponse du joueur en acceptant
- * un certain niveau de faute d'orthographe
- */
+    /**
+     * Vérifie la réponse du joueur en acceptant
+     * un certain niveau de faute d'orthographe
+     */
     public function answerCheck(string $userAnswer): void
     {
         // On récupère et on enlève la piste

@@ -5,6 +5,8 @@ namespace App\Controller;
 use Twig\Environment;
 use Twig\Extension\DebugExtension;
 use Twig\Loader\FilesystemLoader;
+use App\Model\UserManager;
+use App\Service\User;
 
 /**
  * Initialized some Controller common features (Twig...)
@@ -12,6 +14,7 @@ use Twig\Loader\FilesystemLoader;
 abstract class AbstractController
 {
     protected Environment $twig;
+    protected User $user;
 
 
     public function __construct()
@@ -25,11 +28,10 @@ abstract class AbstractController
             ]
         );
         $this->twig->addExtension(new DebugExtension());
-        if (!empty($_POST['user_id'])) {
-            $_SESSION['user_id'] = $_POST['user_id']; /* array_map('trim', $_POST); */
-        }
-        $name = $_SESSION['user_id'] ?? null;
-        $this->twig->addGlobal('user', $name);
+
+        $this->user = $_SESSION['user'] ?? new User();
+
+        $this->twig->addGlobal('user', $this->user->getNickname());
         $this->twig->addGlobal('cookies', $_COOKIE);
         $this->twig->addGlobal('session', $_SESSION);
     }
