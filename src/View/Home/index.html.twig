@@ -11,6 +11,14 @@
 				</button>
 				<div class="modal-body shadow ">
 					<h3 class="title">Connecte-toi</h3>
+                    {% if errors %}
+					<p class="error-register">Ces accès ne fonctionnent pas</p>
+					<ul>
+						{% for error in errors %}
+							<li>{{error}}</li>
+						{% endfor %}
+					</ul>
+				{% endif %}
 					<div class="form-group">
 						<input type="email" class="form-control" name="email" placeholder="Ton adresse email*">
 					</div>
