@@ -6,6 +6,8 @@ use App\Model\QuizzManager;
 use App\Model\TrackManager;
 use App\Service\QuizzSession;
 use App\Model\CategoryManager;
+use App\Model\UserManager;
+use App\Service\User;
 
 class QuizzController extends AbstractController
 {
@@ -32,11 +34,18 @@ class QuizzController extends AbstractController
         ]);
     }
 
-    public function start(int $categoryId)
+    public function start(int $categoryId, int $level)
     {
+        $_SESSION['level'] = $level;
         $quizzManager = new QuizzManager();
-        $quizzSession = $quizzManager->insert();
-        $_SESSION['quizz_session'] = $quizzManager->selectSessionById($quizzSession);
+
+        if (empty($_SESSION['user']->getId())) {
+            $quizzSession = $quizzManager->insertUniq();
+            $_SESSION['quizz_session'] = $quizzManager->selectSessionById($quizzSession);
+        } else {
+            $quizzSession = $quizzManager->insert($_SESSION['user']->getId(), $categoryId);
+            $_SESSION['quizz_session'] = $quizzManager->selectSessionById($quizzSession);
+        }
         $trackManager = new TrackManager();
         $_SESSION['quizz_session']->setTracks($trackManager->selectPathRand($categoryId));
         header("Location: /quizz/progress?id=" . $categoryId);
@@ -49,23 +58,77 @@ class QuizzController extends AbstractController
             && $_SESSION['quizz_session'] instanceof QuizzSession
             && $_SESSION['quizz_session']->isActive()
         ) {
-            if (isset($_POST['pass']) && !empty($_SESSION['quizz_session']->getTracks())) {
-                $_SESSION['quizz_session']->trackMoveToReplay();
-            }
-
-            if (isset($_POST['validate']) && !empty($_SESSION['quizz_session']->getTracks())) {
-                $_SESSION['quizz_session']->answerCheck($_POST['answer']);
-            }
-
-            if (empty($_SESSION['quizz_session']->getTracks())) {
-                $_SESSION['quizz_session']->setTracks($_SESSION['quizz_session']->getReplay());
-                $_SESSION['quizz_session']->emptyTheArrayReplay();
+            if ($_SESSION['level'] == 1) {
+                $_SESSION['quizz_session']->levelEasy();
+                unset($_POST['validate']);
+            } else {
+                $_SESSION['quizz_session']->levelHard();
             }
             return $this->twig->render('Quizz/progress.html.twig', [
-                'tracks' => $_SESSION['quizz_session']->getTracks()
+                'tracks' => $_SESSION['quizz_session']->getTracks(),
+                'displayAnswer' => $_SESSION['quizz_session']->getDisplayAnswer(),
             ]);
         } else {
-            return $this->twig->render('Home/index.html.twig');
+            return $this->twig->render('/Quizz/result.html.twig');
         }
+    }
+
+    public function result()
+    {
+        $categoryManager = new CategoryManager();
+        $categorises = $categoryManager->selectAll();
+
+        if (isset($_SESSION['quizz_session'])) {
+            $id = $_SESSION['quizz_session']->getId();
+            $score = count($_SESSION['quizz_session']->getCorrect());
+            $quizzManager = new QuizzManager();
+            $quizzManager->insertScore($score, $id);
+            $ranks = $quizzManager->selectAll('score');
+            $results = $_SESSION['quizz_session'];
+            unset($_SESSION['quizz_session']);
+            return $this->twig->render('/Quizz/result.html.twig', [
+                'ranks' => $ranks,
+                'categorises' => $categorises,
+                'results' => $results
+            ]);
+        } else {
+            $quizzManager = new QuizzManager();
+            $ranks = $quizzManager->selectAll('score');
+            return $this->twig->render('/Quizz/result.html.twig', [
+                'ranks' => $ranks,
+                'categorises' => $categorises
+            ]);
+        }
+    }
+
+    public function categoryResult()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $categoryManager = new CategoryManager();
+            $categorises = $categoryManager->selectAll();
+
+            $quizzManager = new QuizzManager();
+            $ranks = $quizzManager->selectAllByCategory($_POST['categories']);
+
+            return $this->twig->render('/Quizz/result.html.twig', [
+                'ranks' => $ranks,
+                'categorises' => $categorises
+            ]);
+        }
+    }
+    public function lastSeven()
+    {
+        $quizzManager = new QuizzManager();
+        $ranks = $quizzManager->selectLastSeven('score');
+        return $this->twig->render('/Quizz/result.html.twig', [
+            'ranks' => $ranks
+        ]);
+    }
+
+    public function pass()
+    {
+        setcookie('endedAt', "", time());
+        unset($_COOKIE['endedAt']);
+        header("Location: /quizz/result");
     }
 }

@@ -1,13 +1,12 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-
-<div class="container category">
-    <div class="row">
-		<h1 class="col-12 text-center p-4 my-5">
-			Nous y sommes
-            {{ user }}
-			choisis un thème pour lancer la partie !</h1>
+	<div class="container category">
+		<div class="row">
+			<h1 class="col-12 text-center p-4 my-5">
+				Nous y sommes
+                    {{ session.user.nickname }}
+				choisis un thème pour lancer la partie !</h1>
 		</div>
 		<div class="row">
 			<div class="col-xl-8 offset-xl-2">
@@ -15,7 +14,7 @@
 					{% for categorie in categories %}
 						<div class="col-xs-10 col-lg-6">
 							<div class="card bg-dark shadow text-white m-3">
-								<img src="/assets/images/{{categorie.image}}" class="card-img img-category" alt="...">
+								<img src="/assets/images/{{categorie.image}}" class="card-img img-category" alt="image de {{categorie.name}}">
 								<div class="card-img-overlay">
 									<a href="/quizz/category?id={{categorie.id}}">
 										<h1 class="card-title">{{categorie.name}}</h1>

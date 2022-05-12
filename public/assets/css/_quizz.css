@@ -20,6 +20,7 @@ h1.card-title {
     border-radius: 20px;
     box-shadow: rgb(50, 19, 66) 0px 10px 30px -10px;
     filter: opacity(65%);
+    margin-top: 6vh;
 }
 
 .card-title::before {
@@ -99,61 +100,20 @@ input.button-valid:active {
 
 
 
-.h1-category{
+.h1-category {
     font-size: clamp(5vw, 2rem, 10vw);
 }
 
-.button-valid, .pass, .btn-lancer{
-    border-radius: 10px;
-    font-family: "Anek Tamil", Geneva, Tahoma, sans-serif;
-    font-size: clamp(2.5vw, 1.5rem, 5vw);
-    font-weight: 700;
-    color: var(--bs-secondary);
-    background-color: var(--bs-primary);
-    border: solid  var(--bs-primary);
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 
-}
-
-.button-valid, .btn-lancer{
-    height: 70px;
-}
-
-.pass{
-    text-decoration: none;
-    list-style: none;
-    padding: .5rem;
-}
-
-
-.btn-lancer:hover, .button-valid:hover, .pass:hover {
-    transform: scale(1.2);
-    color: var(--bs-secondary);
-}
-
-.proposal{
+.proposal {
     height: 50px;
     border-radius: 10px;
-    border: solid  var(--bs-secondary);
-}
-
-
-.button-flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.answer-center {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+    border: solid var(--bs-secondary);
 }
 
 /* Animation du compte à rebours */
-.time{
-    position:absolute;
+.time {
+    position: absolute;
     top: 45%;
     animation: time 1s infinite;
 }
@@ -161,4 +121,95 @@ input.button-valid:active {
 @keyframes time {
     0%   {font-size: 0vh;}
     100% {font-size: 40vh;}
-  }
+}
+
+/* Animation du player */
+@keyframes quiet {
+25%{
+    transform: scaleY(.6);
+}
+50%{
+    transform: scaleY(.4);
+}
+75%{
+    transform: scaleY(.8);
+}
+}
+
+@keyframes normal {
+25%{
+    transform: scaleY(1);
+}
+50%{
+    transform: scaleY(.4);
+}
+75%{
+    transform: scaleY(.6);
+}
+}
+@keyframes loud {
+25%{
+    transform: scaleY(1);
+}
+50%{
+    transform: scaleY(.4);
+}
+75%{
+    transform: scaleY(1.2);
+}
+}
+.display-answer{
+top: 31%;
+}
+
+.boxContainer{
+    top: 25%;
+    display: flex;
+    justify-content: space-between;
+    height: 64px;
+    --boxSize: 8px;
+    --gutter: 4px;
+    width: calc((var(--boxSize) + var(--gutter)) * 5);
+    }
+
+    @media screen and (max-width: 600px) {
+    .boxContainer{
+        top: 25%;
+    }
+    .display-answer{
+        top: 31%;
+    }
+    }
+
+    .box{
+    transform: scaleY(.4);
+    height: 100%;
+    width: var(--boxSize);
+    background: #12E2DC;
+    animation-duration: 1.2s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    border-radius: 8px;
+    }
+
+    .box1{
+    animation-name: quiet;
+    }
+
+    .box2{
+    animation-name: normal;
+    }
+
+    .box3{
+    animation-name: quiet;
+    }
+
+    .box4{
+    animation-name: loud;
+    }
+
+    .box5{
+    animation-name: quiet;
+    }
+
+

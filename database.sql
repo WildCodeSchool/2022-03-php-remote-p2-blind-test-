@@ -69,8 +69,10 @@ DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `id` int NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `nickname` varchar(80) NOT NULL,
-  `image` varchar(255),
+  `image` varchar(255) DEFAULT 'perso.png',
   PRIMARY KEY(`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -78,8 +80,8 @@ CREATE TABLE `user` (
 -- Contenu de la table `user`
 --
 
-INSERT INTO `user` (`id`, `nickname`) VALUES
-(1, 'Trombone');
+INSERT INTO `user` (`nickname`, `email`, `password`) VALUES
+('Trombone', 'melissa.callejon@yahoo.fr', 'motdepasse');
 -- Structure de la table `user`
 --
 
@@ -93,7 +95,13 @@ CREATE TABLE `quizz_session` (
     `id` int NOT NULL AUTO_INCREMENT,
     `startedAt` datetime DEFAULT NULL,
     `endedAt` datetime DEFAULT NULL,
-    PRIMARY KEY(`id`)
+    `user_id` int DEFAULT NULL,
+    `score` int DEFAULT 0,
+    `category_id` int DEFAULT NULL,
+    PRIMARY KEY(`id`),
+    CONSTRAINT fk_quizz_session_user
+    FOREIGN KEY (user_id)
+    REFERENCES user (id)
     ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Structure de la table `track`
@@ -124,44 +132,24 @@ DROP TABLE IF EXISTS `answer`;
 CREATE TABLE `answer` (
     `id` int NOT NULL AUTO_INCREMENT,
     `title` varchar(150) NOT NULL,
-    `is_correct` BOOL NOT NULL,
     `track_id` int NOT NULL,
-    PRIMARY KEY(`id`),
-    CONSTRAINT fk_answer_track
-    FOREIGN KEY (track_id)
-    REFERENCES track(id)
+    PRIMARY KEY(`id`)
 );
 
---
--- Contenu de la table `track`
---
-
-INSERT INTO `track` (`title`,`artist`, `path`, `category_id`) VALUES
-    ('Nyan Cat', 'random', 'nyan-cat.mp3', 4),
-    ('24kGoldn Mood', 'Iann Dior', '24kGoldn_Mood_iann_dior.mp3', 2),
-    ('All We Got', 'Robin Schulz', 'All_We_Got.mp3', 2),
-    ('Courage_To_Change', 'Sia', 'Courage_To_Change.mp3', 2),
-    ('Del Mar', 'Ozuna & Sia', 'Del_Mar.mp3', 2),
-    ('Driver license', 'Olivia Rodrigo', 'drivers_license.mp3', 2),
-    ('Je Veux Chanter Pour Ceux', 'Lââm', 'Je_veux_chanter_pour_ceux.mp3', 2),
-    ('Love Not War', 'Jason Derulo', 'Love_Not_War.mp3', 2),
-    ('Rather Be You', 'Tom Gregory', 'Rather_Be_You.mp3', 2);
-
---
--- Contenu de la table `answer`
---
-INSERT INTO `answer` (`title`, `is_correct`, `track_id`) VALUES
-     ('Nyan Cat', true, 1),
-     ('24kGoldn Mood', true, 2),
-     ('All We Got', true, 3),
-     ('Courage_To_Change', true, 4),
-     ('Del Mar', true, 5),
-     ('Driver license', true, 6),
-     ('Je Veux Chanter Pour Ceux', true, 7),
-     ('Love Not War', true, 8),
-     ('Rather Be You', true, 9);
 
 
+INSERT INTO `track` VALUES (1,'Nyan Cat','random','nyan-cat.mp3',4),(11,'Alugalug Cat','The Kiffness','Alugalug Cat - The Kiffness.mp3',4),(12,'beep beep i\'m a sheep','LildeuceDeuce','Beep Beep I\'m a Sheep - LilDeuceDeuce.mp3',4),(13,'Jeff Bezos','Bo Burnham','Bezos - Bo Burnham.mp3',4),(14,'Carabistouille','Khaled Freak','CARABISTOUILLE  - Khaled Freak.mp3',4),(15,'Castaner','Khaled Freak','Castaner - Khaled Freak.mp3',4),(16,'Dr House','Christophe Hondelatte','Dr House - Christophe Hondelatte .mp3',4),(17,'Epic Sax Guy','Sax Guy','Epic Sax Guy.mp3',4),(18,'Gangnam Style','PSY','GANGNAM STYLE - PSY.mp3',4),(19,'HEYYEYAAEYAAAEYAEYAA','HEYYEYAAEYAAAEYAEYAA','HEYYEYAAEYAAAEYAEYAA.mp3',4),(20,'levan Polkka','Bilal Göregen','levan Polkka - Bilal Göregen.mp3',4),(21,'Never Gonna Give You Up','Rick Astley','Never Gonna Give You Up  - Rick Astley.mp3',4),(22,'numnum Cat','The Kiffness','Numnum Cat - The Kiffness.mp3',4),(23,'Nyan Cat','random','Nyan Cat.mp3',4),(24,'Oh My Dayum','Daym Drops','OH MY DAYUM  - Daym Drops.mp3',4),(25,'One Pound Fish Man','The Kiffness','One Pound Fish Man - The Kiffness.mp3',4),(26,'Trololo','Mr trololo','Trololo song.mp3',4),(27,'Welcome to the internet','Bo Burnham','Welcome to the Internet - Bo Burnham.mp3',4),(28,'White and Nerdy','Al Yankovic','White and Nerdy - Al Yankovic -.mp3',4),(29,'Zol','Max Hurrel','ZOL - Max Hurrell.mp3',4),(30,'Coffin Dance','Vicetone','Coffin Dance - Vicetone.mp3',4),(31,'24kGoldn Mood','Iann Dior','24kGoldn_Mood_iann_dior.mp3',2),(32,'Courage To Change','Sia','Courage_To_Change.mp3',2),(33,'Love Not War','Jason Derulo','Love_Not_War.mp3',2),(34,'Drivers License','Olivia Rodrigo','drivers_license.mp3',2);
+
+
+
+/*!40000 ALTER TABLE `answer` DISABLE KEYS */;
+INSERT INTO `answer` VALUES (1,'Alugalug Cat',11),(2,'beep beep i\'m a sheep',12),(3,'Jeff Bezos',13),(4,'Carabistouille',14),(5,'Castaner',15),(6,'Dr House',16),(7,'Epic Sax Guy',17),(8,'Gangnam Style',18),(9,'HEYYEYAAEYAAAEYAEYAA',19),(10,'levan Polkka',20),(11,'Never Gonna Give You Up',21),(12,'numnum Cat',22),(13,'Nyan Cat',23),(14,'Oh My Dayum',24),(15,'One Pound Fish Man',25),(16,'Trololo',26),(17,'Welcome to the internet',27),(18,'White and Nerdy',28),(19,'Zol',29),(20,'Coffin Dance',30),(21,'24kGoldn Mood',31),(22,'Courage To Change',32),(23,'Love Not War',33),(24,'Drivers License',34);
+
+
+INSERT INTO `quizz_session` VALUES (1,'2022-05-02 19:33:49','2022-05-02 19:34:49',4,5,1),(3,'2022-05-09 19:48:50','2022-05-09 19:51:50',3,4,2),(18,'2022-05-02 16:34:13','2022-05-02 16:37:13',2,10,2),(19,'2022-05-01 16:49:56','2022-05-01 16:52:56',6,16,2),(20,'2022-05-02 16:53:04','2022-05-02 16:56:04',9,15,2),(21,'2022-05-02 16:53:21','2022-05-01 16:56:21',7,9,3),(22,'2022-05-10 16:54:07','2022-05-10 16:57:07',8,13,3),(46,'2022-05-10 18:03:16','2022-05-10 18:06:16',10,16,4);
+
+
+--
 --
 -- Foreign Key Constraint pour les tables :
 --
@@ -174,3 +162,6 @@ ADD CONSTRAINT fk_play_quizz_session FOREIGN KEY (quizz_session_id) REFERENCES q
 
 ALTER TABLE `track`
 ADD CONSTRAINT fk_track_category FOREIGN KEY (category_id) REFERENCES category (id);
+
+ALTER TABLE `answer`
+ADD CONSTRAINT fk_answer_track FOREIGN KEY (track_id) REFERENCES track (id) ON DELETE CASCADE;

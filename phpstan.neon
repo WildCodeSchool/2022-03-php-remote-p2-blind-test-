@@ -2,3 +2,5 @@ parameters:
 	ignoreErrors:
 		- '#Constant [A-Z_]+ not found.#'
 		- '#is never written, only read#'
+		- '#does not exist on non-empty-string#'
+

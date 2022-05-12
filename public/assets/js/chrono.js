@@ -38,7 +38,7 @@ const chronometer = function (pageLoaded = true) {
         clearTimeout(timer);
         endedIn = 0;
         if (!pageLoaded) {
-            window.location.href = "/";
+            window.location.href = "/quizz/result";
         }
     }
     updateChrono(Math.ceil(endedIn / 1000))

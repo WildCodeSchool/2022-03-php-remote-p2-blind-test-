@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\ItemManager;
 use App\Model\TrackManager;
 use App\Model\DashboardManager;
+use App\Model\AnswerManager;
 
 class DashboardController extends AbstractController
 {
@@ -31,8 +32,9 @@ class DashboardController extends AbstractController
     {
         $errors = [];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
+        if (
+            !empty($_POST['title']) && !empty($_POST['category']) && !empty($_POST['artist'])
+        ) {
             $item = array_map('trim', $_POST);
 
             $fileName =  basename($_FILES['path']['name']);
@@ -46,8 +48,6 @@ class DashboardController extends AbstractController
                 $errors[] = 'Veuillez sélectionner un morceau en mp3!';
             }
 
-            // $uploadFile = __DIR__ . '/../../public/uploads' . $fileName;
-
             if (file_exists($_FILES['path']['tmp_name']) && filesize($_FILES['path']['tmp_name']) > $maxFileSize) {
                 $errors[] = "Votre fichier doit faire moins de 5Mo !";
             }
@@ -58,12 +58,15 @@ class DashboardController extends AbstractController
             }
             if (empty($errors)) {
                 $trackManager = new TrackManager();
+                $answerManager = new AnswerManager();
                 $item['path'] = $fileName;
-                $trackManager->insert($item);
-                header('Location: /dashboard');
+                $track = $trackManager->insert($item);
+                $answerManager->insert($item, $track);
+                header('Location: /dashboard/show?id=' . $track);
                 return null;
             }
         }
+        $errors[] = "Veuillez renseigner tous les champs";
         return $this->twig->render('Dashboard/dashboard.html.twig', ['errors' => $errors]);
     }
 
@@ -95,8 +98,11 @@ class DashboardController extends AbstractController
     {
         $id = trim($id);
         $trackManager = new TrackManager();
+        $delete = $trackManager->selectOneById(intVal($id));
+        if (file_exists(__DIR__ . '/../../public/uploads/tracks/' . $delete['path'])) {
+            unlink(__DIR__ . '/../../public/uploads/tracks/' . $delete['path']);
+        }
         $trackManager->delete((int)$id);
-
         header('Location:/dashboard');
     }
 }
