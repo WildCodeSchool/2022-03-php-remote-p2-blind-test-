@@ -56,7 +56,7 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `image`) VALUES
-(1, 'Rap', 'photo-rap.jpeg'),
+(1, 'Rock', 'rock.jpg'),
 (2, 'Pop', 'photo-pop.jpeg'),
 (3, 'Années 80', 'photo-80.jpeg'),
 (4, 'Meme Song', 'meme.png');
@@ -145,6 +145,7 @@ INSERT INTO `track` VALUES (1,'Nyan Cat','random','nyan-cat.mp3',4),(11,'Alugalu
 /*!40000 ALTER TABLE `answer` DISABLE KEYS */;
 INSERT INTO `answer` VALUES (1,'Alugalug Cat',11),(2,'beep beep i\'m a sheep',12),(3,'Jeff Bezos',13),(4,'Carabistouille',14),(5,'Castaner',15),(6,'Dr House',16),(7,'Epic Sax Guy',17),(8,'Gangnam Style',18),(9,'HEYYEYAAEYAAAEYAEYAA',19),(10,'levan Polkka',20),(11,'Never Gonna Give You Up',21),(12,'numnum Cat',22),(13,'Nyan Cat',23),(14,'Oh My Dayum',24),(15,'One Pound Fish Man',25),(16,'Trololo',26),(17,'Welcome to the internet',27),(18,'White and Nerdy',28),(19,'Zol',29),(20,'Coffin Dance',30),(21,'24kGoldn Mood',31),(22,'Courage To Change',32),(23,'Love Not War',33),(24,'Drivers License',34);
 
+INSERT INTO `user` VALUES (2,'default','default','Choan','perso.png'),(3,'default','default','La Tite','perso.png'),(4,'default','default','Mel','perso.png'),(5,'default','default','trueChoan','perso.png'),(6,'default','default','J-F le Boss','perso.png'),(7,'default','default','Jojo','perso.png'),(8,'default','default','MikOP','perso.png'),(9,'default','default','dePhants','perso.png'),(10,'default','default','poutchi','perso.png');
 
 INSERT INTO `quizz_session` VALUES (1,'2022-05-02 19:33:49','2022-05-02 19:34:49',4,5,1),(3,'2022-05-09 19:48:50','2022-05-09 19:51:50',3,4,2),(18,'2022-05-02 16:34:13','2022-05-02 16:37:13',2,10,2),(19,'2022-05-01 16:49:56','2022-05-01 16:52:56',6,16,2),(20,'2022-05-02 16:53:04','2022-05-02 16:56:04',9,15,2),(21,'2022-05-02 16:53:21','2022-05-01 16:56:21',7,9,3),(22,'2022-05-10 16:54:07','2022-05-10 16:57:07',8,13,3),(46,'2022-05-10 18:03:16','2022-05-10 18:06:16',10,16,4);
 

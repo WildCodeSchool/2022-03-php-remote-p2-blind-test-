@@ -1,23 +1,26 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-<div class="container d-flex flex-column justify-content-around align-items-center h-100 mt-5">
-    <h1 class="text-center mt-5 mb-5">🎶{{ track.title }} by {{ track.artist }}🎶 </h1>
-    <div class="boxContainer invisible">
-        <div class="box box1"></div>
-        <div class="box box2"></div>
-        <div class="box box3"></div>
-        <div class="box box4"></div>
-        <div class="box box5"></div>
-    </div>
-    <audio src="/uploads/tracks/{{track.path}}" class="audio mt-2" id="myAudio" controls></audio>
-    <div class="container mt-5">
-        <a href="/dashboard" class="btn btn-tertiary col-6 mb-2">Back</a>
-        <a href="/dashboard/update?id={{ track.id }}" class="btn btn-tertiary col-6">Edit</a>
-    </div>
+	<div class="container d-flex flex-column justify-content-around align-items-center h-100 mt-5">
+		<h1 class="text-center mt-5 mb-5">🎶{{ track.title }}
+			by
+			{{ track.artist }}🎶
+		</h1>
+		<div class="boxContainer invisible">
+			<div class="box box1"></div>
+			<div class="box box2"></div>
+			<div class="box box3"></div>
+			<div class="box box4"></div>
+			<div class="box box5"></div>
+		</div>
+		<audio src="/uploads/tracks/{{track.path}}" class="audio mt-2" id="myAudio" controls></audio>
+		<div class="container text-center mt-5">
+			<a href="/dashboard" class="btn btn-tertiary col-6 mb-2">Back</a>
+			<a href="/dashboard/update?id={{ track.id }}" class="btn btn-tertiary col-6 mb-2">Edit</a>
+		</div>
 
-</div>
+	</div>
 {% endblock %}
 {% block javascript %}
-    <script src="/assets/js/dashboard_show.js"></script>
+	<script src="/assets/js/dashboard_show.js"></script>
 {% endblock %}
